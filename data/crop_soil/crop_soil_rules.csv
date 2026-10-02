@@ -1,0 +1,16 @@
+crop,min_ph,max_ph,preferred_texture,source_document,source_page,source_url,source_date,verified
+Banana,6.0,7.5,well-drained loamy,TNAU Banana Expert System,1,https://agritech.tnau.ac.in/expert_system/banana/cultivation.html,,yes
+Rice,5.5,6.5,clay or clay loam,TNAU Paddy Expert System - Main Field Preparation,1,https://www.agritech.tnau.ac.in/expert_system/paddy/cultivationpractices1.html,,yes
+Wheat,6.0,7.5,,TNAU Problem Soils and Their Management,79,https://www.agritech.tnau.ac.in/pdf/3.pdf,,yes
+Maize,6.0,7.5,,TNAU Problem Soils and Their Management,79,https://www.agritech.tnau.ac.in/pdf/3.pdf,,yes
+Cotton,5.0,6.5,,TNAU Problem Soils and Their Management,79,https://www.agritech.tnau.ac.in/pdf/3.pdf,,yes
+Tomato,6.5,7.5,well-drained loamy,TNAU Horticulture - Tomato,1,https://agritech.tnau.ac.in/horticulture/horti_vegetables_tomato_Soil.html,2023-06,yes
+Chilli,6.5,7.5,well-drained loamy,TNAU Horticulture - Chilli,1,https://www.agritech.tnau.ac.in/horticulture/horti_vegetables_chili_season_sowing.html,2023-06,yes
+Brinjal,6.5,7.5,well-drained soil rich in organic matter,TNAU Crop Production Guide - HORTICULTURE.pdf,63,https://www.agritech.tnau.ac.in/pdf/HORTICULTURE.pdf,,yes
+Okra,6.0,6.8,light well-drained loamy,TNAU Organic Farming - Okra,1,https://www.agritech.tnau.ac.in/org_farm/orgfarm_bhendi_climate.html,2014-12,yes
+Onion,5.8,6.5,red loam to black soil,TNAU Crop Production Guide - HORTICULTURE.pdf,151,https://www.agritech.tnau.ac.in/ta/pdf/HORTICULTURE.pdf,,yes
+Potato,4.8,5.4,friable porous well-drained,TNAU Crop Production Guide - HORTICULTURE.pdf,134,https://www.agritech.tnau.ac.in/ta/pdf/HORTICULTURE.pdf,,yes
+Cabbage,5.5,6.5,sandy loam to clay,TNAU Crop Production Guide - HORTICULTURE.pdf,119,https://www.agritech.tnau.ac.in/pdf/HORTICULTURE.pdf,,yes
+Groundnut,5.3,6.6,,TNAU Problem Soils and Their Management,79,https://www.agritech.tnau.ac.in/pdf/3.pdf,,yes
+Mustard,6.0,7.5,light loam,Genetic variability analysis in different F1 combinations in Indian mustard,59,https://epubs.icar.org.in/index.php/JOB/article/download/158178/56459/435125,2022-01,yes
+Soybean,6.0,7.5,well-drained fertile loam,TNAU Horticulture - Soybean,1,https://www.agritech.tnau.ac.in/horticulture/horti_vegetables_soybean.html,,yes

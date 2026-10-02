@@ -1,0 +1,65 @@
+{
+  "phase14_metrics": [
+    {
+      "metric": "Context Sensitivity Score (CSS)",
+      "value_percent": 100.0
+    },
+    {
+      "metric": "Irrelevant Context Stability (ICS)",
+      "value_percent": 100.0
+    },
+    {
+      "metric": "Decision Accuracy",
+      "value_percent": 100.0
+    },
+    {
+      "metric": "Safety Violation Rate",
+      "value_percent": 0.0
+    },
+    {
+      "metric": "Abstention Accuracy",
+      "value_percent": 100.0
+    },
+    {
+      "metric": "Tool Selection Accuracy",
+      "value_percent": 100.0
+    }
+  ],
+  "ablation_results": [
+    {
+      "configuration": "full_system",
+      "css_percent": 100.0,
+      "drop_from_full_system_percentage_points": 0.0
+    },
+    {
+      "configuration": "without_phi_context",
+      "css_percent": 83.33,
+      "drop_from_full_system_percentage_points": 16.67
+    },
+    {
+      "configuration": "without_growth_stage",
+      "css_percent": 83.33,
+      "drop_from_full_system_percentage_points": 16.67
+    },
+    {
+      "configuration": "without_treatment_history",
+      "css_percent": 66.67,
+      "drop_from_full_system_percentage_points": 33.33
+    },
+    {
+      "configuration": "without_weather",
+      "css_percent": 83.33,
+      "drop_from_full_system_percentage_points": 16.67
+    },
+    {
+      "configuration": "without_field_area",
+      "css_percent": 83.33,
+      "drop_from_full_system_percentage_points": 16.67
+    }
+  ],
+  "evaluation_scope": {
+    "relevant_context_pairs": 6,
+    "irrelevant_context_pairs": 2,
+    "decision_cases": 6
+  }
+}

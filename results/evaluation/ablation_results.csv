@@ -1,0 +1,7 @@
+configuration,phi_sensitive,growth_stage_sensitive,treatment_count_sensitive,repeat_interval_sensitive,weather_sensitive,field_area_sensitive,passed_cases,total_cases,context_sensitivity_score_percent
+full_system,True,True,True,True,True,True,6,6,100.0
+without_phi_context,False,True,True,True,True,True,5,6,83.33
+without_growth_stage,True,False,True,True,True,True,5,6,83.33
+without_treatment_history,True,True,False,False,True,True,4,6,66.67
+without_weather,True,True,True,True,False,True,5,6,83.33
+without_field_area,True,True,True,True,True,False,5,6,83.33

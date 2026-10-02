@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KisanSaarthi AI</title>
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255, 213, 79, 0.28),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at top right,
+                    rgba(80, 200, 120, 0.25),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f6fff5,
+                    #eefaf2,
+                    #fffdf2
+                );
+
+            color: #193622;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #0b572c,
+                    #168447,
+                    #5da832
+                );
+
+            color: white;
+
+            padding:
+                22px
+                6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            box-shadow:
+                0 8px 30px
+                rgba(20, 90, 50, 0.25);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+        }
+
+
+        .brand-container {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .brand-logo {
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.18);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 30px;
+        }
+
+
+        .brand-text h1 {
+
+            font-size: 27px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .brand-text p {
+
+            font-size: 13px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.83
+                );
+        }
+
+
+        .online-badge {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.16
+                );
+
+            padding:
+                9px
+                14px;
+
+            border-radius: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .online-dot {
+
+            width: 10px;
+
+            height: 10px;
+
+            background: #65ff91;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px
+                #65ff91;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            max-width: 1400px;
+
+            margin:
+                35px
+                auto
+                25px;
+
+            padding:
+                0
+                28px;
+        }
+
+
+        .hero-card {
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(255,255,255,0.95),
+                    rgba(242,255,238,0.97)
+                );
+
+            border-radius: 24px;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                rgba(37,130,69,0.12);
+
+            box-shadow:
+                0 15px 45px
+                rgba(40,100,60,0.09);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        .hero-content {
+
+            max-width: 850px;
+        }
+
+
+        .prototype-badge {
+
+            display: inline-block;
+
+            background: #fff4bf;
+
+            color: #7d6100;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            padding:
+                7px
+                11px;
+
+            border-radius: 20px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .hero h2 {
+
+            font-size: 27px;
+
+            margin-bottom: 10px;
+
+            color: #164e28;
+        }
+
+
+        .hero p {
+
+            color: #65746a;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        .hero-icon {
+
+            font-size: 70px;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding:
+                0
+                28px
+                55px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(340px, 0.95fr)
+                minmax(430px, 1.35fr);
+
+            gap: 24px;
+        }
+
+
+        .card {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.97
+                );
+
+            border-radius: 23px;
+
+            border:
+                1px solid
+                rgba(49,126,68,0.10);
+
+            box-shadow:
+                0 12px 35px
+                rgba(31,82,42,0.08);
+
+            overflow: hidden;
+        }
+
+
+        .card-header {
+
+            padding:
+                21px
+                24px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #effbef,
+                    #fffdf3
+                );
+
+            border-bottom:
+                1px solid
+                #e5eee5;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .card-header span {
+            font-size: 23px;
+        }
+
+
+        .card-header h3 {
+
+            font-size: 18px;
+
+            color: #215b34;
+        }
+
+
+        .card-body {
+
+            padding: 24px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 17px;
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+
+        .full {
+
+            grid-column:
+                1 / -1;
+        }
+
+
+        label {
+
+            font-size: 12px;
+
+            font-weight: 750;
+
+            color: #3f5e48;
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+
+            height: 46px;
+
+            border:
+                1px solid
+                #d7e6da;
+
+            border-radius: 12px;
+
+            padding:
+                0
+                13px;
+
+            background: #fbfefb;
+
+            color: #213c28;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input:focus,
+        select:focus {
+
+            border-color: #36a05a;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(45,159,85,0.10);
+
+            background: white;
+        }
+
+
+        input::placeholder {
+
+            color: #9ca9a0;
+        }
+
+
+        .field-help {
+
+            font-size: 11px;
+
+            color: #829087;
+
+            line-height: 1.4;
+        }
+
+
+        .gps-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 10px;
+        }
+
+
+        .gps-button {
+
+            width: 100%;
+
+            margin-top: 9px;
+
+            height: 43px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #eaf9f0,
+                    #eaf6ff
+                );
+
+            color: #166038;
+
+            font-weight: 750;
+
+            cursor: pointer;
+        }
+
+
+        .submit-button {
+
+            width: 100%;
+
+            margin-top: 22px;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            color: white;
+
+            font-weight: 850;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    115deg,
+                    #116330,
+                    #22a256,
+                    #6aaa37
+                );
+
+            box-shadow:
+                0 10px 22px
+                rgba(30,130,65,0.25);
+        }
+
+
+        .submit-button:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .submit-button:disabled {
+
+            opacity: 0.55;
+
+            cursor: wait;
+        }
+
+
+        /* =====================================================
+           EMPTY
+        ===================================================== */
+
+        .empty-state {
+
+            min-height: 500px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            color: #718077;
+        }
+
+
+        .empty-circle {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf9ef,
+                    #fff4ca
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 43px;
+
+            margin-bottom: 17px;
+        }
+
+
+        .empty-state h3 {
+
+            color: #34553e;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           RESULT
+        ===================================================== */
+
+        #resultArea {
+
+            display: none;
+        }
+
+
+        .decision-box {
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .decision-box.recommend {
+
+            background: #e7f9ed;
+
+            border:
+                1px solid
+                #a9ddb7;
+
+            color: #145d2d;
+        }
+
+
+        .decision-box.delay {
+
+            background: #fff4d9;
+
+            border:
+                1px solid
+                #eed082;
+
+            color: #735600;
+        }
+
+
+        .decision-box.abstain {
+
+            background: #ffe9e9;
+
+            border:
+                1px solid
+                #efb9b9;
+
+            color: #8b2929;
+        }
+
+
+        .decision-heading {
+
+            font-size: 25px;
+
+            font-weight: 900;
+
+            margin-bottom: 8px;
+        }
+
+
+        .decision-description {
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        .section-title {
+
+            margin:
+                23px
+                0
+                12px;
+
+            font-size: 14px;
+
+            font-weight: 850;
+
+            color: #365d42;
+        }
+
+
+        .metrics {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap: 12px;
+        }
+
+
+        .metric {
+
+            border-radius: 15px;
+
+            padding: 16px;
+
+            border:
+                1px solid
+                #e4ece5;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f8fcf8
+                );
+        }
+
+
+        .metric-icon {
+
+            font-size: 23px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .metric-label {
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.7px;
+
+            text-transform: uppercase;
+
+            color: #7f8c82;
+        }
+
+
+        .metric-value {
+
+            font-size: 15px;
+
+            font-weight: 850;
+
+            margin-top: 4px;
+
+            color: #254c31;
+
+            word-break: break-word;
+        }
+
+
+        .metric-sub {
+
+            font-size: 11px;
+
+            color: #869189;
+
+            margin-top: 4px;
+
+            line-height: 1.4;
+        }
+
+
+        .rule-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        .rule {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #edf8f0,
+                    #f4faee
+                );
+
+            color: #28623a;
+
+            padding:
+                7px
+                11px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .error-box {
+
+            display: none;
+
+            margin-bottom: 15px;
+
+            border-radius: 13px;
+
+            padding: 14px;
+
+            background: #fff0f0;
+
+            border:
+                1px solid
+                #f0bebe;
+
+            color: #842626;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           HOW IT WORKS
+        ===================================================== */
+
+        .process-section {
+
+            max-width: 1400px;
+
+            margin:
+                0
+                auto
+                50px;
+
+            padding:
+                0
+                28px;
+        }
+
+
+        .process-card {
+
+            background: white;
+
+            border-radius: 23px;
+
+            padding: 26px;
+
+            border:
+                1px solid
+                rgba(40,120,60,0.1);
+
+            box-shadow:
+                0 12px 35px
+                rgba(30,80,45,0.06);
+        }
+
+
+        .process-card h3 {
+
+            margin-bottom: 20px;
+
+            color: #245b35;
+        }
+
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    6,
+                    1fr
+                );
+
+            gap: 12px;
+        }
+
+
+        .step {
+
+            padding: 16px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f3fbf4,
+                    #fffaf0
+                );
+
+            border:
+                1px solid
+                #e3ebe3;
+        }
+
+
+        .step-icon {
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .step-title {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: #315a3c;
+        }
+
+
+        footer {
+
+            text-align: center;
+
+            color: #7b897e;
+
+            font-size: 12px;
+
+            padding:
+                20px
+                20px
+                35px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (
+            max-width: 950px
+        ) {
+
+            main {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+        }
+
+
+        @media (
+            max-width: 600px
+        ) {
+
+            .form-grid,
+            .metrics,
+            .gps-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .hero-card {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+            .hero-icon {
+
+                display: none;
+            }
+
+            .online-badge {
+
+                display: none;
+            }
+
+            main,
+            .hero,
+            .process-section {
+
+                padding-left: 14px;
+
+                padding-right: 14px;
+            }
+
+            .steps {
+
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="brand-container">
+
+        <div class="brand-logo">
+            🌱
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                KisanSaarthi AI
+            </h1>
+
+            <p>
+                Personalized · Evidence-Grounded · Farmer-Centric
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="online-badge">
+
+        <div class="online-dot"></div>
+
+        <span id="systemStatus">
+            Checking System
+        </span>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-card">
+
+        <div class="hero-content">
+
+            <div class="prototype-badge">
+                RESEARCH PROTOTYPE
+            </div>
+
+            <h2>
+                Smart Crop Advisory for Your Field
+            </h2>
+
+            <p>
+                KisanSaarthi AI combines verified crop-pest
+                registry evidence, field-area based dose
+                calculation, harvest safety, crop growth-stage
+                verification, live weather and root-zone soil
+                information to provide context-aware
+                agricultural advisory.
+            </p>
+
+        </div>
+
+
+        <div class="hero-icon">
+            🌾
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     INPUT CARD
+========================================================= -->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <span>
+            👨‍🌾
+        </span>
+
+        <h3>
+            Tell Us About Your Field
+        </h3>
+
+    </div>
+
+
+    <div class="card-body">
+
+        <form id="advisoryForm">
+
+            <div class="form-grid">
+
+
+                <!-- ===========================================
+                     CROP
+                ============================================ -->
+
+                <div class="form-group full">
+
+                    <label for="crop">
+                        Crop Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="crop"
+                        placeholder="Enter your crop name, e.g. Rice"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ===========================================
+                     PEST / DISEASE
+                ============================================ -->
+
+                <div class="form-group full">
+
+                    <label for="pest">
+                        Pest / Disease
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pest"
+                        placeholder="e.g. Blast; Sheath blight"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ===========================================
+                     FIELD AREA
+                ============================================ -->
+
+                <div class="form-group">
+
+                    <label for="fieldArea">
+                        Field Area
+                    </label>
+
+                    <input
+                        type="number"
+                        id="fieldArea"
+                        placeholder="Enter area"
+                        step="0.01"
+                        min="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ===========================================
+                     AREA UNIT
+                ============================================ -->
+
+                <div class="form-group">
+
+                    <label for="areaUnit">
+                        Area Unit
+                    </label>
+
+                    <select
+                        id="areaUnit"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
+                            Select unit
+                        </option>
+
+                        <option value="hectare">
+                            Hectare
+                        </option>
+
+                        <option value="acre">
+                            Acre
+                        </option>
+
+                        <option value="cent">
+                            Cent
+                        </option>
+
+                        <option value="guntha">
+                            Guntha
+                        </option>
+
+                        <option value="sqm">
+                            Square metre
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ===========================================
+                     HARVEST
+                ============================================ -->
+
+                <div class="form-group full">
+
+                    <label for="harvestDays">
+                        Days Until Expected Harvest
+                    </label>
+
+                    <input
+                        type="number"
+                        id="harvestDays"
+                        placeholder="e.g. 40"
+                        min="0"
+                        required
+                    >
+
+                    <div class="field-help">
+                        Used to verify the pesticide
+                        Pre-Harvest Interval (PHI).
+                    </div>
+
+                </div>
+
+
+                <!-- ===========================================
+                     GROWTH STAGE
+                ============================================ -->
+
+                <div class="form-group full">
+
+                    <label for="growthStage">
+                        Crop Growth Stage
+                    </label>
+
+                    <select
+                        id="growthStage"
+                    >
+
+                        <option
+                            value=""
+                            selected
+                        >
+                            Select growth stage
+                        </option>
+
+                        <option value="sowing">
+                            Sowing
+                        </option>
+
+                        <option value="seedling">
+                            Seedling
+                        </option>
+
+                        <option value="vegetative">
+                            Vegetative
+                        </option>
+
+                        <option value="reproductive">
+                            Flowering / Reproductive
+                        </option>
+
+                        <option value="pre_harvest">
+                            Pre-Harvest
+                        </option>
+
+                    </select>
+
+                    <div class="field-help">
+                        When a verified application-stage rule
+                        is available, KisanSaarthi checks whether
+                        treatment is appropriate at this stage.
+                    </div>
+
+                </div>
+
+
+                <!-- ===========================================
+                     STATE
+                ============================================ -->
+
+                <div class="form-group">
+
+                    <label for="state">
+                        State
+                    </label>
+
+                    <input
+                        type="text"
+                        id="state"
+                        placeholder="e.g. Tamil Nadu"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ===========================================
+                     DISTRICT
+                ============================================ -->
+
+                <div class="form-group">
+
+                    <label for="district">
+                        District
+                    </label>
+
+                    <input
+                        type="text"
+                        id="district"
+                        placeholder="e.g. Coimbatore"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ===========================================
+                     FIELD COORDINATES
+                ============================================ -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Field Location
+                    </label>
+
+                    <div class="gps-grid">
+
+                        <input
+                            type="number"
+                            id="latitude"
+                            placeholder="Latitude"
+                            step="any"
+                            min="-90"
+                            max="90"
+                        >
+
+                        <input
+                            type="number"
+                            id="longitude"
+                            placeholder="Longitude"
+                            step="any"
+                            min="-180"
+                            max="180"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="gps-button"
+                        onclick="getLocation()"
+                    >
+                        📍 Use My Current Field Location
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="submitButton"
+                class="submit-button"
+            >
+                🌿 Generate Personalized Advisory
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESULT CARD
+========================================================= -->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <span>
+            🤖
+        </span>
+
+        <h3>
+            KisanSaarthi Advisory
+        </h3>
+
+    </div>
+
+
+    <div class="card-body">
+
+        <div
+            id="errorBox"
+            class="error-box"
+        ></div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div
+            id="emptyState"
+            class="empty-state"
+        >
+
+            <div class="empty-circle">
+                🌿
+            </div>
+
+            <h3>
+                Ready to Check Your Field
+            </h3>
+
+            <p>
+                Enter your crop and field information
+                to generate an evidence-grounded advisory.
+            </p>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="resultArea">
+
+
+            <div
+                id="decisionBox"
+                class="decision-box"
+            >
+
+                <div
+                    id="decisionHeading"
+                    class="decision-heading"
+                ></div>
+
+                <div
+                    id="decisionDescription"
+                    class="decision-description"
+                ></div>
+
+            </div>
+
+
+            <div class="section-title">
+                🔍 Verified Evidence
+            </div>
+
+
+            <div class="metrics">
+
+
+                <!-- REGISTRY -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        🛡️
+                    </div>
+
+                    <div class="metric-label">
+                        Registry
+                    </div>
+
+                    <div
+                        id="registryValue"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div class="metric-sub">
+                        CIB&amp;RC / PPQS verification
+                    </div>
+
+                </div>
+
+
+                <!-- DOSE -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        📐
+                    </div>
+
+                    <div class="metric-label">
+                        Scaled Dose
+                    </div>
+
+                    <div
+                        id="doseValue"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div class="metric-sub">
+                        Calculated for field size
+                    </div>
+
+                </div>
+
+
+                <!-- WEATHER -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        🌦️
+                    </div>
+
+                    <div class="metric-label">
+                        Weather
+                    </div>
+
+                    <div
+                        id="weatherValue"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div
+                        id="weatherInfo"
+                        class="metric-sub"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <!-- SOIL -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        🌱
+                    </div>
+
+                    <div class="metric-label">
+                        Root-Zone Soil
+                    </div>
+
+                    <div
+                        id="soilValue"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div
+                        id="soilInfo"
+                        class="metric-sub"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-title">
+                🎯 Personalized Context
+            </div>
+
+
+            <div class="metrics">
+
+
+                <!-- SOIL SUITABILITY -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        🧪
+                    </div>
+
+                    <div class="metric-label">
+                        Soil Suitability
+                    </div>
+
+                    <div
+                        id="soilSuitability"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div
+                        id="soilRange"
+                        class="metric-sub"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVE INGREDIENT -->
+
+                <div class="metric">
+
+                    <div class="metric-icon">
+                        🔬
+                    </div>
+
+                    <div class="metric-label">
+                        Active Ingredient
+                    </div>
+
+                    <div
+                        id="ingredientValue"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div class="metric-sub">
+                        Verified registry evidence
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-title">
+                🧠 Decision Trace
+            </div>
+
+
+            <div
+                id="rulesList"
+                class="rule-list"
+            ></div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section class="process-section">
+
+    <div class="process-card">
+
+        <h3>
+            How KisanSaarthi AI Works
+        </h3>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    👨‍🌾
+                </div>
+
+                <div class="step-title">
+                    Farmer Context
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🛡️
+                </div>
+
+                <div class="step-title">
+                    Verified Registry
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    📅
+                </div>
+
+                <div class="step-title">
+                    PHI &amp; Dose
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🌿
+                </div>
+
+                <div class="step-title">
+                    Growth Stage
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🌦️
+                </div>
+
+                <div class="step-title">
+                    Weather &amp; Soil
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🤖
+                </div>
+
+                <div class="step-title">
+                    Recommend / Delay / Abstain
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    🌱 KisanSaarthi AI · M.Tech Research Prototype ·
+    Context-Aware Evidence-Grounded Crop Advisory
+
+</footer>
+
+
+<!-- =========================================================
+     YOUR EXISTING JAVASCRIPT FILE
+========================================================= -->
+
+<script src="/static/app.js"></script>
+
+
+</body>
+
+</html>

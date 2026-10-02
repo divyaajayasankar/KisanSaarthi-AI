@@ -1,0 +1,7 @@
+configuration,css_percent,drop_from_full_system_percentage_points
+full_system,100.0,0.0
+without_phi_context,83.33,16.67
+without_growth_stage,83.33,16.67
+without_treatment_history,66.67,33.33
+without_weather,83.33,16.67
+without_field_area,83.33,16.67

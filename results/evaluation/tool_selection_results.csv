@@ -1,0 +1,6 @@
+actual_intent,actual_tools,expected_intent,expected_tools,name,passed
+weather,"[""weather""]",weather,"[""weather""]",Weather intent,True
+soil,"[""soil""]",soil,"[""soil""]",Soil intent,True
+knowledge,"[""verified_rag"", ""registry""]",knowledge,"[""verified_rag"", ""registry""]",Knowledge intent,True
+advisory,"[""registry"", ""dose_phi"", ""growth_stage"", ""treatment_history"", ""resistance"", ""weather"", ""soil"", ""verified_rag""]",advisory,"[""registry"", ""dose_phi"", ""growth_stage"", ""treatment_history"", ""resistance"", ""weather"", ""soil"", ""verified_rag""]",Advisory intent,True
+treatment_resistance,"[""registry"", ""treatment_history"", ""resistance""]",treatment_resistance,"[""registry"", ""treatment_history"", ""resistance""]",Treatment resistance intent,True

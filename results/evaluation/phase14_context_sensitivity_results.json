@@ -1,0 +1,468 @@
+{
+  "summary": {
+    "context_sensitivity_score_percent": 100.0,
+    "irrelevant_context_stability_percent": 100.0,
+    "decision_accuracy_percent": 100.0,
+    "safety_violation_rate_percent": 0.0,
+    "abstention_accuracy_percent": 100.0,
+    "tool_selection_accuracy_percent": 100.0,
+    "relevant_pairs_included": 6,
+    "relevant_pairs_excluded": 0,
+    "irrelevant_pairs_included": 2,
+    "decision_cases_included": 6
+  },
+  "relevant_context_pairs": [
+    {
+      "name": "PHI harvest horizon",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "abstain",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_rejected"
+      ]
+    },
+    {
+      "name": "Growth-stage sensitivity",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "abstain",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_outside_application_window"
+      ]
+    },
+    {
+      "name": "Treatment-count sensitivity",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "abstain",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "repeat_interval_not_specified",
+        "resistance_rotation_recommended",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "maximum_application_frequency_reached"
+      ]
+    },
+    {
+      "name": "Repeat-interval sensitivity",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "abstain",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_not_applicable",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "minimum_treatment_interval_met",
+        "resistance_rotation_recommended",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_not_applicable",
+        "phi_passed",
+        "growth_stage_passed",
+        "minimum_treatment_interval_not_met"
+      ]
+    },
+    {
+      "name": "Weather wind sensitivity",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "delay",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_high_wind_delay"
+      ]
+    },
+    {
+      "name": "Field-area dose sensitivity",
+      "included": true,
+      "output_changed": true,
+      "expected_rule_triggered": true,
+      "passed": true,
+      "status_a": "recommend",
+      "status_b": "recommend",
+      "rules_a": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ],
+      "rules_b": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ]
+    }
+  ],
+  "irrelevant_context_pairs": [
+    {
+      "name": "Capitalization and whitespace stability",
+      "included": true,
+      "stable": true,
+      "passed": true,
+      "signature_a": [
+        "recommend",
+        "Kresoxim-methyl",
+        250.0,
+        250.0,
+        "ml"
+      ],
+      "signature_b": [
+        "recommend",
+        "Kresoxim-methyl",
+        250.0,
+        250.0,
+        "ml"
+      ]
+    },
+    {
+      "name": "Irrelevant repeat-day stability without verified interval",
+      "included": true,
+      "stable": true,
+      "passed": true,
+      "signature_a": [
+        "recommend",
+        "Kresoxim-methyl",
+        250.0,
+        250.0,
+        "ml"
+      ],
+      "signature_b": [
+        "recommend",
+        "Kresoxim-methyl",
+        250.0,
+        250.0,
+        "ml"
+      ]
+    }
+  ],
+  "tool_selection": [
+    {
+      "name": "Weather intent",
+      "expected_intent": "weather",
+      "actual_intent": "weather",
+      "expected_tools": [
+        "weather"
+      ],
+      "actual_tools": [
+        "weather"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Soil intent",
+      "expected_intent": "soil",
+      "actual_intent": "soil",
+      "expected_tools": [
+        "soil"
+      ],
+      "actual_tools": [
+        "soil"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Knowledge intent",
+      "expected_intent": "knowledge",
+      "actual_intent": "knowledge",
+      "expected_tools": [
+        "verified_rag",
+        "registry"
+      ],
+      "actual_tools": [
+        "verified_rag",
+        "registry"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Advisory intent",
+      "expected_intent": "advisory",
+      "actual_intent": "advisory",
+      "expected_tools": [
+        "registry",
+        "dose_phi",
+        "growth_stage",
+        "treatment_history",
+        "resistance",
+        "weather",
+        "soil",
+        "verified_rag"
+      ],
+      "actual_tools": [
+        "registry",
+        "dose_phi",
+        "growth_stage",
+        "treatment_history",
+        "resistance",
+        "weather",
+        "soil",
+        "verified_rag"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Treatment resistance intent",
+      "expected_intent": "treatment_resistance",
+      "actual_intent": "treatment_resistance",
+      "expected_tools": [
+        "registry",
+        "treatment_history",
+        "resistance"
+      ],
+      "actual_tools": [
+        "registry",
+        "treatment_history",
+        "resistance"
+      ],
+      "passed": true
+    }
+  ],
+  "decision_evaluation": [
+    {
+      "name": "Safe rice context",
+      "included": true,
+      "expected_status": "recommend",
+      "actual_status": "recommend",
+      "correct": true,
+      "unsafe_context": false,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_conditions_passed",
+        "soil_context_not_provided"
+      ]
+    },
+    {
+      "name": "PHI unsafe",
+      "included": true,
+      "expected_status": "abstain",
+      "actual_status": "abstain",
+      "correct": true,
+      "unsafe_context": true,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_rejected"
+      ]
+    },
+    {
+      "name": "Growth stage unsafe",
+      "included": true,
+      "expected_status": "abstain",
+      "actual_status": "abstain",
+      "correct": true,
+      "unsafe_context": true,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_outside_application_window"
+      ]
+    },
+    {
+      "name": "Maximum treatment count",
+      "included": true,
+      "expected_status": "abstain",
+      "actual_status": "abstain",
+      "correct": true,
+      "unsafe_context": true,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "maximum_application_frequency_reached"
+      ]
+    },
+    {
+      "name": "High wind",
+      "included": true,
+      "expected_status": "delay",
+      "actual_status": "delay",
+      "correct": true,
+      "unsafe_context": true,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_passed",
+        "phi_passed",
+        "growth_stage_passed",
+        "treatment_history_passed",
+        "no_previous_application",
+        "repeat_interval_not_specified",
+        "resistance_check_passed",
+        "weather_high_wind_delay"
+      ]
+    },
+    {
+      "name": "Banana repeat interval unsafe",
+      "included": true,
+      "expected_status": "abstain",
+      "actual_status": "abstain",
+      "correct": true,
+      "unsafe_context": true,
+      "safety_violation": false,
+      "fired_rules": [
+        "registration_exists",
+        "registered_dose_valid",
+        "area_converted_to_hectare",
+        "area_dose_scaling",
+        "phi_not_applicable",
+        "phi_passed",
+        "growth_stage_passed",
+        "minimum_treatment_interval_not_met"
+      ]
+    }
+  ]
+}

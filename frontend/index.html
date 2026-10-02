@@ -1,0 +1,2023 @@
+<!-- C:\farmer\frontend\index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KisanSaarthi AI</title>
+
+    <style>
+        :root {
+            --bg: #f4f7f1;
+            --card: #ffffff;
+            --soft: #f8fbf6;
+            --line: #dce7d9;
+            --text: #173020;
+            --muted: #6c7d70;
+
+            --brand: #1f6b3c;
+            --brand-2: #3f8f54;
+            --brand-soft: #eaf5ec;
+
+            --warn: #9a6700;
+            --warn-bg: #fff6dc;
+
+            --danger: #a63838;
+            --danger-bg: #fff0ef;
+
+            --success: #17633a;
+            --success-bg: #e9f7ed;
+
+            --shadow:
+                0 18px 45px
+                rgba(24, 64, 35, 0.08);
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(111, 176, 98, 0.16),
+                    transparent 34%
+                ),
+                linear-gradient(
+                    #f8faf5,
+                    var(--bg)
+                );
+        }
+
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+
+        .shell {
+            width: min(
+                1320px,
+                calc(100% - 32px)
+            );
+
+            margin: auto;
+
+            padding:
+                28px
+                0
+                54px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 30px;
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #155630,
+                    #40854d
+                );
+
+            color: white;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            right: -100px;
+            top: -120px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+        }
+
+
+        .hero-top {
+            position: relative;
+
+            z-index: 1;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+            gap: 18px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .brand {
+            display: flex;
+
+            gap: 14px;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 16px;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.15
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.20
+                );
+
+            font-size: 26px;
+        }
+
+
+        h1 {
+            margin: 0;
+
+            font-size:
+                clamp(
+                    30px,
+                    4vw,
+                    48px
+                );
+
+            letter-spacing: -0.04em;
+        }
+
+
+        .kicker {
+            margin-top: 7px;
+
+            font-size: 14px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.85
+                );
+        }
+
+
+        .hero-description {
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 850px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.90
+                );
+        }
+
+
+        .pills {
+            position: relative;
+
+            z-index: 1;
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .pill {
+            padding:
+                8px
+                12px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                );
+
+            font-size: 13px;
+        }
+
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #f2c94c;
+
+            display: inline-block;
+
+            margin-right: 6px;
+        }
+
+
+        /* =====================================================
+           MAIN LAYOUT
+        ===================================================== */
+
+        .main-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.15fr)
+                minmax(340px, 0.85fr);
+
+            gap: 22px;
+
+            margin-top: 22px;
+
+            align-items: start;
+        }
+
+
+        .stack {
+            display: grid;
+
+            gap: 18px;
+        }
+
+
+        .card {
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.97
+                );
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 24px
+                rgba(
+                    24,
+                    64,
+                    35,
+                    0.06
+                );
+        }
+
+
+        .card-pad {
+            padding: 24px;
+        }
+
+
+        .eyebrow {
+            color: var(--brand);
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+        }
+
+
+        .card h2 {
+            margin:
+                6px
+                0
+                5px;
+
+            font-size: 24px;
+        }
+
+
+        .muted {
+            color: var(--muted);
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           VERIFIED QUESTION
+        ===================================================== */
+
+        .ask-box {
+            border:
+                1px solid
+                #cfe0cb;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 15px;
+        }
+
+
+        .ask-box textarea {
+            width: 100%;
+
+            min-height: 110px;
+
+            border: none;
+
+            outline: none;
+
+            resize: vertical;
+
+            color: var(--text);
+
+            font-size: 16px;
+
+            line-height: 1.5;
+        }
+
+
+        .ask-actions {
+            display: flex;
+
+            gap: 10px;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            margin-top: 10px;
+        }
+
+
+        .small {
+            font-size: 12px;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .btn {
+            min-height: 45px;
+
+            padding:
+                0
+                17px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+        }
+
+
+        .btn:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+
+        .btn-primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--brand),
+                    var(--brand-2)
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    31,
+                    107,
+                    60,
+                    0.20
+                );
+        }
+
+
+        .btn-soft {
+            color: var(--brand);
+
+            background:
+                var(--brand-soft);
+
+            border:
+                1px solid
+                #cfe2d0;
+        }
+
+
+        .btn-ghost {
+            color: var(--text);
+
+            background: white;
+
+            border:
+                1px solid
+                var(--line);
+        }
+
+
+        /* =====================================================
+           CONTEXT SECTIONS
+        ===================================================== */
+
+        .context-section {
+            padding: 18px;
+
+            border:
+                1px solid
+                var(--line);
+
+            background:
+                var(--soft);
+
+            border-radius: 18px;
+        }
+
+
+        .context-section
+        +
+        .context-section {
+            margin-top: 13px;
+        }
+
+
+        .section-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            margin-bottom: 14px;
+        }
+
+
+        .section-icon {
+            width: 34px;
+            height: 34px;
+
+            border-radius: 11px;
+
+            background:
+                var(--brand-soft);
+
+            display: grid;
+
+            place-items: center;
+        }
+
+
+        .field-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 14px;
+        }
+
+
+        .field {
+            display: grid;
+
+            gap: 7px;
+        }
+
+
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        .control {
+            width: 100%;
+
+            min-height: 47px;
+
+            padding:
+                0
+                13px;
+
+            border:
+                1px solid
+                #cddccb;
+
+            border-radius: 12px;
+
+            background: white;
+
+            outline: none;
+        }
+
+
+        .control:focus {
+            border-color:
+                #6ba679;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(
+                    74,
+                    143,
+                    86,
+                    0.10
+                );
+        }
+
+
+        .control:disabled {
+            background:
+                #eef2ed;
+
+            color:
+                #849087;
+        }
+
+
+        .help {
+            font-size: 12px;
+
+            line-height: 1.45;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        .location-box {
+            padding: 14px;
+
+            border:
+                1px dashed
+                #bfd7bf;
+
+            background:
+                linear-gradient(
+                    #fbfef9,
+                    #f2f8ef
+                );
+
+            border-radius: 15px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .location-top {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 12px;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        .location-status {
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           ACTION BAR
+        ===================================================== */
+
+        .actions {
+            position: sticky;
+
+            bottom: 12px;
+
+            margin-top: 17px;
+
+            padding: 11px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 17px;
+
+            display: flex;
+
+            gap: 10px;
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    29,
+                    74,
+                    39,
+                    0.12
+                );
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+
+        .actions
+        .btn-primary {
+            flex: 1;
+        }
+
+
+        /* =====================================================
+           ERROR
+        ===================================================== */
+
+        .error-box {
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            background:
+                var(--danger-bg);
+
+            color:
+                var(--danger);
+
+            border:
+                1px solid
+                #f0c6c1;
+
+            font-size: 13px;
+        }
+
+
+        .error-box.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           RAG RESULTS
+        ===================================================== */
+
+        .rag-result {
+            display: none;
+
+            margin-top: 13px;
+
+            padding: 15px;
+
+            border:
+                1px solid
+                #d7e7d3;
+
+            background:
+                #fbfef9;
+
+            border-radius: 15px;
+        }
+
+
+        .rag-evidence {
+            margin-top: 10px;
+
+            padding: 12px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 12px;
+        }
+
+
+        /* =====================================================
+           RESULT
+        ===================================================== */
+
+        .result-card {
+            position: sticky;
+
+            top: 16px;
+        }
+
+
+        .result-empty {
+            min-height: 240px;
+
+            display: grid;
+
+            place-items: center;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            padding: 30px;
+        }
+
+
+        .big-icon {
+            font-size: 40px;
+        }
+
+
+        .decision {
+            display: inline-flex;
+
+            padding:
+                9px
+                13px;
+
+            border-radius: 999px;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .recommend {
+            color: var(--success);
+
+            background:
+                var(--success-bg);
+        }
+
+
+        .delay {
+            color: var(--warn);
+
+            background:
+                var(--warn-bg);
+        }
+
+
+        .abstain {
+            color: var(--danger);
+
+            background:
+                var(--danger-bg);
+        }
+
+
+        .unknown {
+            color: #555;
+
+            background: #eeeeee;
+        }
+
+
+        .result-section {
+            margin-top: 17px;
+
+            padding-top: 17px;
+
+            border-top:
+                1px solid
+                var(--line);
+        }
+
+
+        .result-grid {
+            display: grid;
+
+            grid-template-columns:
+                135px
+                1fr;
+
+            gap:
+                8px
+                12px;
+
+            font-size: 14px;
+        }
+
+
+        .key {
+            color: var(--muted);
+
+            font-weight: 800;
+        }
+
+
+        .rule-list {
+            padding-left: 18px;
+        }
+
+
+        .rule-list li {
+            margin:
+                6px
+                0;
+        }
+
+
+        .context-pills {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .context-pill {
+            padding:
+                7px
+                10px;
+
+            border-radius: 999px;
+
+            background:
+                #f3f6f2;
+
+            border:
+                1px solid
+                var(--line);
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           WORKFLOW
+        ===================================================== */
+
+        .workflow {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+
+        .workflow-step {
+            padding:
+                11px
+                8px;
+
+            border-radius: 12px;
+
+            background:
+                var(--soft);
+
+            border:
+                1px solid
+                var(--line);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-align: center;
+
+            color:
+                #42614a;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (
+            max-width: 1000px
+        ) {
+
+            .main-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .result-card {
+                position: static;
+            }
+        }
+
+
+        @media (
+            max-width: 680px
+        ) {
+
+            .shell {
+                width:
+                    calc(
+                        100% - 20px
+                    );
+
+                padding-top: 10px;
+            }
+
+
+            .hero,
+            .card-pad {
+                padding: 20px;
+            }
+
+
+            .field-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .field-full {
+                grid-column: auto;
+            }
+
+
+            .actions {
+                flex-direction: column;
+            }
+
+
+            .actions
+            .btn {
+                width: 100%;
+            }
+
+
+            .result-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .workflow {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<main class="shell">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-top">
+
+            <div class="brand">
+
+                <div class="logo">
+                    🌾
+                </div>
+
+
+                <div>
+
+                    <h1>
+                        KisanSaarthi AI
+                    </h1>
+
+                    <div class="kicker">
+                        Personalized • Evidence-Grounded • Farmer-Centric
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="pill">
+
+                <span class="status-dot"></span>
+
+                System Status:
+
+                <strong id="apiStatus">
+                    Checking
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <p class="hero-description">
+
+            A context-aware crop advisory assistant for Indian farmers.
+
+            It checks verified registry evidence, field-area dose,
+            harvest safety, growth stage, treatment history,
+            resistance, live weather, soil context and verified
+            agricultural knowledge before issuing an advisory.
+
+        </p>
+
+
+        <div class="pills">
+
+            <span class="pill">
+                15-crop research prototype
+            </span>
+
+            <span class="pill">
+                Recommend • Delay • Abstain
+            </span>
+
+            <span class="pill">
+                Verified evidence first
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <div class="main-grid">
+
+
+        <!-- LEFT COLUMN -->
+
+        <div class="stack">
+
+
+            <!-- =============================================
+                 RAG QUESTION
+            ============================================== -->
+
+            <section class="card">
+
+                <div class="card-pad">
+
+                    <div class="eyebrow">
+                        💬 Verified Knowledge
+                    </div>
+
+
+                    <h2>
+                        Ask KisanSaarthi
+                    </h2>
+
+
+                    <p class="muted">
+
+                        Ask a natural-language crop question.
+
+                        This search uses only the verified
+                        agricultural knowledge base.
+
+                    </p>
+
+
+                    <div class="ask-box">
+
+                        <textarea
+                            id="farmerQuestion"
+                            name="farmerQuestion"
+                            placeholder="Example: How can I manage blast in my rice crop?"
+                            autocomplete="off"
+                        ></textarea>
+
+
+                        <div class="ask-actions">
+
+                            <span class="small">
+
+                                Crop-specific retrieval uses
+                                the crop entered below.
+
+                            </span>
+
+
+                            <button
+                                id="ragSearchButton"
+                                class="btn btn-soft"
+                                type="button"
+                            >
+                                🔎 Search Verified Knowledge
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="ragResult"
+                        class="rag-result"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 FARMER CONTEXT
+            ============================================== -->
+
+            <section class="card">
+
+                <div class="card-pad">
+
+                    <div class="eyebrow">
+                        🌱 Farmer Context
+                    </div>
+
+
+                    <h2>
+                        Tell us about the field
+                    </h2>
+
+
+                    <p class="muted">
+
+                        The information is grouped into
+                        short context cards instead of
+                        one long form.
+
+                        All farmer inputs start blank.
+
+                    </p>
+
+
+                    <form
+                        id="advisoryForm"
+                        autocomplete="off"
+                        novalidate
+                    >
+
+
+                        <!-- =================================
+                             CROP + PROBLEM
+                        ================================== -->
+
+                        <section class="context-section">
+
+                            <div class="section-title">
+
+                                <span class="section-icon">
+                                    🌿
+                                </span>
+
+                                Crop & Problem
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+
+                                <div class="field">
+
+                                    <label for="crop">
+                                        Crop Name
+                                    </label>
+
+
+                                    <input
+                                        id="crop"
+                                        name="crop"
+                                        class="control"
+                                        type="text"
+                                        list="cropList"
+                                        placeholder="Type or select a crop"
+                                        autocomplete="off"
+                                        required
+                                    >
+
+
+                                    <datalist id="cropList">
+
+                                        <option value="Rice"></option>
+
+                                        <option value="Wheat"></option>
+
+                                        <option value="Maize"></option>
+
+                                        <option value="Tomato"></option>
+
+                                        <option value="Chilli"></option>
+
+                                        <option value="Brinjal"></option>
+
+                                        <option value="Onion"></option>
+
+                                        <option value="Potato"></option>
+
+                                        <option value="Okra"></option>
+
+                                        <option value="Cabbage"></option>
+
+                                        <option value="Groundnut"></option>
+
+                                        <option value="Chickpea"></option>
+
+                                        <option value="Mustard"></option>
+
+                                        <option value="Cotton"></option>
+
+                                        <option value="Banana"></option>
+
+                                    </datalist>
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="pest">
+                                        Pest / Disease
+                                    </label>
+
+
+                                    <input
+                                        id="pest"
+                                        name="pest"
+                                        class="control"
+                                        type="text"
+                                        placeholder="Example: Blast or Sigatoka"
+                                        autocomplete="off"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- =================================
+                             FIELD + HARVEST
+                        ================================== -->
+
+                        <section class="context-section">
+
+                            <div class="section-title">
+
+                                <span class="section-icon">
+                                    📐
+                                </span>
+
+                                Field & Harvest
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+
+                                <div class="field">
+
+                                    <label for="fieldArea">
+                                        Field Area
+                                    </label>
+
+
+                                    <input
+                                        id="fieldArea"
+                                        name="fieldArea"
+                                        class="control"
+                                        type="number"
+                                        min="0.0001"
+                                        step="any"
+                                        placeholder="Enter field area"
+                                        autocomplete="off"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="areaUnit">
+                                        Area Unit
+                                    </label>
+
+
+                                    <select
+                                        id="areaUnit"
+                                        name="areaUnit"
+                                        class="control"
+                                        required
+                                    >
+
+                                        <option
+                                            value=""
+                                            selected
+                                            disabled
+                                        >
+                                            Select unit
+                                        </option>
+
+
+                                        <option value="hectare">
+                                            Hectare
+                                        </option>
+
+
+                                        <option value="acre">
+                                            Acre
+                                        </option>
+
+
+                                        <option value="cent">
+                                            Cent
+                                        </option>
+
+
+                                        <option value="guntha">
+                                            Guntha
+                                        </option>
+
+
+                                        <option value="square_metre">
+                                            Square metre
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="harvestDays">
+                                        Days Until Expected Harvest
+                                    </label>
+
+
+                                    <input
+                                        id="harvestDays"
+                                        name="harvestDays"
+                                        class="control"
+                                        type="number"
+                                        min="0"
+                                        step="1"
+                                        placeholder="Enter days"
+                                        autocomplete="off"
+                                        required
+                                    >
+
+
+                                    <span class="help">
+
+                                        Used for PHI verification
+                                        when a numerical PHI applies.
+
+                                    </span>
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="growthStage">
+                                        Crop Growth Stage
+                                    </label>
+
+
+                                    <select
+                                        id="growthStage"
+                                        name="growthStage"
+                                        class="control"
+                                    >
+
+                                        <option
+                                            value=""
+                                            selected
+                                        >
+                                            Select growth stage
+                                        </option>
+
+
+                                        <option value="sowing">
+                                            Sowing
+                                        </option>
+
+
+                                        <option value="seedling">
+                                            Seedling
+                                        </option>
+
+
+                                        <option value="vegetative">
+                                            Vegetative
+                                        </option>
+
+
+                                        <option value="reproductive">
+                                            Flowering / Reproductive
+                                        </option>
+
+
+                                        <option value="pre_harvest">
+                                            Pre-Harvest
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- =================================
+                             TREATMENT HISTORY
+                        ================================== -->
+
+                        <section class="context-section">
+
+                            <div class="section-title">
+
+                                <span class="section-icon">
+                                    🧪
+                                </span>
+
+                                Previous Treatment
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+
+                                <div class="field">
+
+                                    <label for="previousApplicationCount">
+
+                                        Previous Application Count
+
+                                    </label>
+
+
+                                    <input
+                                        id="previousApplicationCount"
+                                        name="previousApplicationCount"
+                                        class="control"
+                                        type="number"
+                                        min="0"
+                                        step="1"
+                                        placeholder="0 if never used"
+                                        autocomplete="off"
+                                    >
+
+
+                                    <span class="help">
+
+                                        Enter 0 if the matched
+                                        treatment has not been
+                                        used before.
+
+                                    </span>
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="daysSinceLastApplication">
+
+                                        Days Since Last Application
+
+                                    </label>
+
+
+                                    <input
+                                        id="daysSinceLastApplication"
+                                        name="daysSinceLastApplication"
+                                        class="control"
+                                        type="number"
+                                        min="0"
+                                        step="1"
+                                        placeholder="Optional"
+                                        autocomplete="off"
+                                    >
+
+
+                                    <span
+                                        id="daysSinceHelp"
+                                        class="help"
+                                    >
+
+                                        Optional. Used only when
+                                        a verified repeat interval
+                                        is available.
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- =================================
+                             LOCATION
+                        ================================== -->
+
+                        <section class="context-section">
+
+                            <div class="section-title">
+
+                                <span class="section-icon">
+                                    📍
+                                </span>
+
+                                Location Context
+
+                            </div>
+
+
+                            <div class="location-box">
+
+                                <div class="location-top">
+
+                                    <div>
+
+                                        <strong>
+                                            Use live field coordinates
+                                        </strong>
+
+
+                                        <div class="help">
+
+                                            Automatically fills
+                                            latitude and longitude.
+
+                                            State and district
+                                            remain editable.
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <button
+                                        id="getLiveLocationButton"
+                                        class="btn btn-soft"
+                                        type="button"
+                                    >
+                                        📍 Use My Live Location
+                                    </button>
+
+                                </div>
+
+
+                                <div
+                                    id="locationStatus"
+                                    class="location-status"
+                                ></div>
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+
+                                <div class="field">
+
+                                    <label for="state">
+                                        State
+                                    </label>
+
+
+                                    <input
+                                        id="state"
+                                        name="state"
+                                        class="control"
+                                        type="text"
+                                        placeholder="Example: Tamil Nadu"
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="district">
+                                        District
+                                    </label>
+
+
+                                    <input
+                                        id="district"
+                                        name="district"
+                                        class="control"
+                                        type="text"
+                                        placeholder="Example: Coimbatore"
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="latitude">
+                                        Latitude
+                                    </label>
+
+
+                                    <input
+                                        id="latitude"
+                                        name="latitude"
+                                        class="control"
+                                        type="number"
+                                        step="any"
+                                        placeholder="Live location or manual"
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="longitude">
+                                        Longitude
+                                    </label>
+
+
+                                    <input
+                                        id="longitude"
+                                        name="longitude"
+                                        class="control"
+                                        type="number"
+                                        step="any"
+                                        placeholder="Live location or manual"
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <div
+                            id="formError"
+                            class="error-box"
+                        ></div>
+
+
+
+                        <div class="actions">
+
+                            <button
+                                id="clearButton"
+                                class="btn btn-ghost"
+                                type="button"
+                            >
+                                ↺ Clear
+                            </button>
+
+
+                            <button
+                                id="submitButton"
+                                class="btn btn-primary"
+                                type="submit"
+                            >
+                                ✨ Generate Personalized Advisory
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT COLUMN
+        ================================================== -->
+
+        <div class="stack">
+
+
+            <section class="card result-card">
+
+                <div class="card-pad">
+
+                    <div class="eyebrow">
+                        🧭 Advisory Decision
+                    </div>
+
+
+                    <h2>
+                        KisanSaarthi Advisory
+                    </h2>
+
+
+                    <div id="result">
+
+                        <div class="result-empty">
+
+                            <div>
+
+                                <div class="big-icon">
+                                    🌱
+                                </div>
+
+
+                                <strong>
+                                    Ready to check your field
+                                </strong>
+
+
+                                <p>
+
+                                    Enter the farmer context
+                                    and generate an advisory.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="card">
+
+                <div class="card-pad">
+
+                    <div class="eyebrow">
+                        ⚙️ Evidence Path
+                    </div>
+
+
+                    <h2>
+                        How KisanSaarthi Works
+                    </h2>
+
+
+                    <div class="workflow">
+
+                        <div class="workflow-step">
+                            Farmer Context
+                        </div>
+
+                        <div class="workflow-step">
+                            Verified Registry
+                        </div>
+
+                        <div class="workflow-step">
+                            Dose + PHI
+                        </div>
+
+                        <div class="workflow-step">
+                            Growth Stage
+                        </div>
+
+                        <div class="workflow-step">
+                            Treatment History
+                        </div>
+
+                        <div class="workflow-step">
+                            Resistance / MoA
+                        </div>
+
+                        <div class="workflow-step">
+                            Weather + Soil
+                        </div>
+
+                        <div class="workflow-step">
+                            Verified RAG
+                        </div>
+
+                    </div>
+
+
+                    <p class="muted">
+
+                        Safety-critical decisions remain
+                        evidence-grounded.
+
+                        Missing or unsafe context can trigger
+                        DELAY or ABSTAIN instead of a guessed
+                        recommendation.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script
+    src="/static/app.js?v=modern-ui-1"
+></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Logs
+*.log
+
+# Uploaded / generated media
+uploads/
+data/temp/
+temp_uploads/
+
+# Large AI model files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.bin
+*.safetensors
+
+# Local databases if you do not want to commit them
+# *.db
+# *.sqlite
+# *.sqlite3
+.env

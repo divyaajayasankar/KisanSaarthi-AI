@@ -1,0 +1,3 @@
+included,name,passed,signature_a,signature_b,stable
+True,Capitalization and whitespace stability,True,"[""recommend"", ""Kresoxim-methyl"", 250.0, 250.0, ""ml""]","[""recommend"", ""Kresoxim-methyl"", 250.0, 250.0, ""ml""]",True
+True,Irrelevant repeat-day stability without verified interval,True,"[""recommend"", ""Kresoxim-methyl"", 250.0, 250.0, ""ml""]","[""recommend"", ""Kresoxim-methyl"", 250.0, 250.0, ""ml""]",True

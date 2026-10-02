@@ -1,0 +1,78 @@
+{
+  "study_type": "input-context ablation",
+  "description": "Each ablation suppresses one decision-relevant farmer context dimension while keeping the underlying advisory engine unchanged.",
+  "results": [
+    {
+      "configuration": "full_system",
+      "phi_sensitive": true,
+      "growth_stage_sensitive": true,
+      "treatment_count_sensitive": true,
+      "repeat_interval_sensitive": true,
+      "weather_sensitive": true,
+      "field_area_sensitive": true,
+      "passed_cases": 6,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 100.0
+    },
+    {
+      "configuration": "without_phi_context",
+      "phi_sensitive": false,
+      "growth_stage_sensitive": true,
+      "treatment_count_sensitive": true,
+      "repeat_interval_sensitive": true,
+      "weather_sensitive": true,
+      "field_area_sensitive": true,
+      "passed_cases": 5,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 83.33
+    },
+    {
+      "configuration": "without_growth_stage",
+      "phi_sensitive": true,
+      "growth_stage_sensitive": false,
+      "treatment_count_sensitive": true,
+      "repeat_interval_sensitive": true,
+      "weather_sensitive": true,
+      "field_area_sensitive": true,
+      "passed_cases": 5,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 83.33
+    },
+    {
+      "configuration": "without_treatment_history",
+      "phi_sensitive": true,
+      "growth_stage_sensitive": true,
+      "treatment_count_sensitive": false,
+      "repeat_interval_sensitive": false,
+      "weather_sensitive": true,
+      "field_area_sensitive": true,
+      "passed_cases": 4,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 66.67
+    },
+    {
+      "configuration": "without_weather",
+      "phi_sensitive": true,
+      "growth_stage_sensitive": true,
+      "treatment_count_sensitive": true,
+      "repeat_interval_sensitive": true,
+      "weather_sensitive": false,
+      "field_area_sensitive": true,
+      "passed_cases": 5,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 83.33
+    },
+    {
+      "configuration": "without_field_area",
+      "phi_sensitive": true,
+      "growth_stage_sensitive": true,
+      "treatment_count_sensitive": true,
+      "repeat_interval_sensitive": true,
+      "weather_sensitive": true,
+      "field_area_sensitive": false,
+      "passed_cases": 5,
+      "total_cases": 6,
+      "context_sensitivity_score_percent": 83.33
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+metric,value_percent
+Context Sensitivity Score (CSS),100.0
+Irrelevant Context Stability (ICS),100.0
+Decision Accuracy,100.0
+Safety Violation Rate,0.0
+Abstention Accuracy,100.0
+Tool Selection Accuracy,100.0
