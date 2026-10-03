@@ -9,9 +9,10 @@ from app.config import settings
 from app.db import Base, engine, SessionLocal
 from app.models import DataProvenance
 
-# Register Phase 7 model with SQLAlchemy
+# Register models with SQLAlchemy
 from app.models_treatment_history import TreatmentHistoryRule
 from app.models_resistance import ResistanceRule
+
 from app.routers.agent import router as agent_router
 
 from app.routers import (
@@ -25,7 +26,6 @@ from app.routers import (
 )
 
 
-
 # ============================================================
 # FASTAPI APP
 # ============================================================
@@ -36,20 +36,42 @@ app = FastAPI(
 
 
 # ============================================================
-# ABSOLUTE FRONTEND PATH
+# PROJECT PATHS
+# ============================================================
+# This makes the project portable.
+#
+# Example:
+# C:\MTech_Project\KisanSaarthi-AI\app\main.py
+#
+# Path(__file__)             -> app\main.py
+# .resolve().parent          -> app
+# .parent                    -> KisanSaarthi-AI
+#
+# Therefore there is NO hard-coded C:\farmer path.
 # ============================================================
 
-PROJECT_ROOT = Path(r"C:\farmer")
+APP_DIR = Path(__file__).resolve().parent
 
-FRONTEND_DIR = (
-    PROJECT_ROOT
-    / "frontend"
-)
+PROJECT_ROOT = APP_DIR.parent
 
-INDEX_FILE = (
-    FRONTEND_DIR
-    / "index.html"
-)
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
+
+INDEX_FILE = FRONTEND_DIR / "index.html"
+
+
+# ============================================================
+# FRONTEND VALIDATION
+# ============================================================
+
+if not FRONTEND_DIR.exists():
+    raise RuntimeError(
+        f"Frontend directory not found: {FRONTEND_DIR}"
+    )
+
+if not INDEX_FILE.exists():
+    raise RuntimeError(
+        f"Frontend index file not found: {INDEX_FILE}"
+    )
 
 
 # ============================================================
@@ -59,9 +81,7 @@ INDEX_FILE = (
 app.mount(
     "/static",
     StaticFiles(
-        directory=str(
-            FRONTEND_DIR
-        )
+        directory=str(FRONTEND_DIR)
     ),
     name="static",
 )
@@ -78,7 +98,10 @@ app.include_router(
 app.include_router(
     advisory.router
 )
-app.include_router(rag.router)
+
+app.include_router(
+    rag.router
+)
 
 app.include_router(
     registry.router
@@ -95,7 +118,11 @@ app.include_router(
 app.include_router(
     crop_soil_rules.router
 )
-app.include_router(agent_router)
+
+app.include_router(
+    agent_router
+)
+
 
 # ============================================================
 # STARTUP
@@ -156,11 +183,17 @@ def debug_frontend():
     )
 
     return {
+        "project_root":
+            str(PROJECT_ROOT),
+
         "frontend_directory":
             str(FRONTEND_DIR),
 
         "index_file":
             str(INDEX_FILE),
+
+        "frontend_exists":
+            FRONTEND_DIR.exists(),
 
         "index_exists":
             INDEX_FILE.exists(),
@@ -186,9 +219,7 @@ def debug_frontend():
 def home():
 
     return FileResponse(
-        path=str(
-            INDEX_FILE
-        ),
+        path=str(INDEX_FILE),
 
         media_type="text/html",
 

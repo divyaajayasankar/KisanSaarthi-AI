@@ -1,4 +1,4 @@
-# Virtual environment
+git check-ignore .env# Virtual environment
 venv/
 .venv/
 
@@ -51,3 +51,6 @@ temp_uploads/
 # *.sqlite
 # *.sqlite3
 .env
+
+# Allow safe environment template
+!.env.example
