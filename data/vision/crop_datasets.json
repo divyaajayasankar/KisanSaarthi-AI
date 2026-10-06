@@ -1,0 +1,31 @@
+{
+  "_note": "Training sources per crop for scripts/train_crop_model.py. Paths are relative to root. Each class needs its own folder. Use original images only (no pre-rotated copies) so the validation split has no near-duplicates of training images. Run python -m scripts.inspect_source_datasets to see folders, then fill 'classes'. Set source and license from the dataset's own page; training refuses license TO_VERIFY unless --accept-unverified-license is passed, and the model card records it.",
+  "root": "data/source_datasets",
+  "crops": {
+    "rice": {
+      "source": "TO_VERIFY",
+      "license": "TO_VERIFY",
+      "classes": {
+        "bacterial_leaf_blight": ["RiceDiseases/Bacterial leaf blight/orig"],
+        "blast": ["RiceDiseases/blast/Orig"],
+        "brown_spot": ["RiceDiseases/brownspot/orig"]
+      }
+    },
+    "chilli": {
+      "source": "TO_VERIFY",
+      "license": "TO_VERIFY",
+      "classes": {}
+    },
+    "maize": {
+      "source": "TO_VERIFY",
+      "license": "TO_VERIFY",
+      "classes": {}
+    },
+    "wheat": {
+      "source": "TO_VERIFY",
+      "license": "TO_VERIFY",
+      "classes": {},
+      "_warning": "NWRD_DATA is a wheat-rust segmentation set (images + masks). It has one disease class, so it cannot train a disease classifier on its own."
+    }
+  }
+}

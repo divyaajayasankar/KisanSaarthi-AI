@@ -1,0 +1,139 @@
+crop,input_alias,canonical_pest,language
+rice,blast,Blast,en
+rice,rice blast,Blast,en
+rice,leaf blast,Blast,en
+rice,neck blast,Blast,en
+rice,झोंका,Blast,hi
+rice,ब्लास्ट,Blast,hi
+rice,குலை நோய்,Blast,ta
+rice,குலைநோய்,Blast,ta
+rice,అగ్గి తెగులు,Blast,te
+rice,sheath blight,Sheath blight,en
+rice,sheath rot,Sheath rot,en
+rice,bacterial leaf blight,Bacterial leaf blight,en
+rice,bacterial blight,Bacterial leaf blight,en
+rice,blb,Bacterial leaf blight,en
+rice,bacterial_leaf_blight,Bacterial leaf blight,model
+rice,brown spot,Brown spot,en
+rice,brownspot,Brown spot,model
+rice,brown_spot,Brown spot,model
+rice,stem borer,Stem borer,en
+rice,brown planthopper,Brown planthopper,en
+rice,bph,Brown planthopper,en
+rice,leaf folder,Leaf folder,en
+wheat,rust,Rust,en
+wheat,yellow rust,Yellow rust,en
+wheat,stripe rust,Yellow rust,en
+wheat,brown rust,Brown rust,en
+wheat,leaf rust,Brown rust,en
+wheat,black rust,Black rust,en
+wheat,stem rust,Black rust,en
+wheat,रतुआ,Rust,hi
+wheat,गेरुई,Rust,hi
+wheat,aphid,Aphid,en
+wheat,termite,Termite,en
+wheat,दीमक,Termite,hi
+wheat,karnal bunt,Karnal bunt,en
+wheat,powdery mildew,Powdery mildew,en
+maize,fall armyworm,Fall armyworm,en
+maize,faw,Fall armyworm,en
+maize,armyworm,Fall armyworm,en
+maize,stem borer,Stem borer,en
+maize,turcicum leaf blight,Turcicum leaf blight,en
+maize,northern leaf blight,Turcicum leaf blight,en
+maize,leaf blight,Turcicum leaf blight,en
+maize,common rust,Rust,en
+maize,rust,Rust,en
+maize,gray leaf spot,Grey leaf spot,en
+maize,grey leaf spot,Grey leaf spot,en
+tomato,early blight,Early blight,en
+tomato,early_blight,Early blight,model
+tomato,late blight,Late blight,en
+tomato,late_blight,Late blight,model
+tomato,leaf curl,Leaf curl virus,en
+tomato,fruit borer,Fruit borer,en
+tomato,whitefly,Whitefly,en
+tomato,leaf miner,Leaf miner,en
+chilli,leaf curl,Leaf curl,en
+chilli,thrips,Thrips,en
+chilli,mites,Mites,en
+chilli,mite,Mites,en
+chilli,fruit rot,Fruit rot,en
+chilli,die back,Die back,en
+chilli,dieback,Die back,en
+chilli,anthracnose,Anthracnose,en
+chilli,powdery mildew,Powdery mildew,en
+chilli,aphid,Aphid,en
+brinjal,shoot and fruit borer,Shoot and fruit borer,en
+brinjal,fruit and shoot borer,Shoot and fruit borer,en
+brinjal,fruit borer,Shoot and fruit borer,en
+brinjal,shoot borer,Shoot and fruit borer,en
+brinjal,jassid,Jassid,en
+brinjal,leafhopper,Jassid,en
+brinjal,whitefly,Whitefly,en
+brinjal,little leaf,Little leaf,en
+onion,purple blotch,Purple blotch,en
+onion,stemphylium blight,Stemphylium blight,en
+onion,leaf blight,Leaf blight,en
+onion,thrips,Thrips,en
+onion,downy mildew,Downy mildew,en
+potato,late blight,Late blight,en
+potato,late_blight,Late blight,model
+potato,पछेती झुलसा,Late blight,hi
+potato,early blight,Early blight,en
+potato,early_blight,Early blight,model
+potato,अगेती झुलसा,Early blight,hi
+potato,blight,Blight,en
+potato,aphid,Aphid,en
+okra,yellow vein mosaic,Yellow vein mosaic,en
+okra,yvm,Yellow vein mosaic,en
+okra,shoot and fruit borer,Shoot and fruit borer,en
+okra,fruit borer,Shoot and fruit borer,en
+okra,jassid,Jassid,en
+okra,whitefly,Whitefly,en
+okra,powdery mildew,Powdery mildew,en
+cabbage,diamondback moth,Diamondback moth,en
+cabbage,dbm,Diamondback moth,en
+cabbage,aphid,Aphid,en
+cabbage,black rot,Black rot,en
+cabbage,head borer,Head borer,en
+groundnut,tikka,Tikka leaf spot,en
+groundnut,leaf spot,Leaf spot,en
+groundnut,early leaf spot,Early leaf spot,en
+groundnut,late leaf spot,Late leaf spot,en
+groundnut,rust,Rust,en
+groundnut,white grub,White grub,en
+groundnut,termite,Termite,en
+groundnut,दीमक,Termite,hi
+groundnut,கரையான்,Termite,ta
+groundnut,చెదలు,Termite,te
+groundnut,leaf miner,Leaf miner,en
+groundnut,collar rot,Collar rot,en
+chickpea,pod borer,Pod borer,en
+chickpea,gram pod borer,Pod borer,en
+chickpea,helicoverpa,Pod borer,en
+chickpea,wilt,Wilt,en
+chickpea,fusarium wilt,Wilt,en
+chickpea,उकठा,Wilt,hi
+mustard,aphid,Aphid,en
+mustard,mustard aphid,Aphid,en
+mustard,माहू,Aphid,hi
+mustard,white rust,White rust,en
+mustard,alternaria blight,Alternaria blight,en
+mustard,alternaria,Alternaria blight,en
+mustard,sawfly,Sawfly,en
+cotton,pink bollworm,Pink bollworm,en
+cotton,american bollworm,American bollworm,en
+cotton,bollworm,Bollworm,en
+cotton,whitefly,Whitefly,en
+cotton,jassid,Jassid,en
+cotton,thrips,Thrips,en
+cotton,aphid,Aphid,en
+cotton,mealybug,Mealybug,en
+banana,sigatoka,Sigatoka,en
+banana,sigatoka leaf spot,Sigatoka,en
+banana,leaf spot,Sigatoka,en
+banana,panama wilt,Fusarium wilt,en
+banana,fusarium wilt,Fusarium wilt,en
+banana,rhizome weevil,Rhizome weevil,en
+banana,stem weevil,Pseudostem weevil,en

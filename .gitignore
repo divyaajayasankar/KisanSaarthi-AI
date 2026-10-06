@@ -1,0 +1,22 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+*.db.bak
+data/uploads/
+data/source_datasets/
+data/models/*.pt
+reports/
+*.zip
+
+# evaluation images are not pushed (dataset licences); metadata.csv is
+data/real_field_eval/*/
+# sanitized test fixture the tests need
+!tests/fixtures/*.db
+
+*.bak
+
+*.bak

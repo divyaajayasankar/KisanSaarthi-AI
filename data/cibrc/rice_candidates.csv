@@ -1,0 +1,5 @@
+crop,pest,active_ingredient,formulation,dose_min_per_hectare,dose_max_per_hectare,dose_unit,water_volume_l_per_ha,phi_days,source_document,source_page,source_url,source_date,verified
+Rice,Blast; Sheath blight,Kresoxim-methyl,44.3% w/w (500 g/L) SC,500,500,ml,500,30,kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,14,PPQS_LABEL_URL,,0
+Wheat,Rust; Leaf blight,Kresoxim-methyl,44.3% w/w (500 g/L) SC,500,500,ml,500,34,kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,14,PPQS_LABEL_URL,,0
+Maize,Turcicum leaf blight; Rust,Kresoxim-methyl,44.3% w/w (500 g/L) SC,500,500,ml,500,25,kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,14,PPQS_LABEL_URL,,0
+Cotton,Leaf spot; Grey mildew,Kresoxim-methyl,44.3% w/w (500 g/L) SC,500,500,ml,500,26,kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,14,PPQS_LABEL_URL,,0

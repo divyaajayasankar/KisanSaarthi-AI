@@ -1,0 +1,4 @@
+crop,pest,active_ingredient,allowed_stages,application_timing,source_document,source_page,source_url,source_date,verified
+Rice,Blast; Sheath blight,Kresoxim-methyl,vegetative;reproductive,Early vegetative to reproductive stage,PPQS Kresoxim-methyl 44.3% SC Primary Package Label,14,https://ppqs.gov.in/sites/default/files/kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,2026-09-17,True
+Potato,Late blight; Early blight,Kresoxim-methyl,vegetative;reproductive,Early vegetative to reproductive stage,PPQS Kresoxim-methyl 44.3% SC Primary Package Label,14,https://ppqs.gov.in/sites/default/files/kresoxim-methyl_44.3_500_sc93frallis_india_limited_1.pdf,2026-09-17,True
+Groundnut,White grub; Termite,Thiamethoxam + Fipronil,sowing,Apply at the time of sowing of crop,PPQS Thiamethoxam 0.9% + Fipronil 0.2% GR Primary Package Label,12,https://ppqs.gov.in/sites/default/files/thiamethoxam_0.9_fipronil_0.2_gr93fcrystal_crop_protection_ltd_1.pdf,2026-09-17,True

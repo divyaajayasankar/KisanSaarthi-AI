@@ -1,0 +1,80 @@
+KISANSAARTHI AI - RUN COMMANDS (Windows PowerShell, no admin needed)
+=====================================================================
+
+0. UNZIP
+   Extract Context_Aware_Crop_Advisory_Final.zip to a NEW folder, for example
+   C:\farmer_final. Do not extract over C:\farmer.
+
+   cd C:\farmer_final\Context_Aware_Crop_Advisory_Final
+
+1. IMPORT YOUR DATA (one time; the ZIP carries code, not your data)
+   Copies your registry CSVs, database, 75 evaluation images, metadata.csv,
+   classic UI and .env from the original project. Never touches C:\farmer.
+
+   .\scripts\import_local_assets.ps1 -Source C:\farmer -DryRun
+   .\scripts\import_local_assets.ps1 -Source C:\farmer
+
+2. START THE APP
+   Creates .venv, installs requirements, checks the install, starts the server.
+
+   .\run_project.ps1
+
+   If scripts are blocked:
+   powershell -ExecutionPolicy Bypass -File .\run_project.ps1
+
+   Other options:
+   .\run_project.ps1 -Port 8010
+   .\run_project.ps1 -SkipInstall
+   .\run_project.ps1 -WithVision        (also installs torch and torchvision)
+
+3. OPEN
+   Chat app:       http://127.0.0.1:8000
+   API docs:       http://127.0.0.1:8000/docs
+   System status:  http://127.0.0.1:8000/api/status
+   Classic UI:     http://127.0.0.1:8000/classic   (after step 1)
+
+4. TESTS
+   .\.venv\Scripts\python.exe -m pytest -q
+
+   Some tests skip with a stated reason when data is absent (registry rows,
+   evaluation images, model weights). Skipped is not failed.
+
+5. INSTALL CHECK
+   .\.venv\Scripts\python.exe -m scripts.check_install
+
+6. EVALUATION DATASET (data\real_field_eval, 15 crops x 5 images)
+   Put images at data\real_field_eval\<crop>\<file>.jpg, then:
+
+   .\.venv\Scripts\python.exe -m scripts.build_eval_metadata
+   .\.venv\Scripts\python.exe -m scripts.evaluate_real_field
+   .\.venv\Scripts\python.exe -m scripts.evaluate_real_field --crop rice
+
+   build_eval_metadata writes TO_VERIFY for every unknown source, dataset,
+   license and disease. Fill metadata.csv by hand from the real provenance.
+   Only images with a verified disease label and a validated crop model are
+   scored. Outputs go to reports\.
+
+7. PERSONALIZATION EVALUATION (needs verified registry rows)
+   .\.venv\Scripts\python.exe -m scripts.evaluate_personalization
+
+8. TRAIN A CROP MODEL (optional, needs torch; eval images are excluded by SHA-256)
+   .\run_project.ps1 -WithVision -SkipInstall
+   .\.venv\Scripts\python.exe -m scripts.train_crop_model --crop rice --epochs 10
+   A model enters data\models\model_registry.json only if validation
+   macro-F1 reaches --min-macro-f1. Otherwise that crop keeps abstaining on images.
+
+9. LLM (optional)
+   Default is Mode B (deterministic only). For Mode A set in .env:
+   LLM_ENABLED=true, LLM_API_KEY=<your key>, LLM_BASE_URL, LLM_MODEL.
+   The LLM never computes dose, PHI, interval, area, thresholds or the decision.
+
+10. VOICE
+   First use downloads the Whisper model (small, about 480 MB) from the internet.
+   Change WHISPER_MODEL in .env to base for a smaller, faster model.
+
+11. REBUILD THE COMPLETE ZIP (with your imported data)
+   .\.venv\Scripts\python.exe -m scripts.package_project
+   .\.venv\Scripts\python.exe -m scripts.package_project --no-db
+
+   Excludes .env, .venv, caches, backups, raw datasets and unreferenced weights.
+   Refuses to write the ZIP if it finds a credential.

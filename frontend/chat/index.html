@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KisanSaarthi AI</title>
+<style>
+:root {
+  --bg: #efeae2;
+  --panel: #ffffff;
+  --header: #0b6b4f;
+  --header-text: #ffffff;
+  --bot: #ffffff;
+  --farmer: #d9fdd3;
+  --text: #1b1f1d;
+  --muted: #5d6b65;
+  --line: #d6dcd8;
+  --accent: #0b6b4f;
+  --answer: #0b6b4f;
+  --ask: #8a5a00;
+  --abstain: #a02323;
+  --chip: #e8f1ed;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1512;
+    --panel: #17211d;
+    --header: #0f3d2e;
+    --bot: #1f2d27;
+    --farmer: #1d4a38;
+    --text: #e6ede9;
+    --muted: #9bada5;
+    --line: #2c3b35;
+    --accent: #3fb68b;
+    --answer: #5fd1a3;
+    --ask: #e6b450;
+    --abstain: #f08a8a;
+    --chip: #24352e;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans Telugu", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.app {
+  width: 100%;
+  max-width: 760px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  box-shadow: 0 0 0 1px var(--line);
+}
+header {
+  background: var(--header);
+  color: var(--header-text);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .title { flex: 1; min-width: 0; }
+header h1 { font-size: 1.05rem; margin: 0; font-weight: 600; }
+header small { opacity: .85; display: block; font-size: .78rem; }
+header select, header button {
+  background: rgba(255,255,255,.15);
+  color: var(--header-text);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+header select option { color: #111; }
+#context {
+  display: none;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+#context.on { display: flex; }
+.chip {
+  background: var(--chip);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: .78rem;
+}
+.chip b { font-weight: 600; color: var(--muted); margin-right: 4px; }
+#log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 12px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg {
+  max-width: 86%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  box-shadow: 0 1px 1px rgba(0,0,0,.08);
+}
+.msg.bot { align-self: flex-start; background: var(--bot); border-top-left-radius: 3px; }
+.msg.farmer { align-self: flex-end; background: var(--farmer); border-top-right-radius: 3px; }
+.msg.advisory { border-left: 4px solid var(--answer); }
+.msg.question { border-left: 4px solid var(--ask); }
+.msg.abstain { border-left: 4px solid var(--abstain); }
+.msg.note, .msg.weather, .msg.info { font-size: .92rem; color: var(--muted); }
+.msg.error { border-left: 4px solid var(--abstain); color: var(--abstain); }
+.msg img { display: block; max-width: 100%; max-height: 260px; border-radius: 8px; }
+.badge {
+  align-self: flex-start;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  margin-top: 2px;
+}
+.badge.ANSWER { color: var(--answer); }
+.badge.ASK_FOLLOW_UP { color: var(--ask); }
+.badge.ABSTAIN { color: var(--abstain); }
+details.more {
+  align-self: flex-start;
+  max-width: 86%;
+  font-size: .85rem;
+  color: var(--muted);
+}
+details.more summary { cursor: pointer; padding: 2px 0; }
+details.more pre {
+  white-space: pre-wrap;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px 0 0;
+  font: .8rem/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--text);
+}
+.typing { align-self: flex-start; color: var(--muted); font-size: .9rem; padding: 2px 6px; }
+#attach {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+}
+#attach.on { display: flex; }
+#attach img { height: 56px; width: 56px; object-fit: cover; border-radius: 8px; }
+#attach .name { flex: 1; min-width: 0; font-size: .85rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#hint {
+  display: none;
+  padding: 6px 12px;
+  font-size: .82rem;
+  color: var(--ask);
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+#hint.on { display: block; }
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+}
+.composer textarea {
+  flex: 1;
+  resize: none;
+  max-height: 120px;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 9px 14px;
+  font: inherit;
+  background: var(--bg);
+  color: var(--text);
+}
+.icon {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+.icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icon:disabled { opacity: .45; cursor: default; }
+.icon.rec { background: var(--abstain); color: #fff; border-color: var(--abstain); }
+.send { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.link { background: none; border: none; color: var(--accent); cursor: pointer; font: inherit; padding: 0; text-decoration: underline; }
+dialog {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--panel);
+  color: var(--text);
+  width: min(94vw, 520px);
+}
+dialog::backdrop { background: rgba(0,0,0,.55); }
+dialog video { width: 100%; border-radius: 10px; background: #000; max-height: 60vh; }
+dialog .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 10px; }
+dialog .row button {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+  background: var(--panel);
+  color: var(--text);
+}
+dialog .row button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="title">
+      <h1>KisanSaarthi AI</h1>
+      <small>Crop advisory for your field</small>
+    </div>
+    <label class="sr" for="lang">Language</label>
+    <select id="lang" title="Language">
+      <option value="auto">Auto</option>
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+    </select>
+    <button id="reset" type="button" title="Start a new conversation">New chat</button>
+  </header>
+
+  <div id="context" aria-label="What I know so far"></div>
+  <div id="log" role="log" aria-live="polite"></div>
+  <div id="hint"></div>
+
+  <div id="attach">
+    <img id="attachImg" alt="Selected crop photo">
+    <div class="name" id="attachName"></div>
+    <button class="link" id="replaceImg" type="button">Replace</button>
+    <button class="link" id="removeImg" type="button">Remove</button>
+  </div>
+
+  <form class="composer" id="form" autocomplete="off">
+    <input type="file" id="file" accept="image/jpeg,image/png,image/webp" class="sr" tabindex="-1">
+    <button class="icon" type="button" id="btnUpload" title="Upload photo" aria-label="Upload photo">
+      <svg viewBox="0 0 24 24"><path d="M21 12.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l9-9a3.3 3.3 0 0 1 4.7 4.7l-9 9a1.7 1.7 0 0 1-2.4-2.4l8.3-8.3"/></svg>
+    </button>
+    <button class="icon" type="button" id="btnCamera" title="Take photo" aria-label="Take photo">
+      <svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
+    </button>
+    <button class="icon" type="button" id="btnLocation" title="Share my location" aria-label="Share my location">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>
+    </button>
+    <button class="icon" type="button" id="btnVoice" title="Speak" aria-label="Speak">
+      <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+    </button>
+    <label class="sr" for="text">Message</label>
+    <textarea id="text" rows="1" placeholder="Type your crop question..." maxlength="2000"></textarea>
+    <button class="icon send" type="submit" id="btnSend" title="Send" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+    </button>
+  </form>
+</div>
+
+<dialog id="camDialog">
+  <video id="camVideo" playsinline muted></video>
+  <div class="row">
+    <button type="button" id="camCancel">Cancel</button>
+    <button type="button" class="primary" id="camShot">Capture</button>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var log = $("log"), form = $("form"), textEl = $("text"), langEl = $("lang");
+  var state = { session: null, image: null, busy: false, recording: null };
+
+  var UI = {
+    en: { send: "Send", wait: "Thinking...", noLoc: "Location is not available in this browser.", locDenied: "Location permission was denied. Type your village and district instead.", camFail: "Could not open the camera. Use Upload instead.", micFail: "Could not use the microphone. Type your message instead.", voiceHint: "Check the text below, correct it if needed, then press Send.", transcribing: "Converting your voice to text...", details: "English details", trace: "How this was decided", photoOnly: "Photo", locShared: "Location shared", err: "Something went wrong" },
+    hi: { send: "भेजें", wait: "सोच रहा हूँ...", noLoc: "इस ब्राउज़र में लोकेशन उपलब्ध नहीं है।", locDenied: "लोकेशन की अनुमति नहीं मिली। अपने गाँव और जिले का नाम लिखें।", camFail: "कैमरा नहीं खुल सका। अपलोड का उपयोग करें।", micFail: "माइक्रोफोन का उपयोग नहीं हो सका। संदेश लिखें।", voiceHint: "नीचे का पाठ जाँचें, ज़रूरत हो तो सुधारें, फिर भेजें दबाएँ।", transcribing: "आपकी आवाज़ को पाठ में बदल रहा हूँ...", details: "English details", trace: "निर्णय कैसे लिया गया", photoOnly: "फोटो", locShared: "लोकेशन साझा की", err: "कुछ गड़बड़ हुई" },
+    ta: { send: "அனுப்பு", wait: "யோசிக்கிறேன்...", noLoc: "இந்த உலாவியில் இருப்பிடம் கிடைக்கவில்லை.", locDenied: "இருப்பிட அனுமதி மறுக்கப்பட்டது. உங்கள் ஊர் மற்றும் மாவட்டத்தை எழுதுங்கள்.", camFail: "கேமராவை திறக்க முடியவில்லை. பதிவேற்றத்தைப் பயன்படுத்துங்கள்.", micFail: "மைக்ரோஃபோனைப் பயன்படுத்த முடியவில்லை. செய்தியை எழுதுங்கள்.", voiceHint: "கீழே உள்ள உரையைச் சரிபார்த்து, தேவையானால் திருத்தி, அனுப்பு அழுத்தவும்.", transcribing: "உங்கள் குரலை உரையாக மாற்றுகிறேன்...", details: "English details", trace: "எப்படி முடிவு செய்யப்பட்டது", photoOnly: "புகைப்படம்", locShared: "இருப்பிடம் பகிரப்பட்டது", err: "ஏதோ தவறு நடந்தது" },
+    te: { send: "పంపండి", wait: "ఆలోచిస్తున్నాను...", noLoc: "ఈ బ్రౌజర్‌లో లొకేషన్ అందుబాటులో లేదు.", locDenied: "లొకేషన్ అనుమతి లభించలేదు. మీ గ్రామం మరియు జిల్లా పేరు టైప్ చేయండి.", camFail: "కెమెరా తెరవలేకపోయాను. అప్‌లోడ్ ఉపయోగించండి.", micFail: "మైక్రోఫోన్ ఉపయోగించలేకపోయాను. సందేశం టైప్ చేయండి.", voiceHint: "కింది టెక్స్ట్ చూసి, అవసరమైతే సరిచేసి, పంపండి నొక్కండి.", transcribing: "మీ గొంతును టెక్స్ట్‌గా మారుస్తున్నాను...", details: "English details", trace: "నిర్ణయం ఎలా తీసుకున్నారు", photoOnly: "ఫోటో", locShared: "లొకేషన్ పంచుకున్నారు", err: "ఏదో తప్పు జరిగింది" }
+  };
+  var currentLang = "en";
+  function ui(key) { return (UI[currentLang] || UI.en)[key] || UI.en[key]; }
+
+  function safeStore(key, value) {
+    try {
+      if (value === undefined) { return sessionStorage.getItem(key); }
+      if (value === null) { sessionStorage.removeItem(key); } else { sessionStorage.setItem(key, value); }
+    } catch (e) { /* storage unavailable: session lives in memory only */ }
+    return null;
+  }
+
+  // ---------------- rendering (text nodes only, no HTML injection) ----------------
+  function scrollDown() { log.scrollTop = log.scrollHeight; }
+
+  function addBubble(role, text, kind, imageUrl) {
+    var el = document.createElement("div");
+    el.className = "msg " + role + (kind ? " " + kind : "");
+    if (imageUrl) {
+      var img = document.createElement("img");
+      img.src = imageUrl;
+      img.alt = ui("photoOnly");
+      el.appendChild(img);
+    }
+    if (text) {
+      var span = document.createElement("span");
+      span.textContent = text;
+      el.appendChild(span);
+    }
+    log.appendChild(el);
+    scrollDown();
+    return el;
+  }
+
+  function addBadge(decision) {
+    if (!decision) { return; }
+    var b = document.createElement("div");
+    b.className = "badge " + decision;
+    b.textContent = decision;
+    log.appendChild(b);
+  }
+
+  function addDetails(summary, body) {
+    if (!body) { return; }
+    var d = document.createElement("details");
+    d.className = "more";
+    var s = document.createElement("summary");
+    s.textContent = summary;
+    var pre = document.createElement("pre");
+    pre.textContent = body;
+    d.appendChild(s);
+    d.appendChild(pre);
+    log.appendChild(d);
+  }
+
+  function traceText(trace) {
+    return (trace || []).map(function (step) {
+      var agent = step.agent;
+      var parts = Object.keys(step).filter(function (k) { return k !== "agent" && step[k] !== null && step[k] !== undefined && step[k] !== ""; })
+        .map(function (k) { var v = step[k]; return k + "=" + (typeof v === "object" ? JSON.stringify(v) : v); });
+      return agent + (parts.length ? ": " + parts.join(", ") : "");
+    }).join("\n");
+  }
+
+  function renderContext(ctx) {
+    var box = $("context");
+    box.textContent = "";
+    if (!ctx) { box.classList.remove("on"); return; }
+    var items = [
+      ["Crop", ctx.crop], ["Problem", ctx.pest ? ctx.pest : (ctx.symptoms && ctx.symptoms.length ? ctx.symptoms.join(", ") : null)],
+      ["Place", ctx.location], ["Area", ctx.land_area ? ctx.land_area + " " + (ctx.land_unit || "") : null],
+      ["Stage", ctx.growth_stage], ["Harvest in", ctx.days_to_harvest !== null && ctx.days_to_harvest !== undefined ? ctx.days_to_harvest + " days" : null],
+      ["Last spray", ctx.previous_treatment ? ctx.previous_treatment + (ctx.days_since_previous_treatment !== null && ctx.days_since_previous_treatment !== undefined ? ", " + ctx.days_since_previous_treatment + " d ago" : "") : null]
+    ].filter(function (p) { return p[1]; });
+    items.forEach(function (p) {
+      var c = document.createElement("span");
+      c.className = "chip";
+      var b = document.createElement("b");
+      b.textContent = p[0];
+      c.appendChild(b);
+      c.appendChild(document.createTextNode(String(p[1])));
+      box.appendChild(c);
+    });
+    box.classList.toggle("on", items.length > 0);
+  }
+
+  function renderReply(data) {
+    if (data.language && UI[data.language]) { currentLang = data.language; }
+    (data.messages || []).forEach(function (m) { addBubble("bot", m.text, m.kind); });
+    addBadge(data.decision);
+    if (data.details) { addDetails(data.details_label || ui("details"), data.details); }
+    if (data.agent_trace && data.agent_trace.length) { addDetails(ui("trace"), traceText(data.agent_trace)); }
+    renderContext(data.context);
+    scrollDown();
+  }
+
+  // ---------------- network ----------------
+  function setBusy(on) {
+    state.busy = on;
+    $("btnSend").disabled = on;
+    var old = $("typing");
+    if (old) { old.remove(); }
+    if (on) {
+      var t = document.createElement("div");
+      t.id = "typing"; t.className = "typing"; t.textContent = ui("wait");
+      log.appendChild(t); scrollDown();
+    }
+  }
+
+  async function sendTurn(opts) {
+    if (state.busy) { return; }
+    var fd = new FormData();
+    if (state.session) { fd.append("session_id", state.session); }
+    fd.append("language", langEl.value);
+    if (opts.text) { fd.append("text", opts.text); }
+    if (opts.image) { fd.append("image", opts.image, opts.image.name || "photo.jpg"); }
+    if (opts.lat !== undefined) { fd.append("latitude", String(opts.lat)); fd.append("longitude", String(opts.lon)); }
+    setBusy(true);
+    try {
+      var res = await fetch("/api/chat/turn", { method: "POST", body: fd });
+      var data = await res.json().catch(function () { return {}; });
+      setBusy(false);
+      if (!res.ok) {
+        addBubble("bot", (typeof data.detail === "string" ? data.detail : ui("err")), "error");
+        return;
+      }
+      state.session = data.session_id;
+      safeStore("ks_session", state.session);
+      renderReply(data);
+    } catch (e) {
+      setBusy(false);
+      addBubble("bot", ui("err"), "error");
+    }
+  }
+
+  // ---------------- composer ----------------
+  function clearHint() { $("hint").classList.remove("on"); $("hint").textContent = ""; }
+  function showHint(text) { $("hint").textContent = text; $("hint").classList.add("on"); }
+
+  function setImage(file) {
+    if (state.image && state.image.url) { URL.revokeObjectURL(state.image.url); }
+    if (!file) { state.image = null; $("attach").classList.remove("on"); return; }
+    state.image = { file: file, url: URL.createObjectURL(file) };
+    $("attachImg").src = state.image.url;
+    $("attachName").textContent = file.name || "photo.jpg";
+    $("attach").classList.add("on");
+  }
+
+  function autosize() { textEl.style.height = "auto"; textEl.style.height = Math.min(textEl.scrollHeight, 120) + "px"; }
+  textEl.addEventListener("input", autosize);
+  textEl.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var text = textEl.value.trim();
+    var image = state.image ? state.image.file : null;
+    if (!text && !image) { return; }
+    addBubble("farmer", text, null, state.image ? state.image.url : null);
+    textEl.value = ""; autosize(); clearHint();
+    var keepUrl = state.image;           // bubble still shows this object URL
+    state.image = null; $("attach").classList.remove("on");
+    sendTurn({ text: text, image: image });
+    void keepUrl;
+  });
+
+  $("btnUpload").addEventListener("click", function () { $("file").click(); });
+  $("replaceImg").addEventListener("click", function () { $("file").click(); });
+  $("removeImg").addEventListener("click", function () { setImage(null); });
+  $("file").addEventListener("change", function () {
+    var f = this.files && this.files[0];
+    if (f) { setImage(f); }
+    this.value = "";
+  });
+
+  // ---------------- camera ----------------
+  var camStream = null;
+  function stopCam() {
+    if (camStream) { camStream.getTracks().forEach(function (t) { t.stop(); }); camStream = null; }
+    if ($("camDialog").open) { $("camDialog").close(); }
+  }
+  $("btnCamera").addEventListener("click", async function () {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { addBubble("bot", ui("camFail"), "error"); return; }
+    try {
+      camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
+      $("camVideo").srcObject = camStream;
+      $("camDialog").showModal();
+      await $("camVideo").play();
+    } catch (e) { stopCam(); addBubble("bot", ui("camFail"), "error"); }
+  });
+  $("camCancel").addEventListener("click", stopCam);
+  $("camDialog").addEventListener("cancel", stopCam);
+  $("camShot").addEventListener("click", function () {
+    var v = $("camVideo");
+    if (!v.videoWidth) { return; }
+    var c = document.createElement("canvas");
+    c.width = v.videoWidth; c.height = v.videoHeight;
+    c.getContext("2d").drawImage(v, 0, 0);
+    c.toBlob(function (blob) {
+      if (blob) { setImage(new File([blob], "camera_" + Date.now() + ".jpg", { type: "image/jpeg" })); }
+      stopCam();
+    }, "image/jpeg", 0.9);
+  });
+
+  // ---------------- location ----------------
+  $("btnLocation").addEventListener("click", function () {
+    if (!navigator.geolocation) { addBubble("bot", ui("noLoc"), "error"); return; }
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      addBubble("farmer", ui("locShared"));
+      sendTurn({ lat: pos.coords.latitude, lon: pos.coords.longitude });
+    }, function () { addBubble("bot", ui("locDenied"), "error"); }, { enableHighAccuracy: false, timeout: 15000 });
+  });
+
+  // ---------------- voice: record -> transcribe -> farmer confirms -> send ----------------
+  $("btnVoice").addEventListener("click", async function () {
+    var btn = this;
+    if (state.recording) { state.recording.stop(); return; }
+    if (!navigator.mediaDevices || !window.MediaRecorder) { addBubble("bot", ui("micFail"), "error"); return; }
+    try {
+      var stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      var chunks = [];
+      var rec = new MediaRecorder(stream);
+      state.recording = rec;
+      btn.classList.add("rec");
+      rec.ondataavailable = function (ev) { if (ev.data.size) { chunks.push(ev.data); } };
+      rec.onstop = async function () {
+        stream.getTracks().forEach(function (t) { t.stop(); });
+        btn.classList.remove("rec");
+        state.recording = null;
+        var blob = new Blob(chunks, { type: rec.mimeType || "audio/webm" });
+        if (!blob.size) { return; }
+        showHint(ui("transcribing"));
+        var fd = new FormData();
+        fd.append("audio", blob, "voice.webm");
+        if (langEl.value !== "auto") { fd.append("language", langEl.value); }
+        try {
+          var res = await fetch("/api/speech/transcribe", { method: "POST", body: fd });
+          var data = await res.json().catch(function () { return {}; });
+          if (!res.ok) { clearHint(); addBubble("bot", typeof data.detail === "string" ? data.detail : ui("micFail"), "error"); return; }
+          textEl.value = data.text || "";
+          autosize(); textEl.focus();
+          showHint(ui("voiceHint"));   // nothing is sent until the farmer presses Send
+        } catch (e) { clearHint(); addBubble("bot", ui("micFail"), "error"); }
+      };
+      rec.start();
+    } catch (e) { state.recording = null; btn.classList.remove("rec"); addBubble("bot", ui("micFail"), "error"); }
+  });
+
+  // ---------------- header ----------------
+  async function greet() {
+    try {
+      var lang = langEl.value === "auto" ? "en" : langEl.value;
+      currentLang = lang;
+      var res = await fetch("/api/chat/greeting?language=" + encodeURIComponent(lang));
+      var data = await res.json();
+      addBubble("bot", data.text);
+    } catch (e) { addBubble("bot", "Hello. Which crop has a problem?"); }
+  }
+
+  function newChat() {
+    if (state.session) { fetch("/api/chat/session/" + encodeURIComponent(state.session), { method: "DELETE" }).catch(function () {}); }
+    state.session = null; safeStore("ks_session", null);
+    log.textContent = ""; renderContext(null); setImage(null); clearHint();
+    greet();
+  }
+  $("reset").addEventListener("click", newChat);
+  langEl.addEventListener("change", function () {
+    if (langEl.value !== "auto") { currentLang = langEl.value; }
+    if (!state.session && !log.querySelector(".farmer")) { log.textContent = ""; greet(); }
+  });
+
+  async function restore() {
+    var sid = safeStore("ks_session");
+    if (sid) {
+      try {
+        var res = await fetch("/api/chat/session/" + encodeURIComponent(sid));
+        if (res.ok) {
+          var data = await res.json();
+          if (data.history && data.history.length) {
+            state.session = data.session_id;
+            data.history.forEach(function (h) {
+              if (h.role === "user" && h.text === "[image]") { addBubble("farmer", ui("photoOnly")); }
+              else { addBubble(h.role === "user" ? "farmer" : "bot", h.text, h.kind || null); }
+            });
+            renderContext(data.context);
+            return;
+          }
+        }
+      } catch (e) { /* fall through to greeting */ }
+    }
+    greet();
+  }
+  restore();
+})();
+</script>
+</body>
+</html>

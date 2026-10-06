@@ -1,0 +1,859 @@
+{
+  "_note": "Deterministic multilingual lexicon for Mode B (no LLM). Keys are canonical English values. Indic entries are matched as substrings so suffixed forms (நெல்லில், వరికి) still match. Hindi, Tamil and Telugu entries should be reviewed by native speakers before field deployment.",
+  "crops": {
+    "Rice": [
+      "rice",
+      "paddy",
+      "धान",
+      "चावल",
+      "நெல்",
+      "அரிசி",
+      "వరి",
+      "బియ్యం"
+    ],
+    "Wheat": [
+      "wheat",
+      "गेहूं",
+      "गेहूँ",
+      "கோதுமை",
+      "గోధుమ"
+    ],
+    "Maize": [
+      "maize",
+      "corn",
+      "makka",
+      "मक्का",
+      "மக்காச்சோளம்",
+      "மக்காசோளம்",
+      "మొక్కజొన్న"
+    ],
+    "Tomato": [
+      "tomato",
+      "tomatoes",
+      "टमाटर",
+      "தக்காளி",
+      "టమాటా",
+      "టమోటా"
+    ],
+    "Chilli": [
+      "chilli",
+      "chillies",
+      "chili",
+      "chilies",
+      "chilly",
+      "mirchi",
+      "मिर्च",
+      "मिर्ची",
+      "மிளகாய்",
+      "మిరప",
+      "మిర్చి"
+    ],
+    "Brinjal": [
+      "brinjal",
+      "eggplant",
+      "aubergine",
+      "baingan",
+      "बैंगन",
+      "கத்தரி",
+      "கத்திரி",
+      "వంకాయ",
+      "వంగ"
+    ],
+    "Onion": [
+      "onion",
+      "onions",
+      "pyaz",
+      "प्याज",
+      "प्याज़",
+      "வெங்காயம்",
+      "ఉల్లి"
+    ],
+    "Potato": [
+      "potato",
+      "potatoes",
+      "aloo",
+      "आलू",
+      "உருளைக்கிழங்கு",
+      "உருளை",
+      "బంగాళాదుంప",
+      "ఆలుగడ్డ"
+    ],
+    "Okra": [
+      "okra",
+      "bhindi",
+      "ladies finger",
+      "lady finger",
+      "ladyfinger",
+      "भिंडी",
+      "வெண்டை",
+      "బెండ"
+    ],
+    "Cabbage": [
+      "cabbage",
+      "पत्तागोभी",
+      "पत्ता गोभी",
+      "बंदगोभी",
+      "बंद गोभी",
+      "முட்டைக்கோஸ்",
+      "முட்டைகோஸ்",
+      "క్యాబేజీ"
+    ],
+    "Groundnut": [
+      "groundnut",
+      "peanut",
+      "peanuts",
+      "moongphali",
+      "मूंगफली",
+      "मूँगफली",
+      "நிலக்கடலை",
+      "வேர்க்கடலை",
+      "வேர்கடலை",
+      "వేరుశనగ",
+      "వేరుశెనగ",
+      "పల్లీ"
+    ],
+    "Chickpea": [
+      "chickpea",
+      "chickpeas",
+      "bengal gram",
+      "gram",
+      "chana",
+      "चना",
+      "கொண்டைக்கடலை",
+      "கொண்டை கடலை",
+      "శనగ",
+      "సెనగ"
+    ],
+    "Mustard": [
+      "mustard",
+      "rapeseed",
+      "sarson",
+      "सरसों",
+      "கடுகு",
+      "ఆవాలు"
+    ],
+    "Cotton": [
+      "cotton",
+      "kapas",
+      "कपास",
+      "பருத்தி",
+      "పత్తి"
+    ],
+    "Banana": [
+      "banana",
+      "bananas",
+      "plantain",
+      "केला",
+      "केले",
+      "வாழை",
+      "అరటి"
+    ]
+  },
+  "symptoms": {
+    "leaf curling": [
+      "curl",
+      "curling",
+      "curled",
+      "curly",
+      "मुड़",
+      "मुड",
+      "सिकुड़",
+      "சுருண்",
+      "சுருள்",
+      "ముడుచు",
+      "ముడత",
+      "ముడుత"
+    ],
+    "yellowing": [
+      "yellow",
+      "yellowing",
+      "chlorosis",
+      "पीला",
+      "पीली",
+      "पीले",
+      "மஞ்சள்",
+      "పసుపు"
+    ],
+    "spots": [
+      "spot",
+      "spots",
+      "lesion",
+      "lesions",
+      "patch",
+      "patches",
+      "धब्बा",
+      "धब्बे",
+      "புள்ளி",
+      "மச்ச",
+      "మచ్చ"
+    ],
+    "wilting": [
+      "wilt",
+      "wilting",
+      "wilted",
+      "drooping",
+      "मुरझा",
+      "வாடி",
+      "வாடுத",
+      "వాడి",
+      "వడలి"
+    ],
+    "drying": [
+      "dry",
+      "drying",
+      "dried",
+      "burnt",
+      "scorched",
+      "सूख",
+      "காய்ந்",
+      "கருகி",
+      "கருகல்",
+      "ఎండి",
+      "ఎండిపో"
+    ],
+    "rotting": [
+      "rot",
+      "rotting",
+      "rotten",
+      "सड़",
+      "அழுகி",
+      "அழுகல்",
+      "కుళ్ళ",
+      "కుళ్లు"
+    ],
+    "holes": [
+      "hole",
+      "holes",
+      "eaten",
+      "chewed",
+      "छेद",
+      "ஓட்டை",
+      "துளை",
+      "రంధ్ర"
+    ],
+    "white powder": [
+      "white powder",
+      "powdery",
+      "white coating",
+      "mildew",
+      "सफेद पाउडर",
+      "सफ़ेद पाउडर",
+      "வெள்ளை பொடி",
+      "வெள்ளை தூள்",
+      "బూజు"
+    ],
+    "insects": [
+      "insect",
+      "insects",
+      "worm",
+      "worms",
+      "caterpillar",
+      "larva",
+      "larvae",
+      "aphid",
+      "aphids",
+      "whitefly",
+      "thrips",
+      "mites",
+      "कीड़",
+      "कीट",
+      "इल्ली",
+      "பூச்சி",
+      "புழு",
+      "పురుగు"
+    ],
+    "rust pustules": [
+      "rust",
+      "rusty",
+      "orange powder",
+      "रतुआ",
+      "गेरुआ",
+      "துரு",
+      "తుప్పు"
+    ],
+    "stunted growth": [
+      "stunted",
+      "stunting",
+      "not growing",
+      "बौना",
+      "வளர்ச்சி குன்றி",
+      "ఎదుగుదల లేదు"
+    ]
+  },
+  "growth_stages": {
+    "seedling": [
+      "seedling",
+      "nursery",
+      "transplant",
+      "पौध",
+      "नर्सरी",
+      "अंकुर",
+      "நாற்று",
+      "நர்சரி",
+      "నారు",
+      "మొలక"
+    ],
+    "vegetative": [
+      "vegetative",
+      "tillering",
+      "growing stage",
+      "बढ़वार",
+      "कल्ले",
+      "வளர்ச்சி பருவ",
+      "தூர் கட்டும்",
+      "పిలక",
+      "ఎదుగుదల దశ"
+    ],
+    "flowering": [
+      "flowering",
+      "flower",
+      "flowers",
+      "bloom",
+      "blooming",
+      "panicle",
+      "heading",
+      "फूल",
+      "बाली",
+      "பூக்கும்",
+      "பூத்",
+      "கதிர்",
+      "పూత",
+      "పువ్వు",
+      "పూలు",
+      "వెన్ను"
+    ],
+    "fruiting": [
+      "fruiting",
+      "fruit",
+      "fruits",
+      "pod",
+      "pods",
+      "boll",
+      "bolls",
+      "फल",
+      "फली",
+      "காய்க்கும்",
+      "காய் பிடி",
+      "కాయ",
+      "కాపు"
+    ],
+    "pre_harvest": [
+      "near harvest",
+      "pre harvest",
+      "pre-harvest",
+      "ready to harvest",
+      "about to harvest",
+      "maturity",
+      "कटाई के करीब",
+      "पकने",
+      "அறுவடைக்கு தயார்",
+      "முதிர்",
+      "కోతకు సిద్ధ",
+      "పక్వ"
+    ]
+  },
+  "area_units": {
+    "acre": [
+      "acre",
+      "acres",
+      "ac",
+      "एकड़",
+      "एकड",
+      "ஏக்கர்",
+      "ఎకరం",
+      "ఎకరా",
+      "ఎకరాలు"
+    ],
+    "hectare": [
+      "hectare",
+      "hectares",
+      "ha",
+      "हेक्टेयर",
+      "ஹெக்டேர்",
+      "హెక్టారు",
+      "హెక్టార్"
+    ],
+    "cent": [
+      "cent",
+      "cents",
+      "सेंट",
+      "சென்ட்",
+      "செண்ட்",
+      "సెంటు",
+      "సెంట్లు"
+    ],
+    "guntha": [
+      "guntha",
+      "gunta",
+      "gunthas",
+      "गुंठा",
+      "గుంట",
+      "గుంటలు"
+    ],
+    "sqm": [
+      "sqm",
+      "square metre",
+      "square meter",
+      "square metres",
+      "square meters",
+      "वर्ग मीटर",
+      "சதுர மீட்டர்",
+      "చదరపు మీటర్"
+    ]
+  },
+  "number_words": {
+    "0.25": [
+      "quarter",
+      "पाव",
+      "கால்"
+    ],
+    "0.5": [
+      "half",
+      "आधा",
+      "आधे",
+      "அரை",
+      "అర"
+    ],
+    "1": [
+      "one",
+      "a",
+      "an",
+      "एक",
+      "ஒரு",
+      "ஒன்று",
+      "ఒక",
+      "ఒకటి"
+    ],
+    "1.5": [
+      "one and half",
+      "one and a half",
+      "डेढ़",
+      "डेढ",
+      "ఒకటిన్నర"
+    ],
+    "2": [
+      "two",
+      "दो",
+      "இரண்டு",
+      "ரெண்டு",
+      "రెండు"
+    ],
+    "2.5": [
+      "two and half",
+      "two and a half",
+      "ढाई"
+    ],
+    "3": [
+      "three",
+      "तीन",
+      "மூன்று",
+      "మూడు"
+    ],
+    "4": [
+      "four",
+      "चार",
+      "நான்கு",
+      "నాలుగు"
+    ],
+    "5": [
+      "five",
+      "पांच",
+      "पाँच",
+      "ஐந்து",
+      "ఐదు"
+    ],
+    "6": [
+      "six",
+      "छह",
+      "छः",
+      "ஆறு",
+      "ఆరు"
+    ],
+    "7": [
+      "seven",
+      "सात",
+      "ஏழு",
+      "ఏడు"
+    ],
+    "8": [
+      "eight",
+      "आठ",
+      "எட்டு",
+      "ఎనిమిది"
+    ],
+    "9": [
+      "nine",
+      "नौ",
+      "ஒன்பது",
+      "తొమ్మిది"
+    ],
+    "10": [
+      "ten",
+      "दस",
+      "பத்து",
+      "పది"
+    ],
+    "15": [
+      "fifteen",
+      "पंद्रह",
+      "பதினைந்து",
+      "పదిహేను"
+    ],
+    "20": [
+      "twenty",
+      "बीस",
+      "இருபது",
+      "ఇరవై"
+    ],
+    "30": [
+      "thirty",
+      "तीस",
+      "முப்பது",
+      "ముప్పై"
+    ]
+  },
+  "time_units": {
+    "day": [
+      "day",
+      "days",
+      "दिन",
+      "நாள்",
+      "நாட்கள்",
+      "நாட்களில்",
+      "நாளில்",
+      "రోజు",
+      "రోజుల",
+      "రోజులు",
+      "రోజుల్లో"
+    ],
+    "week": [
+      "week",
+      "weeks",
+      "हफ्ता",
+      "हफ्ते",
+      "हफ़्ते",
+      "सप्ताह",
+      "வாரம்",
+      "வாரங்கள்",
+      "వారం",
+      "వారాలు",
+      "వారాల"
+    ],
+    "month": [
+      "month",
+      "months",
+      "महीना",
+      "महीने",
+      "மாதம்",
+      "மாதங்கள்",
+      "నెల",
+      "నెలలు",
+      "నెలల"
+    ]
+  },
+  "relative_past": {
+    "0": [
+      "today",
+      "आज",
+      "இன்று",
+      "ఈ రోజు",
+      "ఈరోజు"
+    ],
+    "1": [
+      "yesterday",
+      "कल",
+      "நேற்று",
+      "నిన్న"
+    ],
+    "2": [
+      "day before yesterday",
+      "परसों",
+      "நேற்று முன்தினம்",
+      "మొన్న"
+    ],
+    "7": [
+      "last week",
+      "a week ago",
+      "one week ago",
+      "पिछले हफ्ते",
+      "पिछले सप्ताह",
+      "पिछले हफ़्ते",
+      "கடந்த வாரம்",
+      "போன வாரம்",
+      "గత వారం",
+      "పోయిన వారం"
+    ],
+    "30": [
+      "last month",
+      "पिछले महीने",
+      "கடந்த மாதம்",
+      "போன மாதம்",
+      "గత నెల",
+      "పోయిన నెల"
+    ]
+  },
+  "ago_markers": [
+    "ago",
+    "back",
+    "पहले",
+    "முன்",
+    "முன்பு",
+    "క్రితం",
+    "కిందట"
+  ],
+  "future_markers": [
+    "in",
+    "after",
+    "में",
+    "बाद",
+    "இல்",
+    "பிறகு",
+    "లో",
+    "తర్వాత"
+  ],
+  "harvest_words": [
+    "harvest",
+    "harvesting",
+    "कटाई",
+    "तुड़ाई",
+    "அறுவடை",
+    "కోత",
+    "పంట కోత"
+  ],
+  "spray_words": [
+    "spray",
+    "sprayed",
+    "spraying",
+    "applied",
+    "apply",
+    "used",
+    "dusted",
+    "छिड़काव",
+    "छिड़का",
+    "स्प्रे",
+    "डाला",
+    "தெளித்",
+    "தெளிப்",
+    "அடித்",
+    "పిచికారీ",
+    "స్ప్రే",
+    "కొట్టా",
+    "వాడా"
+  ],
+  "times_words": [
+    "time",
+    "times",
+    "बार",
+    "முறை",
+    "தடவை",
+    "సార్లు",
+    "సారి"
+  ],
+  "symptom_onset_words": [
+    "started",
+    "since",
+    "began",
+    "noticed",
+    "शुरू",
+    "ஆரம்ப",
+    "தொடங்க",
+    "முதல்",
+    "మొదలై",
+    "నుంచి",
+    "నుండి"
+  ],
+  "soil_types": {
+    "red": [
+      "red soil",
+      "लाल मिट्टी",
+      "செம்மண்",
+      "சிவப்பு மண்",
+      "ఎర్ర నేల",
+      "ఎర్రమట్టి"
+    ],
+    "black": [
+      "black soil",
+      "black cotton soil",
+      "काली मिट्टी",
+      "கரிசல்",
+      "கருப்பு மண்",
+      "నల్ల రేగడి",
+      "నల్లరేగడి",
+      "నల్ల నేల"
+    ],
+    "alluvial": [
+      "alluvial",
+      "जलोढ़",
+      "வண்டல்",
+      "ఒండ్రు"
+    ],
+    "sandy": [
+      "sandy",
+      "बलुई",
+      "रेतीली",
+      "மணல்",
+      "ఇసుక"
+    ],
+    "clay": [
+      "clay",
+      "चिकनी",
+      "களிமண்",
+      "బంకమట్టి"
+    ],
+    "loam": [
+      "loam",
+      "loamy",
+      "दोमट",
+      "வண்டல் மண்",
+      "గరప"
+    ]
+  },
+  "yes": [
+    "yes",
+    "yeah",
+    "yep",
+    "correct",
+    "right",
+    "ok",
+    "okay",
+    "haan",
+    "हाँ",
+    "हां",
+    "जी",
+    "सही",
+    "ஆம்",
+    "ஆமாம்",
+    "சரி",
+    "అవును",
+    "సరే",
+    "ఔను"
+  ],
+  "no": [
+    "no",
+    "nope",
+    "not",
+    "wrong",
+    "nahi",
+    "नहीं",
+    "नही",
+    "गलत",
+    "இல்லை",
+    "தவறு",
+    "కాదు",
+    "లేదు"
+  ],
+  "greetings": [
+    "hi",
+    "hello",
+    "hey",
+    "namaste",
+    "नमस्ते",
+    "नमस्कार",
+    "வணக்கம்",
+    "నమస్తే",
+    "నమస్కారం"
+  ],
+  "reset_words": [
+    "reset",
+    "start over",
+    "new question",
+    "restart",
+    "नया सवाल",
+    "फिर से शुरू",
+    "புதிய கேள்வி",
+    "కొత్త ప్రశ్న"
+  ],
+  "weather_words": [
+    "weather",
+    "rain",
+    "forecast",
+    "wind",
+    "मौसम",
+    "बारिश",
+    "வானிலை",
+    "மழை",
+    "వాతావరణం",
+    "వర్షం"
+  ],
+  "location_prepositions": [
+    "in",
+    "at",
+    "near",
+    "from",
+    "village",
+    "district",
+    "में",
+    "जिला",
+    "गांव",
+    "गाँव",
+    "மாவட்டம்",
+    "கிராமம்",
+    "జిల్లా",
+    "గ్రామం"
+  ],
+  "common_active_ingredients": [
+    "imidacloprid",
+    "thiamethoxam",
+    "acetamiprid",
+    "clothianidin",
+    "dinotefuran",
+    "fipronil",
+    "chlorpyrifos",
+    "quinalphos",
+    "profenofos",
+    "monocrotophos",
+    "acephate",
+    "dimethoate",
+    "malathion",
+    "cypermethrin",
+    "lambda cyhalothrin",
+    "lambda-cyhalothrin",
+    "deltamethrin",
+    "bifenthrin",
+    "fenvalerate",
+    "emamectin benzoate",
+    "spinosad",
+    "spinetoram",
+    "chlorantraniliprole",
+    "flubendiamide",
+    "cyantraniliprole",
+    "indoxacarb",
+    "novaluron",
+    "lufenuron",
+    "buprofezin",
+    "pymetrozine",
+    "flonicamid",
+    "diafenthiuron",
+    "spiromesifen",
+    "fenpyroximate",
+    "propargite",
+    "abamectin",
+    "hexythiazox",
+    "carbendazim",
+    "mancozeb",
+    "copper oxychloride",
+    "chlorothalonil",
+    "propiconazole",
+    "hexaconazole",
+    "tebuconazole",
+    "difenoconazole",
+    "tricyclazole",
+    "isoprothiolane",
+    "azoxystrobin",
+    "kresoxim-methyl",
+    "kresoxim methyl",
+    "pyraclostrobin",
+    "trifloxystrobin",
+    "metalaxyl",
+    "cymoxanil",
+    "dimethomorph",
+    "validamycin",
+    "thifluzamide",
+    "sulphur",
+    "sulfur",
+    "streptocycline",
+    "kasugamycin",
+    "neem oil",
+    "azadirachtin"
+  ]
+}

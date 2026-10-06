@@ -1,0 +1,6 @@
+# Only needed to RUN a trained crop model or to train one
+# (scripts/train_crop_model.py). The app works without it: crops that
+# have no validated model get an image ABSTAIN.
+# CPU wheels (Windows):  pip install -r requirements-vision.txt
+torch>=2.2
+torchvision>=0.17

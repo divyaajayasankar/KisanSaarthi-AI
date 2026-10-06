@@ -1,0 +1,3 @@
+crop,pest,active_ingredient,formulation,dose_per_hectare,dose_unit,water_volume_l_per_ha,phi_days,source_document,source_page,source_url,source_date,verified
+Banana,Sigatoka leaf spot,Pyraclostrobin,20% WG,750,g,500,103,ipm_pop_banana_2022.pdf,51,https://ppqs.gov.in/sites/default/files/ipm_pop_for_banana_for_producing_quality_fruits_for_export.pdf,2022-01-01,1
+Banana,Leaf spot,Pyraclostrobin + Epoxiconazole,133 g/L + 50 g/L SE,750,ml,500,24,ipm_pop_banana_2022.pdf,51,https://ppqs.gov.in/sites/default/files/ipm_pop_for_banana_for_producing_quality_fruits_for_export.pdf,2022-01-01,1

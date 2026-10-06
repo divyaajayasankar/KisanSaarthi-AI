@@ -1,0 +1,4 @@
+{
+  "_note": "Written by scripts/train_crop_model.py. A crop model is used only when validated is true. Crops not listed here get an image ABSTAIN.",
+  "models": {}
+}

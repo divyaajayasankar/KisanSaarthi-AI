@@ -1,0 +1,285 @@
+{
+  "_note": "Response templates. {placeholders} are filled with protected values (active ingredients, numbers, units, dates, confidence) that are never translated. Hindi, Tamil and Telugu text should be reviewed by native speakers before field deployment.",
+  "greeting": {
+    "en": "Hello. I am KisanSaarthi. Tell me which crop has a problem and what you see on it. You can also send a photo.",
+    "hi": "नमस्ते। मैं किसानसारथी हूँ। बताइए किस फसल में समस्या है और आपको क्या दिख रहा है। आप फोटो भी भेज सकते हैं।",
+    "ta": "வணக்கம். நான் கிசான்சாரதி. எந்த பயிரில் பிரச்சனை உள்ளது, என்ன அறிகுறி தெரிகிறது என்று சொல்லுங்கள். புகைப்படமும் அனுப்பலாம்.",
+    "te": "నమస్తే. నేను కిసాన్‌సారథి. ఏ పంటలో సమస్య ఉంది, మీకు ఏమి కనిపిస్తోంది చెప్పండి. ఫోటో కూడా పంపవచ్చు."
+  },
+  "ask_crop": {
+    "en": "Which crop is affected? I support: {crops}.",
+    "hi": "कौन सी फसल प्रभावित है? मैं इन फसलों में मदद करता हूँ: {crops}.",
+    "ta": "எந்த பயிர் பாதிக்கப்பட்டுள்ளது? நான் உதவும் பயிர்கள்: {crops}.",
+    "te": "ఏ పంట దెబ్బతిన్నది? నేను సహాయం చేసే పంటలు: {crops}."
+  },
+  "ask_problem": {
+    "en": "What problem do you see on your {crop}? For example: spots, yellowing, curling leaves, insects. If you know the disease or pest name, tell me.",
+    "hi": "आपकी {crop} फसल में क्या समस्या दिख रही है? जैसे: धब्बे, पीलापन, पत्तियाँ मुड़ना, कीड़े। अगर रोग या कीट का नाम पता है तो बताइए।",
+    "ta": "உங்கள் {crop} பயிரில் என்ன பிரச்சனை தெரிகிறது? உதாரணம்: புள்ளிகள், மஞ்சள் நிறம், இலை சுருளுதல், பூச்சிகள். நோய் அல்லது பூச்சியின் பெயர் தெரிந்தால் சொல்லுங்கள்.",
+    "te": "మీ {crop} పంటలో ఏ సమస్య కనిపిస్తోంది? ఉదా: మచ్చలు, పసుపు రంగు, ఆకులు ముడుచుకోవడం, పురుగులు. తెగులు లేదా పురుగు పేరు తెలిస్తే చెప్పండి."
+  },
+  "ask_photo": {
+    "en": "Please upload or capture a clear photo of the affected leaves or plant. If you already know the disease or pest name, you can type it instead.",
+    "hi": "कृपया प्रभावित पत्तियों या पौधे की साफ फोटो अपलोड करें या कैमरे से लें। अगर रोग या कीट का नाम पता है तो वह लिख सकते हैं।",
+    "ta": "பாதிக்கப்பட்ட இலைகள் அல்லது செடியின் தெளிவான புகைப்படத்தை பதிவேற்றவும் அல்லது கேமராவில் எடுக்கவும். நோய் அல்லது பூச்சியின் பெயர் தெரிந்தால் அதை எழுதலாம்.",
+    "te": "దెబ్బతిన్న ఆకులు లేదా మొక్క యొక్క స్పష్టమైన ఫోటో అప్‌లోడ్ చేయండి లేదా కెమెరాతో తీయండి. తెగులు లేదా పురుగు పేరు తెలిస్తే టైప్ చేయవచ్చు."
+  },
+  "ask_location": {
+    "en": "Where is your field? Tell me the village or town and district, or tap the location button.",
+    "hi": "आपका खेत कहाँ है? गाँव या शहर और जिला बताइए, या लोकेशन बटन दबाइए।",
+    "ta": "உங்கள் வயல் எங்கே உள்ளது? கிராமம் அல்லது ஊர் மற்றும் மாவட்டத்தைச் சொல்லுங்கள், அல்லது இருப்பிட பொத்தானை அழுத்தவும்.",
+    "te": "మీ పొలం ఎక్కడ ఉంది? గ్రామం లేదా పట్టణం మరియు జిల్లా చెప్పండి, లేదా లొకేషన్ బటన్ నొక్కండి."
+  },
+  "ask_location_state": {
+    "en": "I could not confirm the state for {place}. Please tell me the district and state, for example: Coimbatore, Tamil Nadu.",
+    "hi": "{place} का राज्य पक्का नहीं हो सका। कृपया जिला और राज्य बताइए, जैसे: Coimbatore, Tamil Nadu.",
+    "ta": "{place} எந்த மாநிலம் என்று உறுதிப்படுத்த முடியவில்லை. மாவட்டம் மற்றும் மாநிலத்தைச் சொல்லுங்கள், உதாரணம்: Coimbatore, Tamil Nadu.",
+    "te": "{place} ఏ రాష్ట్రమో నిర్ధారించలేకపోయాను. జిల్లా మరియు రాష్ట్రం చెప్పండి, ఉదా: Coimbatore, Tamil Nadu."
+  },
+  "ask_land_area": {
+    "en": "How big is the affected field? For example: 2 acres or 0.5 hectare.",
+    "hi": "प्रभावित खेत कितना बड़ा है? जैसे: 2 एकड़ या 0.5 हेक्टेयर।",
+    "ta": "பாதிக்கப்பட்ட வயல் எவ்வளவு பெரியது? உதாரணம்: 2 ஏக்கர் அல்லது 0.5 ஹெக்டேர்.",
+    "te": "దెబ్బతిన్న పొలం ఎంత పెద్దది? ఉదా: 2 ఎకరాలు లేదా 0.5 హెక్టారు."
+  },
+  "ask_land_unit": {
+    "en": "Is {area} in acres, hectares, cents or guntha?",
+    "hi": "{area} एकड़, हेक्टेयर, सेंट या गुंठा में है?",
+    "ta": "{area} ஏக்கரா, ஹெக்டேரா, சென்டா அல்லது குண்டாவா?",
+    "te": "{area} ఎకరాలా, హెక్టార్లా, సెంట్లా లేదా గుంటలా?"
+  },
+  "ask_harvest_days": {
+    "en": "In how many days do you expect to harvest? For example: 30 days. This is needed to check the pre-harvest interval.",
+    "hi": "कटाई कितने दिनों में होगी? जैसे: 30 दिन। यह कटाई-पूर्व अंतराल (PHI) जाँचने के लिए ज़रूरी है।",
+    "ta": "எத்தனை நாட்களில் அறுவடை செய்ய உள்ளீர்கள்? உதாரணம்: 30 நாட்கள். அறுவடைக்கு முந்தைய இடைவெளியை (PHI) சரிபார்க்க இது தேவை.",
+    "te": "ఎన్ని రోజుల్లో కోత కోస్తారు? ఉదా: 30 రోజులు. కోతకు ముందు విరామం (PHI) తనిఖీ చేయడానికి ఇది అవసరం."
+  },
+  "ask_growth_stage": {
+    "en": "What is the current growth stage: seedling, vegetative, flowering, fruiting or near harvest?",
+    "hi": "फसल अभी किस अवस्था में है: पौध, बढ़वार, फूल, फल या कटाई के करीब?",
+    "ta": "பயிர் இப்போது எந்த நிலையில் உள்ளது: நாற்று, வளர்ச்சி, பூக்கும், காய்க்கும் அல்லது அறுவடைக்கு தயார்?",
+    "te": "పంట ఇప్పుడు ఏ దశలో ఉంది: నారు, ఎదుగుదల, పూత, కాయ లేదా కోతకు సిద్ధం?"
+  },
+  "ask_previous_treatment": {
+    "en": "Did you spray any pesticide or fungicide on this crop recently? If yes, tell me the name and when. If not, say no.",
+    "hi": "क्या आपने हाल ही में इस फसल पर कोई कीटनाशक या फफूंदनाशक छिड़का है? हाँ तो नाम और कब बताइए। नहीं तो 'नहीं' कहिए।",
+    "ta": "சமீபத்தில் இந்த பயிரில் ஏதேனும் பூச்சிக்கொல்லி அல்லது பூஞ்சைக்கொல்லி தெளித்தீர்களா? ஆம் என்றால் பெயரையும் எப்போது என்பதையும் சொல்லுங்கள். இல்லை என்றால் 'இல்லை' என்று சொல்லுங்கள்.",
+    "te": "ఈ పంటపై ఇటీవల ఏదైనా పురుగుమందు లేదా శిలీంద్రనాశిని పిచికారీ చేశారా? అవును అయితే పేరు మరియు ఎప్పుడు చెప్పండి. లేకపోతే 'లేదు' అనండి."
+  },
+  "ask_days_since_last_application": {
+    "en": "How many days ago was the last spray of {ai}?",
+    "hi": "{ai} का आखिरी छिड़काव कितने दिन पहले किया था?",
+    "ta": "{ai} கடைசியாக எத்தனை நாட்களுக்கு முன் தெளித்தீர்கள்?",
+    "te": "{ai} చివరిసారి ఎన్ని రోజుల క్రితం పిచికారీ చేశారు?"
+  },
+  "ask_confirm_pest": {
+    "en": "The photo looks like {pest} (confidence {confidence}). This is not certain. Do you see the same signs in the field? Reply yes or no.",
+    "hi": "फोटो में {pest} जैसा दिख रहा है (विश्वास {confidence})। यह पक्का नहीं है। क्या खेत में भी यही लक्षण दिख रहे हैं? हाँ या नहीं बताइए।",
+    "ta": "புகைப்படம் {pest} போல் தெரிகிறது (நம்பகத்தன்மை {confidence}). இது உறுதியானது அல்ல. வயலிலும் இதே அறிகுறிகள் தெரிகிறதா? ஆம் அல்லது இல்லை என்று பதில் சொல்லுங்கள்.",
+    "te": "ఫోటోలో {pest} లాగా కనిపిస్తోంది (నమ్మకం {confidence}). ఇది ఖచ్చితం కాదు. పొలంలో కూడా ఇవే లక్షణాలు కనిపిస్తున్నాయా? అవును లేదా లేదు అని చెప్పండి."
+  },
+  "ask_pest_name": {
+    "en": "I cannot identify the problem from the photo for {crop}. If an agriculture officer or KVK has told you the disease or pest name, please type it.",
+    "hi": "{crop} के लिए फोटो से समस्या पहचान नहीं पा रहा हूँ। अगर कृषि अधिकारी या KVK ने रोग या कीट का नाम बताया है तो लिखिए।",
+    "ta": "{crop} பயிருக்கு புகைப்படத்திலிருந்து பிரச்சனையை கண்டறிய முடியவில்லை. வேளாண் அலுவலர் அல்லது KVK நோய் அல்லது பூச்சியின் பெயரைச் சொல்லியிருந்தால் அதை எழுதுங்கள்.",
+    "te": "{crop} కోసం ఫోటో నుండి సమస్యను గుర్తించలేకపోతున్నాను. వ్యవసాయ అధికారి లేదా KVK తెగులు లేదా పురుగు పేరు చెప్పి ఉంటే టైప్ చేయండి."
+  },
+  "checking": {
+    "en": "Thank you. I am checking the registry, dose for your field size, harvest safety, growth stage, previous treatment and weather for your location.",
+    "hi": "धन्यवाद। मैं रजिस्ट्री, आपके खेत के आकार के अनुसार मात्रा, कटाई सुरक्षा, फसल अवस्था, पिछला छिड़काव और आपके इलाके का मौसम जाँच रहा हूँ।",
+    "ta": "நன்றி. பதிவேடு, உங்கள் வயல் அளவுக்கான அளவு, அறுவடை பாதுகாப்பு, பயிர் நிலை, முந்தைய தெளிப்பு மற்றும் உங்கள் பகுதியின் வானிலையை சரிபார்க்கிறேன்.",
+    "te": "ధన్యవాదాలు. రిజిస్ట్రీ, మీ పొలం విస్తీర్ణానికి మోతాదు, కోత భద్రత, పంట దశ, గత పిచికారీ మరియు మీ ప్రాంత వాతావరణాన్ని తనిఖీ చేస్తున్నాను."
+  },
+  "answer_recommend": {
+    "en": "Recommendation for {crop}, {pest}:\nActive ingredient: {ai}\nTotal quantity for your {area} {unit}: {dose} {dose_unit}\n{phi_line}",
+    "hi": "{crop}, {pest} के लिए सलाह:\nसक्रिय तत्व: {ai}\nआपके {area} {unit} के लिए कुल मात्रा: {dose} {dose_unit}\n{phi_line}",
+    "ta": "{crop}, {pest} க்கான பரிந்துரை:\nசெயல் மூலப்பொருள்: {ai}\nஉங்கள் {area} {unit} க்கான மொத்த அளவு: {dose} {dose_unit}\n{phi_line}",
+    "te": "{crop}, {pest} కోసం సిఫార్సు:\nక్రియాశీల పదార్థం: {ai}\nమీ {area} {unit} కోసం మొత్తం పరిమాణం: {dose} {dose_unit}\n{phi_line}"
+  },
+  "phi_line": {
+    "en": "Pre-harvest interval: {phi_days} days. Your harvest is in {harvest_days} days, so this is within the safe limit.",
+    "hi": "कटाई-पूर्व अंतराल: {phi_days} दिन। आपकी कटाई {harvest_days} दिन में है, इसलिए यह सुरक्षित सीमा में है।",
+    "ta": "அறுவடைக்கு முந்தைய இடைவெளி: {phi_days} நாட்கள். உங்கள் அறுவடை {harvest_days} நாட்களில் உள்ளதால் இது பாதுகாப்பான வரம்பில் உள்ளது.",
+    "te": "కోతకు ముందు విరామం: {phi_days} రోజులు. మీ కోత {harvest_days} రోజుల్లో ఉంది, కాబట్టి ఇది సురక్షిత పరిమితిలో ఉంది."
+  },
+  "phi_na_line": {
+    "en": "The verified source marks the pre-harvest interval as not applicable for this use.",
+    "hi": "प्रमाणित स्रोत के अनुसार इस उपयोग के लिए कटाई-पूर्व अंतराल लागू नहीं है।",
+    "ta": "சரிபார்க்கப்பட்ட மூலத்தின்படி இந்த பயன்பாட்டிற்கு அறுவடைக்கு முந்தைய இடைவெளி பொருந்தாது.",
+    "te": "ధృవీకరించిన మూలం ప్రకారం ఈ వాడకానికి కోతకు ముందు విరామం వర్తించదు."
+  },
+  "answer_delay": {
+    "en": "Do not spray now for {crop}, {pest}. {reason} Check again when the weather clears.",
+    "hi": "{crop}, {pest} के लिए अभी छिड़काव न करें। {reason} मौसम साफ होने पर फिर से जाँचें।",
+    "ta": "{crop}, {pest} க்கு இப்போது தெளிக்க வேண்டாம். {reason} வானிலை தெளிவானதும் மீண்டும் சரிபார்க்கவும்.",
+    "te": "{crop}, {pest} కోసం ఇప్పుడు పిచికారీ చేయవద్దు. {reason} వాతావరణం మెరుగైన తర్వాత మళ్లీ తనిఖీ చేయండి."
+  },
+  "reason_weather_rain_delay": {
+    "en": "Rain is expected in the next 24 hours (chance {rain_prob}, about {rain_mm} mm), which would wash off the spray.",
+    "hi": "अगले 24 घंटों में बारिश की संभावना है (संभावना {rain_prob}, लगभग {rain_mm} mm), जिससे छिड़काव धुल जाएगा।",
+    "ta": "அடுத்த 24 மணி நேரத்தில் மழை எதிர்பார்க்கப்படுகிறது (வாய்ப்பு {rain_prob}, சுமார் {rain_mm} mm), இது தெளிப்பை கழுவிவிடும்.",
+    "te": "రాబోయే 24 గంటల్లో వర్షం పడే అవకాశం ఉంది (అవకాశం {rain_prob}, సుమారు {rain_mm} mm), దీని వల్ల పిచికారీ కొట్టుకుపోతుంది."
+  },
+  "reason_weather_high_wind_delay": {
+    "en": "Wind speed up to {wind} m/s is expected, which causes spray drift.",
+    "hi": "हवा की गति {wind} m/s तक रहने की संभावना है, जिससे छिड़काव उड़कर बह जाएगा।",
+    "ta": "காற்றின் வேகம் {wind} m/s வரை இருக்கும், இதனால் தெளிப்பு காற்றில் சிதறும்.",
+    "te": "గాలి వేగం {wind} m/s వరకు ఉంటుంది, దీని వల్ల పిచికారీ గాలికి చెదిరిపోతుంది."
+  },
+  "weather_line": {
+    "en": "Weather for {place}, next 24 hours: rain chance {rain_prob}, rain {rain_mm} mm, wind up to {wind} m/s, temperature {tmin} to {tmax} °C.",
+    "hi": "{place} का मौसम, अगले 24 घंटे: बारिश की संभावना {rain_prob}, बारिश {rain_mm} mm, हवा {wind} m/s तक, तापमान {tmin} से {tmax} °C।",
+    "ta": "{place} வானிலை, அடுத்த 24 மணி நேரம்: மழை வாய்ப்பு {rain_prob}, மழை {rain_mm} mm, காற்று {wind} m/s வரை, வெப்பநிலை {tmin} முதல் {tmax} °C.",
+    "te": "{place} వాతావరణం, రాబోయే 24 గంటలు: వర్ష అవకాశం {rain_prob}, వర్షం {rain_mm} mm, గాలి {wind} m/s వరకు, ఉష్ణోగ్రత {tmin} నుండి {tmax} °C."
+  },
+  "abstain_header": {
+    "en": "I cannot give a spray recommendation for {crop}, {pest}.",
+    "hi": "मैं {crop}, {pest} के लिए छिड़काव की सलाह नहीं दे सकता।",
+    "ta": "{crop}, {pest} க்கு தெளிப்பு பரிந்துரை வழங்க முடியாது.",
+    "te": "{crop}, {pest} కోసం పిచికారీ సిఫార్సు ఇవ్వలేను."
+  },
+  "abstain_registration_missing": {
+    "en": "There is no verified registered product for this crop and problem in my registry. Please contact your nearest KVK or agriculture officer.",
+    "hi": "मेरी रजिस्ट्री में इस फसल और समस्या के लिए कोई प्रमाणित पंजीकृत उत्पाद नहीं है। कृपया नज़दीकी KVK या कृषि अधिकारी से संपर्क करें।",
+    "ta": "எனது பதிவேட்டில் இந்த பயிர் மற்றும் பிரச்சனைக்கு சரிபார்க்கப்பட்ட பதிவு செய்யப்பட்ட பொருள் இல்லை. அருகிலுள்ள KVK அல்லது வேளாண் அலுவலரை தொடர்பு கொள்ளவும்.",
+    "te": "నా రిజిస్ట్రీలో ఈ పంట మరియు సమస్యకు ధృవీకరించిన నమోదిత ఉత్పత్తి లేదు. దగ్గరలోని KVK లేదా వ్యవసాయ అధికారిని సంప్రదించండి."
+  },
+  "abstain_phi_rejected": {
+    "en": "The registered product needs {phi_days} days between spraying and harvest, but your harvest is in {harvest_days} days. Spraying now is not safe for harvest.",
+    "hi": "पंजीकृत उत्पाद के लिए छिड़काव और कटाई के बीच {phi_days} दिन चाहिए, लेकिन आपकी कटाई {harvest_days} दिन में है। अभी छिड़काव कटाई के लिए सुरक्षित नहीं है।",
+    "ta": "பதிவு செய்யப்பட்ட பொருளுக்கு தெளிப்புக்கும் அறுவடைக்கும் இடையே {phi_days} நாட்கள் தேவை, ஆனால் உங்கள் அறுவடை {harvest_days} நாட்களில் உள்ளது. இப்போது தெளிப்பது அறுவடைக்கு பாதுகாப்பானது அல்ல.",
+    "te": "నమోదిత ఉత్పత్తికి పిచికారీ మరియు కోత మధ్య {phi_days} రోజులు అవసరం, కానీ మీ కోత {harvest_days} రోజుల్లో ఉంది. ఇప్పుడు పిచికారీ కోతకు సురక్షితం కాదు."
+  },
+  "abstain_growth_stage_outside_application_window": {
+    "en": "The verified rules do not allow this product at the {stage} stage.",
+    "hi": "प्रमाणित नियमों के अनुसार {stage} अवस्था में यह उत्पाद नहीं डाला जा सकता।",
+    "ta": "சரிபார்க்கப்பட்ட விதிகளின்படி {stage} நிலையில் இந்த பொருளை பயன்படுத்தக் கூடாது.",
+    "te": "ధృవీకరించిన నియమాల ప్రకారం {stage} దశలో ఈ ఉత్పత్తిని వాడకూడదు."
+  },
+  "abstain_maximum_application_frequency_reached": {
+    "en": "The maximum number of applications for this product in one season has already been reached.",
+    "hi": "इस उत्पाद के एक मौसम में अधिकतम छिड़काव पहले ही हो चुके हैं।",
+    "ta": "ஒரு பருவத்தில் இந்த பொருளுக்கான அதிகபட்ச தெளிப்பு எண்ணிக்கை ஏற்கனவே முடிந்துவிட்டது.",
+    "te": "ఒక సీజన్‌లో ఈ ఉత్పత్తికి గరిష్ట పిచికారీల సంఖ్య ఇప్పటికే పూర్తయింది."
+  },
+  "abstain_minimum_treatment_interval_not_met": {
+    "en": "Not enough days have passed since the last spray of this product.",
+    "hi": "इस उत्पाद के पिछले छिड़काव के बाद पर्याप्त दिन नहीं हुए हैं।",
+    "ta": "இந்த பொருளின் கடைசி தெளிப்புக்குப் பிறகு போதுமான நாட்கள் கடக்கவில்லை.",
+    "te": "ఈ ఉత్పత్తి చివరి పిచికారీ తర్వాత తగినన్ని రోజులు గడవలేదు."
+  },
+  "abstain_weather_unavailable": {
+    "en": "Weather for your location could not be verified, so I will not guess spray conditions.",
+    "hi": "आपके इलाके का मौसम प्रमाणित नहीं हो सका, इसलिए मैं छिड़काव की स्थिति का अनुमान नहीं लगाऊँगा।",
+    "ta": "உங்கள் பகுதியின் வானிலையை சரிபார்க்க முடியவில்லை, எனவே தெளிப்பு நிலைமைகளை ஊகிக்க மாட்டேன்.",
+    "te": "మీ ప్రాంత వాతావరణం ధృవీకరించలేకపోయాను, కాబట్టి పిచికారీ పరిస్థితులను ఊహించను."
+  },
+  "abstain_soil": {
+    "en": "The soil pH at your location is outside the verified range for this crop.",
+    "hi": "आपके इलाके की मिट्टी का pH इस फसल की प्रमाणित सीमा से बाहर है।",
+    "ta": "உங்கள் பகுதியின் மண் pH இந்த பயிருக்கான சரிபார்க்கப்பட்ட வரம்புக்கு வெளியே உள்ளது.",
+    "te": "మీ ప్రాంత నేల pH ఈ పంటకు ధృవీకరించిన పరిధికి బయట ఉంది."
+  },
+  "abstain_generic": {
+    "en": "The safety checks did not pass, so I will not guess. Please contact your nearest KVK or agriculture officer.",
+    "hi": "सुरक्षा जाँच पूरी नहीं हुई, इसलिए मैं अनुमान नहीं लगाऊँगा। कृपया नज़दीकी KVK या कृषि अधिकारी से संपर्क करें।",
+    "ta": "பாதுகாப்பு சோதனைகள் தேர்ச்சி பெறவில்லை, எனவே ஊகிக்க மாட்டேன். அருகிலுள்ள KVK அல்லது வேளாண் அலுவலரை தொடர்பு கொள்ளவும்.",
+    "te": "భద్రతా తనిఖీలు పాస్ కాలేదు, కాబట్టి ఊహించను. దగ్గరలోని KVK లేదా వ్యవసాయ అధికారిని సంప్రదించండి."
+  },
+  "abstain_pest_unknown": {
+    "en": "I could not identify the disease or pest for {crop} with enough confidence, so I will not suggest a pesticide. Please show the plant to your nearest KVK or agriculture officer.",
+    "hi": "{crop} में रोग या कीट को पर्याप्त विश्वास के साथ पहचान नहीं पाया, इसलिए कोई कीटनाशक नहीं सुझाऊँगा। कृपया पौधा नज़दीकी KVK या कृषि अधिकारी को दिखाइए।",
+    "ta": "{crop} பயிரில் நோய் அல்லது பூச்சியை போதுமான நம்பகத்தன்மையுடன் கண்டறிய முடியவில்லை, எனவே பூச்சிக்கொல்லியை பரிந்துரைக்க மாட்டேன். அருகிலுள்ள KVK அல்லது வேளாண் அலுவலரிடம் செடியைக் காட்டவும்.",
+    "te": "{crop} లో తెగులు లేదా పురుగును తగినంత నమ్మకంతో గుర్తించలేకపోయాను, కాబట్టి పురుగుమందు సూచించను. దగ్గరలోని KVK లేదా వ్యవసాయ అధికారికి మొక్కను చూపించండి."
+  },
+  "abstain_crop_unsupported": {
+    "en": "I currently support only these 15 crops: {crops}.",
+    "hi": "मैं अभी केवल इन 15 फसलों में मदद करता हूँ: {crops}.",
+    "ta": "தற்போது இந்த 15 பயிர்களுக்கு மட்டுமே உதவுகிறேன்: {crops}.",
+    "te": "ప్రస్తుతం ఈ 15 పంటలకు మాత్రమే సహాయం చేస్తాను: {crops}."
+  },
+  "image_not_validated": {
+    "en": "Photo diagnosis is not yet validated for {crop}. I will not claim a visual diagnosis.",
+    "hi": "{crop} के लिए फोटो से निदान अभी प्रमाणित नहीं है। मैं फोटो के आधार पर निदान का दावा नहीं करूँगा।",
+    "ta": "{crop} பயிருக்கு புகைப்பட கண்டறிதல் இன்னும் சரிபார்க்கப்படவில்லை. புகைப்படத்தின் அடிப்படையில் நோயறிதலைக் கூற மாட்டேன்.",
+    "te": "{crop} కోసం ఫోటో నిర్ధారణ ఇంకా ధృవీకరించబడలేదు. ఫోటో ఆధారంగా నిర్ధారణ చెప్పను."
+  },
+  "image_low_confidence": {
+    "en": "The photo was not clear enough for a reliable diagnosis (confidence {confidence}).",
+    "hi": "फोटो से भरोसेमंद निदान नहीं हो सका (विश्वास {confidence})।",
+    "ta": "நம்பகமான கண்டறிதலுக்கு புகைப்படம் போதுமான அளவு தெளிவாக இல்லை (நம்பகத்தன்மை {confidence}).",
+    "te": "నమ్మదగిన నిర్ధారణకు ఫోటో సరిపోలేదు (నమ్మకం {confidence})."
+  },
+  "image_evidence": {
+    "en": "Photo analysis: {pest} (confidence {confidence}).",
+    "hi": "फोटो विश्लेषण: {pest} (विश्वास {confidence})।",
+    "ta": "புகைப்பட பகுப்பாய்வு: {pest} (நம்பகத்தன்மை {confidence}).",
+    "te": "ఫోటో విశ్లేషణ: {pest} (నమ్మకం {confidence})."
+  },
+  "image_invalid": {
+    "en": "The photo could not be used: {error}",
+    "hi": "फोटो का उपयोग नहीं हो सका: {error}",
+    "ta": "புகைப்படத்தை பயன்படுத்த முடியவில்லை: {error}",
+    "te": "ఫోటోను ఉపయోగించలేకపోయాను: {error}"
+  },
+  "note_pollinator": {
+    "en": "The crop is flowering. Spray in the late evening when bees are not active.",
+    "hi": "फसल में फूल आ रहे हैं। शाम को देर से छिड़काव करें जब मधुमक्खियाँ सक्रिय न हों।",
+    "ta": "பயிர் பூக்கும் நிலையில் உள்ளது. தேனீக்கள் செயல்படாத மாலை நேரத்தில் தெளிக்கவும்.",
+    "te": "పంట పూత దశలో ఉంది. తేనెటీగలు చురుకుగా లేని సాయంత్రం వేళ పిచికారీ చేయండి."
+  },
+  "note_same_moa": {
+    "en": "You last used {prev_ai}, which is in the same mode-of-action group ({moa}) as {ai}. Repeating the same group increases resistance risk. Ask your KVK about rotating to a different group.",
+    "hi": "आपने पिछली बार {prev_ai} डाला था, जो {ai} के समान क्रिया-विधि समूह ({moa}) में है। एक ही समूह दोहराने से प्रतिरोध का खतरा बढ़ता है। दूसरे समूह के बारे में KVK से पूछिए।",
+    "ta": "கடைசியாக நீங்கள் பயன்படுத்திய {prev_ai}, {ai} போன்ற அதே செயல்முறை குழுவில் ({moa}) உள்ளது. ஒரே குழுவை மீண்டும் பயன்படுத்துவது எதிர்ப்புத் திறன் அபாயத்தை அதிகரிக்கும். வேறு குழுவுக்கு மாற்றுவது பற்றி KVK யிடம் கேளுங்கள்.",
+    "te": "మీరు చివరిగా వాడిన {prev_ai}, {ai} లాగే అదే చర్యా విధాన సమూహం ({moa}) లో ఉంది. ఒకే సమూహం మళ్లీ వాడటం వల్ల నిరోధకత ప్రమాదం పెరుగుతుంది. వేరే సమూహానికి మారడం గురించి KVK ని అడగండి."
+  },
+  "note_rotation": {
+    "en": "Resistance management: avoid repeated use of the same mode-of-action group ({moa}).",
+    "hi": "प्रतिरोध प्रबंधन: एक ही क्रिया-विधि समूह ({moa}) का बार-बार उपयोग न करें।",
+    "ta": "எதிர்ப்பு மேலாண்மை: ஒரே செயல்முறை குழுவை ({moa}) மீண்டும் மீண்டும் பயன்படுத்த வேண்டாம்.",
+    "te": "నిరోధకత నిర్వహణ: ఒకే చర్యా విధాన సమూహాన్ని ({moa}) మళ్లీ మళ్లీ వాడవద్దు."
+  },
+  "note_label": {
+    "en": "Always read the product label and wear gloves and a mask while spraying.",
+    "hi": "हमेशा उत्पाद का लेबल पढ़ें और छिड़काव करते समय दस्ताने और मास्क पहनें।",
+    "ta": "எப்போதும் பொருளின் லேபிளை படிக்கவும், தெளிக்கும்போது கையுறை மற்றும் முகக்கவசம் அணியவும்.",
+    "te": "ఎల్లప్పుడూ ఉత్పత్తి లేబుల్ చదవండి, పిచికారీ చేసేటప్పుడు చేతి తొడుగులు మరియు మాస్క్ ధరించండి."
+  },
+  "note_symptom_only": {
+    "en": "These signs ({symptoms}) can have several causes, so I need the disease or pest name, or a photo from a crop with a validated photo model, before suggesting any product.",
+    "hi": "ये लक्षण ({symptoms}) कई कारणों से हो सकते हैं, इसलिए कोई उत्पाद सुझाने से पहले रोग या कीट का नाम, या प्रमाणित फोटो मॉडल वाली फसल की फोटो चाहिए।",
+    "ta": "இந்த அறிகுறிகள் ({symptoms}) பல காரணங்களால் ஏற்படலாம், எனவே எந்த பொருளையும் பரிந்துரைக்கும் முன் நோய் அல்லது பூச்சியின் பெயர், அல்லது சரிபார்க்கப்பட்ட புகைப்பட மாதிரி உள்ள பயிரின் புகைப்படம் தேவை.",
+    "te": "ఈ లక్షణాలు ({symptoms}) అనేక కారణాల వల్ల రావచ్చు, కాబట్టి ఏదైనా ఉత్పత్తి సూచించే ముందు తెగులు లేదా పురుగు పేరు, లేదా ధృవీకరించిన ఫోటో మోడల్ ఉన్న పంట ఫోటో అవసరం."
+  },
+  "knowledge_header": {
+    "en": "Verified guidance:",
+    "hi": "प्रमाणित जानकारी:",
+    "ta": "சரிபார்க்கப்பட்ட வழிகாட்டுதல்:",
+    "te": "ధృవీకరించిన మార్గదర్శకత్వం:"
+  },
+  "english_details": {
+    "en": "Engine details",
+    "hi": "विस्तृत जाँच (अंग्रेज़ी में)",
+    "ta": "விரிவான சரிபார்ப்பு (ஆங்கிலத்தில்)",
+    "te": "వివరమైన తనిఖీ (ఆంగ్లంలో)"
+  },
+  "reset_done": {
+    "en": "Starting a new conversation. Which crop has a problem?",
+    "hi": "नई बातचीत शुरू। किस फसल में समस्या है?",
+    "ta": "புதிய உரையாடல் தொடங்குகிறது. எந்த பயிரில் பிரச்சனை உள்ளது?",
+    "te": "కొత్త సంభాషణ ప్రారంభం. ఏ పంటలో సమస్య ఉంది?"
+  },
+  "location_saved": {
+    "en": "Location noted: {place}.",
+    "hi": "स्थान दर्ज: {place}।",
+    "ta": "இருப்பிடம் பதிவு: {place}.",
+    "te": "స్థానం నమోదు: {place}."
+  },
+  "too_many_turns": {
+    "en": "I still do not have enough information to give safe advice. Please contact your nearest KVK or agriculture officer, or start a new question.",
+    "hi": "सुरक्षित सलाह के लिए अभी भी पर्याप्त जानकारी नहीं है। कृपया नज़दीकी KVK या कृषि अधिकारी से संपर्क करें, या नया सवाल शुरू करें।",
+    "ta": "பாதுகாப்பான ஆலோசனைக்கு இன்னும் போதுமான தகவல் இல்லை. அருகிலுள்ள KVK அல்லது வேளாண் அலுவலரை தொடர்பு கொள்ளவும், அல்லது புதிய கேள்வியைத் தொடங்கவும்.",
+    "te": "సురక్షిత సలహాకు ఇంకా తగిన సమాచారం లేదు. దగ్గరలోని KVK లేదా వ్యవసాయ అధికారిని సంప్రదించండి, లేదా కొత్త ప్రశ్న ప్రారంభించండి."
+  }
+}

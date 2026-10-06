@@ -1,0 +1,17 @@
+registry_id,crop,pest,active_ingredient,phi_days,restricted_stage,restriction_reason,source_document,source_page,source_url,source_date,verified
+2,Banana,Leaf spot,Pyraclostrobin + Epoxiconazole,24,,,,,,,false
+1,Banana,Sigatoka leaf spot,Pyraclostrobin,103,,,,,,,false
+9,Brinjal,Shoot & fruit borer,Lambda-cyhalothrin,5,,,,,,,false
+13,Cabbage,Diamondback moth,Spinosad,3,,,,,,,false
+8,Chilli,Thrips & Pod borer,Lambda-cyhalothrin,5,,,,,,,false
+6,Cotton,Leaf spot; Grey mildew,Kresoxim-methyl,26,,,,,,,false
+14,Groundnut,White grub; Termite,Thiamethoxam + Fipronil,106,,,,,,,false
+5,Maize,Turcicum leaf blight; Rust,Kresoxim-methyl,25,,,,,,,false
+15,Mustard,Downy mildew; White rust,Metalaxyl-M + Mancozeb,60,,,,,,,false
+10,Okra,Fruit borer,Lambda-cyhalothrin,5,,,,,,,false
+11,Onion,Annual grassy and broad-leaf weeds,Pendimethalin,104,,,,,,,false
+12,Potato,Late blight; Early blight,Kresoxim-methyl,23,,,,,,,false
+3,Rice,Blast; Sheath blight,Kresoxim-methyl,30,,,,,,,false
+16,Soybean,Rust,Kresoxim-methyl,43,,,,,,,false
+7,Tomato,Fruit borer,Lambda-cyhalothrin,5,,,,,,,false
+4,Wheat,Rust; Leaf blight,Kresoxim-methyl,34,,,,,,,false

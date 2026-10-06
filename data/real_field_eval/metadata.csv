@@ -1,0 +1,61 @@
+crop,disease,filename,source,dataset,license
+rice,TO_VERIFY,rice_bacterial_leaf_blight_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+rice,TO_VERIFY,rice_bacterial_leaf_blight_02.png,TO_VERIFY,TO_VERIFY,TO_VERIFY
+rice,TO_VERIFY,rice_blast_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+rice,TO_VERIFY,rice_blast_02.png,TO_VERIFY,TO_VERIFY,TO_VERIFY
+rice,TO_VERIFY,rice_brownspot_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+wheat,TO_VERIFY,wheat_rust_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+wheat,TO_VERIFY,wheat_rust_02.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+maize,TO_VERIFY,maize_disease_01.JPG,TO_VERIFY,TO_VERIFY,TO_VERIFY
+maize,TO_VERIFY,maize_disease_02.JPG,TO_VERIFY,TO_VERIFY,TO_VERIFY
+maize,TO_VERIFY,maize_disease_03.JPG,TO_VERIFY,TO_VERIFY,TO_VERIFY
+maize,TO_VERIFY,maize_disease_04.JPG,TO_VERIFY,TO_VERIFY,TO_VERIFY
+maize,TO_VERIFY,maize_disease_05.JPG,TO_VERIFY,TO_VERIFY,TO_VERIFY
+tomato,TO_VERIFY,tomato_disease_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+tomato,TO_VERIFY,tomato_disease_02.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+tomato,TO_VERIFY,tomato_disease_03.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+tomato,TO_VERIFY,tomato_disease_04.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+tomato,TO_VERIFY,tomato_disease_05.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+chilli,cercospora,chilli_cercospora_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+chilli,healthy,chilli_healthy_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+chilli,"murda complex(mites,trips)",chilli_murda_complex_mites_trips_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+chilli,nutritional,chilli_nutritional_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+chilli,powdery mildew,chilli_powdery_mildew_01.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+wheat,TO_VERIFY,wheat_rust_03.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+wheat,TO_VERIFY,wheat_rust_04.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+wheat,TO_VERIFY,wheat_rust_05.jpg,TO_VERIFY,TO_VERIFY,TO_VERIFY
+brinjal,Fungal,brinjal_fungal_01.jpg,https://data.mendeley.com/datasets/pwvpb658rm,Mendeley Data pwvpb658rm (real-field eggplant leaf disease),TO_VERIFY
+brinjal,Healthy,brinjal_healthy_01.jpg,https://data.mendeley.com/datasets/pwvpb658rm,Mendeley Data pwvpb658rm (real-field eggplant leaf disease),TO_VERIFY
+brinjal,Healthy,brinjal_healthy_02.jpg,https://data.mendeley.com/datasets/pwvpb658rm,Mendeley Data pwvpb658rm (real-field eggplant leaf disease),TO_VERIFY
+brinjal,Spider mite,brinjal_spider_mite_01.jpg,https://data.mendeley.com/datasets/pwvpb658rm,Mendeley Data pwvpb658rm (real-field eggplant leaf disease),TO_VERIFY
+brinjal,Spider mite,brinjal_spider_mite_02.jpg,https://data.mendeley.com/datasets/pwvpb658rm,Mendeley Data pwvpb658rm (real-field eggplant leaf disease),TO_VERIFY
+onion,healthy,onion_healthy_01.jpg,https://huggingface.co/datasets/Project-AgML/COLD_onion_leaf_disease_classification,COLD Onion Leaf Disease Classification Dataset,CC-BY-4.0
+onion,Iris yellow virus,onion_iris_yellow_virus_01.jpg,https://huggingface.co/datasets/Project-AgML/COLD_onion_leaf_disease_classification,COLD Onion Leaf Disease Classification Dataset,CC-BY-4.0
+onion,purple blotch,onion_purple_blotch_01.jpg,https://huggingface.co/datasets/Project-AgML/COLD_onion_leaf_disease_classification,COLD Onion Leaf Disease Classification Dataset,CC-BY-4.0
+onion,purple blotch,onion_purple_blotch_02.jpg,https://huggingface.co/datasets/Project-AgML/COLD_onion_leaf_disease_classification,COLD Onion Leaf Disease Classification Dataset,CC-BY-4.0
+onion,Stemphylium leaf blight and collectrichum leaf blight,onion_stemphylium_leaf_blight_and_collectrichum_leaf_blight_01.jpg,https://huggingface.co/datasets/Project-AgML/COLD_onion_leaf_disease_classification,COLD Onion Leaf Disease Classification Dataset,CC-BY-4.0
+okra,Cercospora Leaf Spot,okra_class_1_cercospora_leaf_spot_01.jpg,https://data.mendeley.com/datasets/nh7zk4hv8z,Okra DiseaseNet Dataset,TO_VERIFY
+okra,Downy Mildew,okra_class_2_downy_mildew_01.jpg,https://data.mendeley.com/datasets/nh7zk4hv8z,Okra DiseaseNet Dataset,TO_VERIFY
+okra,Healthy,okra_class_3_healthy_01.jpg,https://data.mendeley.com/datasets/nh7zk4hv8z,Okra DiseaseNet Dataset,TO_VERIFY
+okra,Leaf curly virus,okra_class_4_leaf_curly_virus_01.jpg,https://data.mendeley.com/datasets/nh7zk4hv8z,Okra DiseaseNet Dataset,TO_VERIFY
+okra,Phyllosticta leaf spot,okra_class_5_phyllosticta_leaf_spot_01.jpg,https://data.mendeley.com/datasets/nh7zk4hv8z,Okra DiseaseNet Dataset,TO_VERIFY
+cabbage,Cabbage Altenaria spot,cabbage_cabbage_altenaria_spot_01.jpg,https://data.mendeley.com/datasets/sjmgzhwrxv/1,Image dataset of Cabbage Crop diseases,TO_VERIFY
+cabbage,Cabbage Altenaria spot,cabbage_cabbage_altenaria_spot_02.jpg,https://data.mendeley.com/datasets/sjmgzhwrxv/1,Image dataset of Cabbage Crop diseases,TO_VERIFY
+cabbage,Cabbage - Black rot,cabbage_cabbage_black_rot_01.jpg,https://data.mendeley.com/datasets/sjmgzhwrxv/1,Image dataset of Cabbage Crop diseases,TO_VERIFY
+cabbage,Cabbage downy mildew - Original,cabbage_cabbage_downy_mildew_original_01.jpeg,https://data.mendeley.com/datasets/sjmgzhwrxv/1,Image dataset of Cabbage Crop diseases,TO_VERIFY
+cabbage,Cabbage - Healthy,cabbage_cabbage_healthy_01.jpg,https://data.mendeley.com/datasets/sjmgzhwrxv/1,Image dataset of Cabbage Crop diseases,TO_VERIFY
+groundnut,groundnut early rust,groundnut_groundnut_early_rust_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+groundnut,groundnut healthy,groundnut_groundnut_healthy_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+groundnut,groundnut late leaf spot,groundnut_groundnut_late_leaf_spot_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+groundnut,groundnut nutrition deficiency,groundnut_groundnut_nutrition_deficiency_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+groundnut,groundnut rust,groundnut_groundnut_rust_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,banana bract mosaic virus,banana_banana_bract_mosaic_virus_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,banana cordana,banana_banana_cordana_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,banana healthy,banana_banana_healthy_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,banana moko,banana_banana_moko_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,banana sigatoka,banana_banana_sigatoka_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+cotton,Alternaria Leaf Spot,cotton_alternaria_leaf_spot_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
+cotton,Bacterial Blight,cotton_bacterial_blight_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
+cotton,Fusarium Wilt,cotton_fusarium_wilt_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
+cotton,Healthy Leaf,cotton_healthy_leaf_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
+cotton,Verticillium Wilt,cotton_verticillium_wilt_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
