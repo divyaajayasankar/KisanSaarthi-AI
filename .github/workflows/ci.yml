@@ -36,9 +36,18 @@ jobs:
       - name: Start container and check health
         run: |
           docker run -d --name kisan -p 8000:8000 kisansaarthi-ai
-          for i in $(seq 1 30); do
-            if curl -fsS http://127.0.0.1:8000/health; then exit 0; fi
+          ok=0
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8000/health; then ok=1; break; fi
             sleep 2
           done
-          docker logs kisan
+          if [ "$ok" = "1" ]; then exit 0; fi
+          {
+            echo "### Container diagnostics"
+            echo '```'
+            docker ps -a
+            docker logs kisan 2>&1 | tail -40
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::error title=container-log::$(docker ps -a --format '{{.Status}}' | head -1) | $(docker logs kisan 2>&1 | tail -12 | tr '\n' '|')"
           exit 1
