@@ -6,6 +6,8 @@ Nothing is sent to the advisory pipeline until the farmer presses Send.
 
 from __future__ import annotations
 
+import traceback
+
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 
 from app.config import settings
@@ -47,5 +49,6 @@ async def transcribe_audio(
     except SpeechUnavailableError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
     except Exception as exc:  # decoding failures, missing ffmpeg codecs etc.
+        traceback.print_exc()
         raise HTTPException(status_code=422, detail=f"Could not transcribe audio: {exc.__class__.__name__}") from exc
     return result.as_dict()
