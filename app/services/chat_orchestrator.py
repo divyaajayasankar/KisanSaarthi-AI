@@ -385,7 +385,16 @@ def _knowledge(turn: Turn, crop: str, topic: str) -> None:
         turn.step("Knowledge Agent", status="unavailable", error=exc.__class__.__name__)
         return
     items = result.get("results") or []
-    turn.step("Knowledge Agent", status=result.get("status"), results=len(items))
+    # Show a record only when it mentions the problem itself (not just the crop):
+    # keyword retrieval can return a record for the same crop and a different pest.
+    crop_words = set(normalize_text(crop).split())
+    topic_words = [w for w in normalize_text(topic).split() if len(w) >= 4 and w not in crop_words]
+    retrieved = len(items)
+    items = [
+        item for item in items
+        if any(word in normalize_text(str(item.get("text") or "")) for word in topic_words)
+    ]
+    turn.step("Knowledge Agent", status=result.get("status"), results=len(items), retrieved=retrieved)
     turn.evidence_ids = [item.get("id") for item in items if item.get("id") is not None]
     if not items:
         return

@@ -243,7 +243,7 @@ def _jpeg():
 
 def test_symptom_only_then_unsupported_image_then_abstain(tmp_path, monkeypatch):
     monkeypatch.setattr(chat_orchestrator, "UPLOAD_DIR", tmp_path)
-    first = say("my chilli leaves are curling")
+    first = say("my okra leaves are curling")
     assert first["follow_up_field"] == "photo"
     sid = first["session_id"]
     upload = client.post(
