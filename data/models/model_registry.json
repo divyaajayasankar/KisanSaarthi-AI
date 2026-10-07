@@ -1,4 +1,73 @@
 {
   "_note": "Written by scripts/train_crop_model.py. A crop model is used only when validated is true. Crops not listed here get an image ABSTAIN.",
-  "models": {}
+  "models": {
+    "banana": {
+      "path": "data/models/banana_mobilenetv3.pt",
+      "architecture": "mobilenet_v3_small",
+      "labels": [
+        "bract_mosaic_virus",
+        "cordana",
+        "healthy",
+        "insect_pest",
+        "moko",
+        "panama_wilt",
+        "pestalotiopsis",
+        "sigatoka",
+        "yellow_sigatoka"
+      ],
+      "input_size": 224,
+      "temperature": 1.15,
+      "validated": true,
+      "pretrained_imagenet": true,
+      "trained_at": "2026-10-07T04:47:33+00:00",
+      "training_source": "Mendeley Data 6243z8r6t6 v1 (Roboflow export, Multi-Crop Disease Dataset)",
+      "training_license": "TO_VERIFY",
+      "license_accepted_unverified": true,
+      "classes_config": {
+        "bract_mosaic_virus": [
+          "banana/bract_mosaic_virus"
+        ],
+        "cordana": [
+          "banana/cordana"
+        ],
+        "healthy": [
+          "banana/healthy"
+        ],
+        "insect_pest": [
+          "banana/insect_pest"
+        ],
+        "moko": [
+          "banana/moko"
+        ],
+        "panama_wilt": [
+          "banana/panama_wilt"
+        ],
+        "pestalotiopsis": [
+          "banana/pestalotiopsis"
+        ],
+        "sigatoka": [
+          "banana/sigatoka"
+        ],
+        "yellow_sigatoka": [
+          "banana/yellow_sigatoka"
+        ]
+      },
+      "excluded_eval_duplicates": 3,
+      "validation": {
+        "split": "stratified 20% holdout, seed 42",
+        "n_train": 1437,
+        "n_val": 360,
+        "accuracy": 0.9722,
+        "macro_precision": 0.9729,
+        "macro_recall": 0.9722,
+        "macro_f1": 0.9722,
+        "ece_before_temperature": 0.0152,
+        "ece_after_temperature": 0.0116,
+        "brier_before_temperature": 0.044,
+        "brier_after_temperature": 0.0438,
+        "min_macro_f1_required": 0.7,
+        "note": "Validation images come from the same source dataset as training; real-field performance is measured separately by scripts/evaluate_real_field.py."
+      }
+    }
+  }
 }

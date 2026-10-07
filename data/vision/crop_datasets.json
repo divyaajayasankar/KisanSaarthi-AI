@@ -6,9 +6,15 @@
       "source": "TO_VERIFY",
       "license": "TO_VERIFY",
       "classes": {
-        "bacterial_leaf_blight": ["RiceDiseases/Bacterial leaf blight/orig"],
-        "blast": ["RiceDiseases/blast/Orig"],
-        "brown_spot": ["RiceDiseases/brownspot/orig"]
+        "bacterial_leaf_blight": [
+          "RiceDiseases/Bacterial leaf blight/orig"
+        ],
+        "blast": [
+          "RiceDiseases/blast/Orig"
+        ],
+        "brown_spot": [
+          "RiceDiseases/brownspot/orig"
+        ]
       }
     },
     "chilli": {
@@ -26,6 +32,39 @@
       "license": "TO_VERIFY",
       "classes": {},
       "_warning": "NWRD_DATA is a wheat-rust segmentation set (images + masks). It has one disease class, so it cannot train a disease classifier on its own."
+    },
+    "banana": {
+      "source": "Mendeley Data 6243z8r6t6 v1 (Roboflow export, Multi-Crop Disease Dataset)",
+      "license": "TO_VERIFY",
+      "classes": {
+        "bract_mosaic_virus": [
+          "banana/bract_mosaic_virus"
+        ],
+        "cordana": [
+          "banana/cordana"
+        ],
+        "healthy": [
+          "banana/healthy"
+        ],
+        "insect_pest": [
+          "banana/insect_pest"
+        ],
+        "moko": [
+          "banana/moko"
+        ],
+        "panama_wilt": [
+          "banana/panama_wilt"
+        ],
+        "pestalotiopsis": [
+          "banana/pestalotiopsis"
+        ],
+        "sigatoka": [
+          "banana/sigatoka"
+        ],
+        "yellow_sigatoka": [
+          "banana/yellow_sigatoka"
+        ]
+      }
     }
   }
 }

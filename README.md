@@ -51,14 +51,24 @@ Chat orchestrator (conversation state in SQLite)
    |- Pest alias layer: farmer phrase or model label -> canonical pest -> registry row
    |- Vision inference: crop-aware MobileNetV3, temperature-scaled confidence
    |- Location service: GPS, or place name -> coordinates (OpenWeather)
+   |- Knowledge Agent: verified evidence retrieval (keyword token overlap over a
+   |    verified JSON file, restricted to the farmer's crop). Adds explanatory text
+   |    only. It never changes a decision or a dose. No embeddings, no vector store.
    |- Decision controller: ANSWER / ASK_FOLLOW_UP / ABSTAIN
         |
 Advisory pipeline -> deterministic constraint engine
    registry, dose scaling, PHI, growth stage, treatment history,
    IRAC/FRAC resistance, weather, soil
         |
-SQLite (verified registry rows, rules, sessions)
+SQLite (verified registry rows, rules, sessions,
+        advisory_traces: one row per turn, field_profiles: one row per session)
 ```
+
+Every turn is stored in `advisory_traces` (decision, reason, fired rules, extracted
+context, agent trace, evidence ids, latency) and the confirmed field context is kept in
+`field_profiles`. Both writes are guarded: a storage failure is logged and never changes
+the reply. Read them with `GET /api/chat/trace/{session_id}` and
+`GET /api/chat/profile/{session_id}`. Application log: `logs/kisansaarthi.log`.
 
 Two operating modes:
 
@@ -101,6 +111,14 @@ marked validated only if validation macro-F1 reaches `--min-macro-f1` in
 `scripts/train_crop_model.py`. Output labels pass through the pest alias layer;
 a label with no matching verified registry row cannot produce a recommendation.
 
+In the chat, a photo for a validated crop returns the disease name, the confidence
+and the most affected area of the photo (nine-cell grid name plus the share of the
+view). The area is a Grad-CAM attention map from the crop model: it shows where the
+model looked, not a measured lesion, and the reply says so. The overlay image is
+saved as `data/uploads/<session>/affected_region.png`. The place comes from the
+browser's GPS button or a shared WhatsApp location and is reverse-geocoded to a
+district; it also drives the weather check.
+
 ## 10. Safety rules (all deterministic)
 
 | Rule | Behavior |
@@ -112,6 +130,13 @@ a label with no matching verified registry row cannot produce a recommendation.
 | Treatment history | Minimum re-spray interval from verified history rules is checked. If the last spray is unknown and the same ingredient is a candidate, the agent asks once. |
 | Resistance | IRAC/FRAC mode of action. Repeat use gives a rotation warning, not a fabricated ban. |
 | Weather | Rain, wind, temperature thresholds. No verified weather means no advisory. |
+
+When the weather is the only blocker (rain or wind delay, or a forecast that could not
+be verified), the reply still states the product and the scaled quantity for the
+farmer's area, marked "Dose to use once conditions clear. Do not apply it now."
+The quantity comes from the same engine as a normal recommendation and is returned as
+`advisory.planned_dose`; `status` stays `delay` or `abstain`. If PHI, growth stage,
+re-spray interval or the application cap blocks the spray, no dose is shown.
 
 ## 11. Decision controller
 
@@ -146,6 +171,22 @@ oracles written separately from the engine: dose scaling, PHI, growth stage,
 treatment history and synthetic weather cases. Outputs:
 `reports/personalization_eval.csv` and `.md`. It needs verified registry rows.
 
+### Research evaluation
+
+`python -m scripts.evaluate_research` runs on a copy of the database and writes
+`reports/research_eval.md`, `.csv` and `.json`. It measures, against an independent oracle:
+context-conditional correctness, safety compliance rate, abstention precision and recall,
+dose accuracy, waiting-period compliance, tool-argument accuracy (gold utterances in four
+languages), irrelevant-context stability, multilingual consistency, retrieval hit@k,
+evidence grounding and latency. It also runs ablations (weather, waiting period, history,
+growth stage, area, abstention, memory, retrieval removed one at a time).
+
+Baselines: B1 (direct LLM) runs only when an LLM key is configured and is otherwise
+reported as NOT RUN. B2 (registry lookup only) and B3 (dose calculator) are simulated
+rule-based stand-ins and are labelled as such. Weather in this evaluation is a fixed
+synthetic forecast. Retrieval queries are derived from the stored records, so hit@k
+shows retrievability, not answer quality. None of this measures agronomic effectiveness.
+
 ### Tests
 
 `pytest` covers the engine, resistance, weather, soil, growth stage, registry
@@ -175,6 +216,21 @@ torchvision). Run `.\run_project.ps1 -WithVision`.
 
 Chat `http://127.0.0.1:8000`, docs `/docs`, status `/api/status`.
 
+### Deployment and integration
+
+Full guide: `DEPLOYMENT.md`.
+
+- Live-server check: with the server running, `python -m scripts.smoke_test --base-url http://127.0.0.1:8000`
+  tests health, status, a chat conversation (dose or planned dose present), the saved trace and
+  profile, and the WhatsApp webhook. Exit code 0 means all checks passed.
+- WhatsApp: `GET/POST /api/whatsapp/webhook` (Cloud API adapter, text, photo and shared location,
+  signature check, one session per phone number). Tested with simulated Meta payloads only; not run
+  against live WhatsApp. Settings are the four `WHATSAPP_*` variables in `.env.example`.
+- Docker: `Dockerfile` and `docker-compose.yml` are provided. The compose file passes
+  `docker compose config`; the image has not been built on this project's machines.
+- PostgreSQL: set `DATABASE_URL` (see `DEPLOYMENT.md`). The SQLite-only connection argument is skipped
+  for other databases. Not run against a PostgreSQL server.
+
 ## 15. Test
 
 ```
@@ -183,8 +239,15 @@ Chat `http://127.0.0.1:8000`, docs `/docs`, status `/api/status`.
 
 ## 16. Known limitations
 
-- No crop image model is validated yet. Every image-based query abstains until
-  you train and validate one per crop on data you are licensed to use.
+- One crop image model is validated (banana, pilot, trained on a public Mendeley
+  dataset; check its licence before redistribution). Every other crop abstains on
+  an image until a model is trained and validated for it. Within banana only
+  Sigatoka and yellow Sigatoka map to a registry row; other banana classes abstain.
+- Retrieval is keyword overlap, not semantic search. It can miss paraphrases.
+- A sentence that names another place (for example a relative's town) can overwrite
+  the saved field location. The research evaluation reports this as a stability failure.
+- The 3.0 m/s wind delay is a conservative, configurable setting, not a published
+  limit. On windy days the system correctly withholds a dose.
 - The 75-image evaluation set is complete only when you place it there. Its
   `source`, `dataset` and `license` fields stay `TO_VERIFY` until you confirm
   provenance. Do not report accuracy from unverified labels.
@@ -200,17 +263,29 @@ Chat `http://127.0.0.1:8000`, docs `/docs`, status `/api/status`.
   `python -m scripts.validate_pest_aliases`.
 - Hindi, Tamil and Telugu text is unreviewed by native speakers.
 - Weather and place lookup need an OpenWeather key and network access.
+- The planned dose is shown only when weather is the sole blocker. It is a label dose for the
+  farmer's stated area, and the reply tells the farmer not to apply it until conditions clear.
+- The affected region is model attention, not a lesion measurement, and exists only for crops
+  with a validated photo model (banana).
+- The WhatsApp adapter was tested with simulated payloads, not a live Meta account. Voice notes
+  receive a fixed "not supported yet" reply.
+- Docker and PostgreSQL paths are written but were not run.
 - The registry is only as good as its verification. Doses are label values,
   not agronomic recommendations for your field.
 
 ## 17. Future work
 
-WhatsApp delivery is not implemented. A future bot would reuse
-`/api/chat/turn` unchanged: receive text, image and location messages, call the
-same endpoint, send back the reply. This needs the WhatsApp Business API,
-webhook verification, and a consent and retention policy for farmer data.
-Other future items: per-crop validated models, farmer-profile persistence,
-native-speaker review of translations, field trials.
+- Run the WhatsApp adapter against a live Meta number, add a consent and retention
+  policy for farmer data, and accept voice notes by sending them to the existing
+  speech endpoint.
+- Validate photo models for more crops (each needs its own held-out set and the 75-image
+  real-field check) and show the Grad-CAM overlay in the chat page.
+- Add Marathi, and route translation through a dedicated translation model instead of
+  fixed templates; have native speakers review Hindi, Tamil and Telugu.
+- Replace keyword retrieval with semantic search over a larger set of verified ICAR and
+  state-agriculture-university documents. The current knowledge file is small.
+- Move to PostgreSQL with a task queue for slow weather and photo calls, and run field trials
+  with farmers to measure advice quality against agronomist review.
 
 ## 18. Data and secrets
 
@@ -218,3 +293,17 @@ The ZIP contains code, reference data and a sanitized database copy (reference
 tables only, personal tables emptied) when a live database exists. It contains
 no `.env`, no API keys, no raw datasets and no model weights outside the
 registry.
+
+## 19. Scope against the original project brief
+
+<!-- v3-brief-delivered -->
+
+| Brief item | Delivered | Not delivered |
+|---|---|---|
+| WhatsApp bot, text and voice | WhatsApp Cloud API adapter for text, photo and shared location, plus a browser chat with text, photo, GPS and voice upload | Live Meta account test. Voice notes over WhatsApp. |
+| Agent with weather, soil, knowledge and farmer-profile tools | Rule-based multi-agent pipeline with those four tools and a per-turn trace | LangChain (own orchestrator instead) |
+| RAG over ICAR documents | Verified-evidence keyword retrieval over a small knowledge file | 50,000-page ICAR index |
+| Farmer profile store | `field_profiles` and `advisory_traces` tables, `/api/chat/profile/{sid}` | |
+| Multimodal diagnosis | MobileNetV3 banana model with disease name and affected region | LLaVA via Ollama. Models for other crops. |
+| Hindi, Marathi, Tamil, Telugu | English, Hindi, Tamil, Telugu templates | Marathi. IndicTrans2. |
+| FastAPI, Celery, Redis, PostgreSQL, Docker Compose, MinIO | FastAPI, SQLite, Docker Compose file, optional PostgreSQL setting | Celery, Redis, MinIO. Docker image not built, PostgreSQL not run. |

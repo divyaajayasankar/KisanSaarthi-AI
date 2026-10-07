@@ -281,5 +281,83 @@
     "hi": "सुरक्षित सलाह के लिए अभी भी पर्याप्त जानकारी नहीं है। कृपया नज़दीकी KVK या कृषि अधिकारी से संपर्क करें, या नया सवाल शुरू करें।",
     "ta": "பாதுகாப்பான ஆலோசனைக்கு இன்னும் போதுமான தகவல் இல்லை. அருகிலுள்ள KVK அல்லது வேளாண் அலுவலரை தொடர்பு கொள்ளவும், அல்லது புதிய கேள்வியைத் தொடங்கவும்.",
     "te": "సురక్షిత సలహాకు ఇంకా తగిన సమాచారం లేదు. దగ్గరలోని KVK లేదా వ్యవసాయ అధికారిని సంప్రదించండి, లేదా కొత్త ప్రశ్న ప్రారంభించండి."
+  },
+  "planned_dose": {
+    "en": "Dose to use once conditions clear: {ai}, {dose} {dose_unit} for your {area} {unit}. Do not apply it now. {phi_line}",
+    "hi": "स्थिति ठीक होने पर उपयोग की मात्रा: {ai}, आपके {area} {unit} के लिए {dose} {dose_unit}। इसे अभी न डालें। {phi_line}",
+    "ta": "நிலைமை சரியானதும் பயன்படுத்த வேண்டிய அளவு: {ai}, உங்கள் {area} {unit} க்கு {dose} {dose_unit}. இப்போது பயன்படுத்த வேண்டாம். {phi_line}",
+    "te": "పరిస్థితి అనుకూలించాక వాడాల్సిన మోతాదు: {ai}, మీ {area} {unit} కోసం {dose} {dose_unit}. ఇప్పుడు వాడవద్దు. {phi_line}"
+  },
+  "photo_result": {
+    "en": "Photo result: {disease} (confidence {confidence}).",
+    "hi": "फोटो का परिणाम: {disease} (विश्वास {confidence})।",
+    "ta": "புகைப்பட முடிவு: {disease} (நம்பகத்தன்மை {confidence}).",
+    "te": "ఫోటో ఫలితం: {disease} (నమ్మకం {confidence})."
+  },
+  "photo_region": {
+    "en": "Most affected area: {where}, about {pct}% of the photo. This shows where the model looked, not a measured lesion.",
+    "hi": "सबसे ज्यादा प्रभावित हिस्सा: {where}, फोटो का लगभग {pct}%। यह दिखाता है कि मॉडल ने कहाँ देखा, मापा गया घाव नहीं।",
+    "ta": "அதிகம் பாதிக்கப்பட்ட பகுதி: {where}, புகைப்படத்தில் சுமார் {pct}%. இது மாதிரி எங்கே பார்த்தது என்பதைக் காட்டுகிறது, அளவிடப்பட்ட புண் அல்ல.",
+    "te": "ఎక్కువగా ప్రభావితమైన భాగం: {where}, ఫోటోలో సుమారు {pct}%. ఇది మోడల్ ఎక్కడ చూసిందో చూపిస్తుంది, కొలిచిన మచ్చ కాదు."
+  },
+  "photo_result_healthy": {
+    "en": "The leaf looks healthy (confidence {confidence}). No affected region found.",
+    "hi": "पत्ती स्वस्थ दिखती है (विश्वास {confidence})। कोई प्रभावित हिस्सा नहीं मिला।",
+    "ta": "இலை ஆரோக்கியமாகத் தெரிகிறது (நம்பகத்தன்மை {confidence}). பாதிக்கப்பட்ட பகுதி எதுவும் இல்லை.",
+    "te": "ఆకు ఆరోగ్యంగా కనిపిస్తోంది (నమ్మకం {confidence}). ప్రభావిత భాగం కనిపించలేదు."
+  },
+  "region_upper_left": {
+    "en": "upper left",
+    "hi": "ऊपर बाएँ",
+    "ta": "மேல் இடது",
+    "te": "పై ఎడమ"
+  },
+  "region_upper_center": {
+    "en": "upper middle",
+    "hi": "ऊपर बीच में",
+    "ta": "மேல் நடுவில்",
+    "te": "పై మధ్య"
+  },
+  "region_upper_right": {
+    "en": "upper right",
+    "hi": "ऊपर दाएँ",
+    "ta": "மேல் வலது",
+    "te": "పై కుడి"
+  },
+  "region_middle_left": {
+    "en": "middle left",
+    "hi": "बीच में बाएँ",
+    "ta": "நடுவில் இடது",
+    "te": "మధ్య ఎడమ"
+  },
+  "region_center": {
+    "en": "center",
+    "hi": "बीच में",
+    "ta": "நடுவில்",
+    "te": "మధ్యలో"
+  },
+  "region_middle_right": {
+    "en": "middle right",
+    "hi": "बीच में दाएँ",
+    "ta": "நடுவில் வலது",
+    "te": "మధ్య కుడి"
+  },
+  "region_lower_left": {
+    "en": "lower left",
+    "hi": "नीचे बाएँ",
+    "ta": "கீழ் இடது",
+    "te": "కింద ఎడమ"
+  },
+  "region_lower_center": {
+    "en": "lower middle",
+    "hi": "नीचे बीच में",
+    "ta": "கீழ் நடுவில்",
+    "te": "కింద మధ్య"
+  },
+  "region_lower_right": {
+    "en": "lower right",
+    "hi": "नीचे दाएँ",
+    "ta": "கீழ் வலது",
+    "te": "కింద కుడి"
   }
 }

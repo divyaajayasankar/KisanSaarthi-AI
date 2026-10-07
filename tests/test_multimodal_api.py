@@ -27,11 +27,11 @@ def test_home_is_the_chat_page_with_all_controls():
     response = client.get("/")
     assert response.status_code == 200
     html = response.text
-    for control in ("btnUpload", "btnCamera", "btnLocation", "btnVoice", "btnSend", "lang", "text"):
+    for control in ("btnUpload", "btnCamera", "btnLocation", "btnSend", "lang", "text"):
         assert f'id="{control}"' in html
     assert "getUserMedia" in html
     assert "navigator.geolocation" in html
-    assert "/api/speech/transcribe" in html
+    assert "btnVoice" not in html  # microphone removed for now
 
 
 def test_chat_page_never_uses_innerhtml():
@@ -65,7 +65,7 @@ def test_upload_endpoint_still_validates_only():
 def test_analyze_unsupported_crop_abstains_without_a_diagnosis():
     response = client.post(
         "/api/vision/analyze",
-        data={"crop": "banana"},
+        data={"crop": "tomato"},
         files={"image": ("leaf.jpg", jpeg_bytes(), "image/jpeg")},
     )
     assert response.status_code == 200

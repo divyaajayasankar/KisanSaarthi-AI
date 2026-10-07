@@ -49,11 +49,11 @@ groundnut,groundnut healthy,groundnut_groundnut_healthy_01.jpg,https://data.mend
 groundnut,groundnut late leaf spot,groundnut_groundnut_late_leaf_spot_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
 groundnut,groundnut nutrition deficiency,groundnut_groundnut_nutrition_deficiency_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
 groundnut,groundnut rust,groundnut_groundnut_rust_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
-banana,banana bract mosaic virus,banana_banana_bract_mosaic_virus_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
-banana,banana cordana,banana_banana_cordana_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
-banana,banana healthy,banana_banana_healthy_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
-banana,banana moko,banana_banana_moko_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
-banana,banana sigatoka,banana_banana_sigatoka_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,bract mosaic virus,banana_banana_bract_mosaic_virus_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,cordana,banana_banana_cordana_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,healthy,banana_banana_healthy_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,moko,banana_banana_moko_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
+banana,sigatoka,banana_banana_sigatoka_01.jpg,https://data.mendeley.com/datasets/6243z8r6t6/1,"Multi-Crop Disease Dataset (Roboflow export, 640x640 stretched)",TO_VERIFY
 cotton,Alternaria Leaf Spot,cotton_alternaria_leaf_spot_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
 cotton,Bacterial Blight,cotton_bacterial_blight_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY
 cotton,Fusarium Wilt,cotton_fusarium_wilt_01.jpg,https://data.mendeley.com/datasets/t9hgvk2h9p/1,Cotton Leaf Image Dataset for Disease Classification,TO_VERIFY

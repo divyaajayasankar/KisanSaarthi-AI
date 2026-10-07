@@ -1,0 +1,15 @@
+.venv
+venv
+.git
+__pycache__
+*.pyc
+.pytest_cache
+.env
+*.zip
+_backup_*
+logs
+reports
+data/uploads
+data/source_datasets
+tests
+scratchpad

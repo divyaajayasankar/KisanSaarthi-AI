@@ -15,11 +15,14 @@ from app.models_resistance import ResistanceRule
 from app.models_conversation import ConversationSession  # noqa: F401
 import app.models_crop_soil  # noqa: F401
 import app.models_growth_stage  # noqa: F401
+import app.models_trace  # noqa: F401
+from app.logging_config import configure_logging
 
 from app.routers.agent import router as agent_router
 from app.routers.vision import router as vision_router
 from app.routers.chat import router as chat_router
 from app.routers.speech import router as speech_router
+from app.routers.whatsapp import router as whatsapp_router
 
 from app.routers import (
     farmers,
@@ -159,6 +162,7 @@ app.include_router(
 # POST /api/chat/message       JSON text / coordinates
 # POST /api/chat/turn          multipart text + image + coordinates
 # POST /api/speech/transcribe  audio -> transcript (farmer confirms)
+# GET/POST /api/whatsapp/webhook  WhatsApp Cloud API adapter
 # POST /api/vision/analyze     crop-aware disease analysis
 # ============================================================
 
@@ -170,6 +174,10 @@ app.include_router(
     speech_router
 )
 
+app.include_router(
+    whatsapp_router
+)
+
 
 # ============================================================
 # STARTUP
@@ -177,6 +185,8 @@ app.include_router(
 
 @app.on_event("startup")
 def startup():
+
+    configure_logging()
 
     Base.metadata.create_all(
         bind=engine

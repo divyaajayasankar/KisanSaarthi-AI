@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.db import get_db
 from app.services import conversation_service as conv
+from app.services import trace_service
 from app.services.chat_orchestrator import ImageInput, handle_turn
 from app.services.language_service import LANGUAGE_NAMES, SUPPORTED_LANGUAGES, t
 
@@ -97,3 +98,18 @@ def reset_session(session_id: str, db: Session = Depends(get_db)):
     state = conv.reset_state(conv.load_state(db, session_id))
     conv.save_state(db, state)
     return {"session_id": session_id, "status": "reset"}
+
+
+@router.get("/profile/{session_id}")
+def saved_profile(session_id: str, db: Session = Depends(get_db)):
+    """The field context saved for this conversation."""
+    profile = trace_service.get_profile(db, session_id)
+    if profile is None:
+        raise HTTPException(status_code=404, detail="No saved profile for this session.")
+    return profile
+
+
+@router.get("/trace/{session_id}")
+def saved_trace(session_id: str, limit: int = 50, db: Session = Depends(get_db)):
+    """Per-turn audit rows: query, context, agent trace, rules, evidence, decision."""
+    return {"session_id": session_id, "turns": trace_service.get_traces(db, session_id, limit=max(1, min(limit, 200)))}

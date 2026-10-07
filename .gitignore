@@ -20,3 +20,5 @@ data/real_field_eval/*/
 *.bak
 
 *.bak
+logs/
+_backup_*/

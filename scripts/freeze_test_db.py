@@ -20,7 +20,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LIVE_DB = PROJECT_ROOT / "kisansaarthi.db"
 FIXTURE_DB = PROJECT_ROOT / "tests" / "fixtures" / "kisansaarthi_test.db"
 
-PERSONAL_TABLES = ("farmer_profiles", "advisory_runs", "conversation_sessions")
+PERSONAL_TABLES = ("farmer_profiles", "advisory_runs", "conversation_sessions", "advisory_traces", "field_profiles")
 
 
 def snapshot(source: Path, target: Path) -> dict[str, int]:

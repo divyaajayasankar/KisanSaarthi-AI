@@ -22,6 +22,7 @@ the same handle_turn().
 
 from __future__ import annotations
 
+import time
 import uuid
 from dataclasses import dataclass, field
 from datetime import date
@@ -80,6 +81,10 @@ class Turn:
     advisory: dict[str, Any] | None = None
     vision: dict[str, Any] | None = None
     details: str | None = None
+    evidence_ids: list[Any] = field(default_factory=list)
+    user_text: str | None = None
+    had_image: bool = False
+    started_at: float = field(default_factory=time.perf_counter)
 
     def say(self, text: str, kind: str = "text", **extra: Any) -> None:
         if text:
@@ -329,6 +334,42 @@ def _run_vision(turn: Turn, image_bytes: bytes) -> None:
         decision=result.decision,
         reason=result.reason,
     )
+    _describe_photo(turn, image_bytes, result)
+
+
+def _describe_photo(turn: Turn, image_bytes: bytes, result) -> None:
+    """Say what the photo shows: disease name, confidence and affected region.
+
+    Only for a validated crop model. The region is a Grad-CAM attention map
+    (where the model looked), and the reply says so. Never raises into the chat.
+    """
+    try:
+        if not (result.model_supported and result.prediction):
+            return
+        if result.decision not in (dc.ANSWER, dc.ASK_FOLLOW_UP):
+            return
+        confidence = _fmt_conf(result.confidence)
+        if result.prediction == "healthy":
+            turn.say(t("photo_result_healthy", turn.language, confidence=confidence), kind="note")
+            return
+        from app.services.vision_region_service import locate_affected_region
+
+        region = locate_affected_region(
+            turn.state.get("crop"), image_bytes, result.prediction,
+            overlay_dir=UPLOAD_DIR / str(turn.state.get("session_id") or "session"),
+        )
+        disease = _pest_display(turn.state.get("vision_pest"))
+        text = t("photo_result", turn.language, disease=disease, confidence=confidence)
+        if region:
+            text += " " + t("photo_region", turn.language,
+                            where=t("region_" + region["position"], turn.language),
+                            pct=region["share_of_view_percent"])
+            if turn.vision is not None:
+                turn.vision["region"] = region
+        turn.say(text, kind="note")
+        turn.step("Affected Region", found=bool(region), position=(region or {}).get("position"))
+    except Exception as exc:  # the photo summary must never break the reply
+        turn.step("Affected Region", found=False, error=exc.__class__.__name__)
 
 
 # ------------------------------------------------------------
@@ -345,6 +386,7 @@ def _knowledge(turn: Turn, crop: str, topic: str) -> None:
         return
     items = result.get("results") or []
     turn.step("Knowledge Agent", status=result.get("status"), results=len(items))
+    turn.evidence_ids = [item.get("id") for item in items if item.get("id") is not None]
     if not items:
         return
     translator = llm_service.translator_or_none()
@@ -491,6 +533,7 @@ def _run_engine(turn: Turn, db: Session) -> None:
             )
         turn.say(t("answer_delay", turn.language, crop=crop_label, pest=pest_label, reason=reason), kind="advisory")
         _weather_line(turn, weather)
+        _planned_dose(turn, row, harvest_days, advisory)
 
     if decision.decision == dc.ABSTAIN:
         _engine_abstain(turn, advisory, row, harvest_days, crop_label, pest_label)
@@ -518,6 +561,57 @@ def _engine_abstain(turn: Turn, advisory, row, harvest_days, crop_label, pest_la
     else:
         body = t("abstain_generic", turn.language)
     turn.say(header + "\n" + body, kind="abstain")
+    if "weather_unavailable" in rules:
+        _planned_dose(turn, row, harvest_days, advisory)
+
+
+_PLAN_BLOCKERS = (
+    "phi_rejected",
+    "growth_stage_outside_application_window",
+    "maximum_application_frequency_reached",
+    "minimum_treatment_interval_not_met",
+)
+
+
+def _planned_dose(turn: Turn, row, harvest_days, advisory) -> None:
+    """Show the registered dose to use once conditions clear.
+
+    Used only when the weather is the sole reason not to spray now (delay, or
+    weather could not be verified). The dose comes from the same deterministic
+    engine as a normal recommendation; no other rule may have blocked it. The
+    message says plainly that the farmer must not apply it now.
+    """
+    try:
+        if row is None or any(rule in _PLAN_BLOCKERS for rule in (advisory.get("fired_rules") or [])):
+            return
+        from app.services import constraint_engine
+
+        state = turn.state
+        planned = constraint_engine.evaluate_advisory(
+            registry_entry=row, field_area=float(state["land_area"]),
+            area_unit=state["land_unit"], expected_harvest_days=harvest_days,
+        )
+        if planned.status != "recommend":
+            return
+        dose_min, dose_max = planned.scaled_dose_min, planned.scaled_dose_max
+        dose = _fmt_num(dose_min) if dose_min == dose_max else f"{_fmt_num(dose_min)}-{_fmt_num(dose_max)}"
+        if row.phi_not_applicable:
+            phi_line = t("phi_na_line", turn.language)
+        else:
+            phi_line = t("phi_line", turn.language, phi_days=row.phi_days, harvest_days=harvest_days)
+        turn.say(
+            t("planned_dose", turn.language, ai=planned.active_ingredient, dose=dose, dose_unit=planned.dose_unit,
+              area=_fmt_num(state["land_area"]), unit=state["land_unit"], phi_line=phi_line),
+            kind="advisory",
+        )
+        advisory["planned_dose"] = {
+            "active_ingredient": planned.active_ingredient,
+            "dose_min": dose_min, "dose_max": dose_max, "dose_unit": planned.dose_unit,
+            "apply_now": False,
+        }
+        turn.step("Planned Dose", active_ingredient=planned.active_ingredient, dose_min=dose_min, dose_max=dose_max)
+    except Exception as exc:  # the plan is extra information; never break the reply
+        turn.step("Planned Dose", status="unavailable", error=exc.__class__.__name__)
 
 
 def _weather_line(turn: Turn, weather: dict[str, Any]) -> None:
@@ -641,6 +735,8 @@ def handle_turn(
 
     turn = Turn(state=state, language=state.get("language", "en"), today=today)
     text = (text or "").strip()
+    turn.user_text = text or None
+    turn.had_image = image is not None
     ctx = None
 
     # ---------------- Context Agent ----------------
@@ -840,6 +936,12 @@ def _finish(db: Session, turn: Turn, channel: str) -> dict[str, Any]:
         conv.add_history(state, "assistant", message["text"], kind=message.get("kind"))
     state["turns"] = state.get("turns", 0) + 1
     conv.save_state(db, state, channel)
+    from app.services import trace_service
+
+    trace_service.record_turn(
+        db, turn, channel, turn.user_text, turn.had_image,
+        round((time.perf_counter() - turn.started_at) * 1000, 1),
+    )
     return {
         "session_id": state["session_id"],
         "language": turn.language,

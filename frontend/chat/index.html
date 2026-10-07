@@ -420,7 +420,7 @@ dialog button.btn.wide { width: 100%; display: flex; align-items: center; justif
     { title: "Hindi", hint: "Reply comes back in Hindi", text: "मेरी मिर्च की पत्तियाँ मुड़ रही हैं।" }
   ];
 
-  var BOT_ICON = '<svg viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11C12 7 9 4.500 4.500 4.500 4.500 9 7 11 12 11z"/><path d="M12 14c0-3.500 2.500-6 7.500-6 0 4.500-3 6-7.500 6z"/></svg>';
+  var BOT_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11C12 7 9 4.500 4.500 4.500 4.500 9 7 11 12 11z"/><path d="M12 14c0-3.500 2.500-6 7.500-6 0 4.500-3 6-7.500 6z"/></svg>';
 
   function safeStore(key, value) {
     try {
@@ -438,7 +438,7 @@ dialog button.btn.wide { width: 100%; display: flex; align-items: center; justif
     row.className = "row bot";
     var av = document.createElement("div");
     av.className = "avatar";
-    av.innerHTML = BOT_ICON;               // constant markup, no user text
+    av.appendChild(document.importNode(new DOMParser().parseFromString(BOT_ICON, "image/svg+xml").documentElement, true));  // constant icon, no user text
     var stack = document.createElement("div");
     stack.className = "stack";
     row.appendChild(av); row.appendChild(stack);
