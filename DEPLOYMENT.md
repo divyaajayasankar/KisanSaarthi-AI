@@ -55,7 +55,7 @@ mkdir -p db && cp kisansaarthi.db db/
 docker compose up --build
 ```
 
-The app listens on port 8000. `./db`, `./logs` and `./data/uploads` are mounted so data survives container restarts. The build installs PyTorch CPU wheels (large) so the banana model can run; set `WITH_VISION: "false"` in `docker-compose.yml` for a smaller image without photo diagnosis.
+The app listens on port 8000. `./db`, `./logs` and `./data/uploads` are mounted so data survives container restarts. The build installs PyTorch CPU wheels (large) so the banana and chilli models can run; set `WITH_VISION: "false"` in `docker-compose.yml` for a smaller image without photo diagnosis.
 
 ### PostgreSQL (optional, untested)
 
@@ -109,7 +109,7 @@ Copy `kisansaarthi.db` before every change. To roll back code, restore the previ
 
 ## Known limits
 
-- Photo diagnosis and affected region work for one crop (banana). The held-out macro-F1 of 0.9722 comes from one public dataset and is not field accuracy. The region is a Grad-CAM attention map (where the model looked), not a measured lesion area.
+- Photo diagnosis and affected region work for two crops (banana, chilli). The held-out macro-F1 scores (banana 0.9722, chilli 0.8893) come from splits of their own training datasets and are not field accuracy. The chilli dataset source and licence are still TO_VERIFY. The region is a Grad-CAM attention map (where the model looked), not a measured lesion area.
 - Other crops accept text queries and return registered doses, but a photo for them gets an honest "no validated model" note.
 - The planned dose is shown only when weather is the sole blocker. PHI, growth-stage, interval and application-cap blocks show no dose.
 - Retrieval is keyword matching over a small verified knowledge file, not a 50,000-page document index.

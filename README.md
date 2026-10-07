@@ -239,10 +239,16 @@ Full guide: `DEPLOYMENT.md`.
 
 ## 16. Known limitations
 
-- One crop image model is validated (banana, pilot, trained on a public Mendeley
-  dataset; check its licence before redistribution). Every other crop abstains on
+- Two crop image models are validated: banana (pilot, trained on a public Mendeley
+  dataset; check its licence before redistribution; held-out macro-F1 0.972) and chilli
+  (pilot, trained on the local 'cropped' folder, 527 images in 5 classes; held-out
+  macro-F1 0.889; dataset source and licence still TO_VERIFY). Both scores come from a
+  split of the training dataset and are not field accuracy. Every other crop abstains on
   an image until a model is trained and validated for it. Within banana only
   Sigatoka and yellow Sigatoka map to a registry row; other banana classes abstain.
+  Within chilli, the murda complex class is mapped to the Thrips and Mites registry row by
+  an alias added in `data/registry/pest_aliases.csv`; that mapping needs expert review.
+  Chilli classes with no verified registry row return the disease name and no dose.
 - Retrieval is keyword overlap, not semantic search. It can miss paraphrases.
 - A sentence that names another place (for example a relative's town) can overwrite
   the saved field location. The research evaluation reports this as a stability failure.
@@ -266,7 +272,7 @@ Full guide: `DEPLOYMENT.md`.
 - The planned dose is shown only when weather is the sole blocker. It is a label dose for the
   farmer's stated area, and the reply tells the farmer not to apply it until conditions clear.
 - The affected region is model attention, not a lesion measurement, and exists only for crops
-  with a validated photo model (banana).
+  with a validated photo model (banana, chilli).
 - The WhatsApp adapter was tested with simulated payloads, not a live Meta account. Voice notes
   receive a fixed "not supported yet" reply.
 - Docker and PostgreSQL paths are written but were not run.
@@ -304,6 +310,6 @@ registry.
 | Agent with weather, soil, knowledge and farmer-profile tools | Rule-based multi-agent pipeline with those four tools and a per-turn trace | LangChain (own orchestrator instead) |
 | RAG over ICAR documents | Verified-evidence keyword retrieval over a small knowledge file | 50,000-page ICAR index |
 | Farmer profile store | `field_profiles` and `advisory_traces` tables, `/api/chat/profile/{sid}` | |
-| Multimodal diagnosis | MobileNetV3 banana model with disease name and affected region | LLaVA via Ollama. Models for other crops. |
+| Multimodal diagnosis | MobileNetV3 banana and chilli models with disease name and affected region | LLaVA via Ollama. Models for other crops. |
 | Hindi, Marathi, Tamil, Telugu | English, Hindi, Tamil, Telugu templates | Marathi. IndicTrans2. |
 | FastAPI, Celery, Redis, PostgreSQL, Docker Compose, MinIO | FastAPI, SQLite, Docker Compose file, optional PostgreSQL setting | Celery, Redis, MinIO. Docker image not built, PostgreSQL not run. |

@@ -68,6 +68,58 @@
         "min_macro_f1_required": 0.7,
         "note": "Validation images come from the same source dataset as training; real-field performance is measured separately by scripts/evaluate_real_field.py."
       }
+    },
+    "chilli": {
+      "path": "data/models/chilli_mobilenetv3.pt",
+      "architecture": "mobilenet_v3_small",
+      "labels": [
+        "cercospora",
+        "healthy",
+        "murda_complex",
+        "nutritional_deficiency",
+        "powdery_mildew"
+      ],
+      "input_size": 224,
+      "temperature": 1.35,
+      "validated": true,
+      "pretrained_imagenet": true,
+      "trained_at": "2026-10-07T14:50:43+00:00",
+      "training_source": "TO_VERIFY",
+      "training_license": "TO_VERIFY",
+      "license_accepted_unverified": true,
+      "classes_config": {
+        "cercospora": [
+          "cropped/cropped/cercospora"
+        ],
+        "healthy": [
+          "cropped/cropped/healthy"
+        ],
+        "murda_complex": [
+          "cropped/cropped/murda complex(mites,trips)"
+        ],
+        "nutritional_deficiency": [
+          "cropped/cropped/nutritional"
+        ],
+        "powdery_mildew": [
+          "cropped/cropped/powdery mildew"
+        ]
+      },
+      "excluded_eval_duplicates": 5,
+      "validation": {
+        "split": "stratified 20% holdout, seed 42",
+        "n_train": 422,
+        "n_val": 105,
+        "accuracy": 0.8952,
+        "macro_precision": 0.8964,
+        "macro_recall": 0.8857,
+        "macro_f1": 0.8893,
+        "ece_before_temperature": 0.0415,
+        "ece_after_temperature": 0.0472,
+        "brier_before_temperature": 0.1795,
+        "brier_after_temperature": 0.1846,
+        "min_macro_f1_required": 0.8,
+        "note": "Validation images come from the same source dataset as training; real-field performance is measured separately by scripts/evaluate_real_field.py."
+      }
     }
   }
 }
