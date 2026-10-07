@@ -1,4 +1,4 @@
-# KisanSaarthi AI: Deployment and Integration
+﻿# KisanSaarthi AI: Deployment and Integration
 
 Version for the final review, 2026-10-08. Every claim below is marked with how it was checked.
 
@@ -7,7 +7,7 @@ Version for the final review, 2026-10-08. Every claim below is marked with how i
 | Item | State | Evidence |
 |---|---|---|
 | Local run on Windows (`run_project.ps1`) | Verified | Run on the project laptop |
-| Live-server smoke test (`scripts/smoke_test.py`) | Verified in the build sandbox against a real uvicorn process: 7 of 7 checks | Run against a one-row test database; rerun on your own database before the review |
+| Live-server smoke test (`scripts/smoke_test.py`) | Verified in the build sandbox against a real uvicorn process: 7 of 7 checks | Passed 6 of 6 on the project laptop with the real registry and live weather; also 7 of 7 in the build sandbox |
 | Chat web UI plus REST API | Verified | pytest suite, all passing |
 | WhatsApp Cloud API adapter | Verified with simulated Meta payloads only (verification handshake, signature check, text, photo, location, voice note, send path with a recorded Graph API client) | `tests/test_whatsapp_adapter.py`, 16 tests. Not tested against live WhatsApp. |
 | Docker image and compose file | Written. Compose file passes `docker compose config`. The image was not built because neither the sandbox nor the project laptop has a running Docker daemon. | Treat as untested until you run `docker compose up --build` |
