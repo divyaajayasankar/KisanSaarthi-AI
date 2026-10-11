@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.min.css?v=1.2.27" />
+	<link rel="shortcut icon" type="image/ico" href="/static/icons/cisco.ico" />
+	
+	
+	<title>Site Blocked</title>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="logo-area">
+			
+				<div class="center-align-logo">
+					<img id="logo" class="logo" src="https://d3aswa4nvo33j8.cloudfront.net/9/d/9d42ef5071357b9aa36352a6f62ef1fc64b1c94a129b50cb051f955d407ea8eb7e904ec30c5b67c5b0efa35a90821c003a6e8867a5c7adbe787c6dabd3b2a807.png" alt="logo"></img>
+				</div>
+			
+		</div>
+		<div class="content-area">
+
+			<div class="blocked-page">
+				<div class="alert-area">
+					<i class="fa fa-exclamation-triangle alert-icon" aria-hidden="true"></i>
+					<span role="alert">
+						
+							This file is blocked due to File Type policy.
+						
+					</span>
+				</div>
+				<div class="url-area">
+					
+					<input readonly class="url" id="inputUrl" type="text" value="JPG File"  aria-label="destination" />
+					
+				</div>
+
+				
+			</div>
+			<div class="explanation-area">
+				
+					
+				
+
+				
+
+				
+				
+				
+				<div class="custom-message customer-authored-message" id="customMessage">
+					<p><strong>Blocked site :  datasets-server.huggingface.co </strong></p>
+<p><strong>Client  Public IP : 151.186.148.4 </strong></p>
+<p style="text-align:left;">Above mentioned site is blocked as per policy.  Plese raise  <a href="https://isupport.ltimindtree.com/sp_irequest?id=privacc" target="_blank"><strong>iSupport </strong></a>  ticket for the business requirement.</p>
+<p style="text-align:start;"><a href="https://ltimindtree.sharepoint.com/:b:/r/sites/ITInfra/IT%20Infra%20Policies/Policies/Internet%20Usage%20Policy%20-Enterprise%20IT%20v1.3.pdf?csf=1&amp;web=1&amp;e=AaLwMo" target="_blank"><strong>See our internet use policy.</strong></a><strong> </strong><a href="https://ltimindtree.sharepoint.com/sites/ITInfra/IT%20Infra%20Policies/Forms/AllItems.aspx?id=%2Fsites%2FITInfra%2FIT%20Infra%20Policies%2FPolicies%2FInternet%20Usage%20Policy%20%2DEnterprise%20IT%20v1%2E4%2Epdf&amp;parent=%2Fsites%2FITInfra%2FIT%20Infra%20Policies%2FPolicies" target="_blank"><strong>See our internet use policy.</strong></a><a href="https://ltimindtree.sharepoint.com/:b:/r/sites/ITInfra/IT%20Infra%20Policies/Policies/Internet%20Usage%20Policy%20-Enterprise%20IT%20v1.3.pdf?csf=1&amp;web=1&amp;e=AaLwMo" target="_blank"><strong>See our internet use policy.</strong></a></p>
+
+				</div>
+				
+				
+
+				
+
+				
+
+				
+					
+					<div class="categorized">
+						<p>
+							This file was categorized as:
+							<strong>
+								JPG
+							</strong>
+						</p>
+					</div>
+					
+				
+
+				
+				
+				<div class="proxy-area">
+					
+						
+					
+
+					
+					
+						<div class="diagnostic-info-area" id="diagnosticInfoArea">
+							<i class="fa fa-angle-right" id="diagnosticToggleCaret"></i>
+							<a href="#" id="diagnosticToggle">Diagnostic Info</a>
+							<div class="diagnostic-info">
+								<dl>
+								
+									<dt>ACType</dt>
+									<dd>-</dd>
+								
+									<dt>Block Page ID</dt>
+									<dd>0</dd>
+								
+									<dt>Block Type</dt>
+									<dd>ftc</dd>
+								
+									<dt>Bundle ID</dt>
+									<dd>15244735</dd>
+								
+									<dt>Domain Tagging</dt>
+									<dd>1C00000000070000000039F2000000000000000</dd>
+								
+									<dt>Host</dt>
+									<dd>block.sse.cisco.com</dd>
+								
+									<dt>IP Address</dt>
+									<dd>151.186.148.4</dd>
+								
+									<dt>Org ID</dt>
+									<dd>8259075</dd>
+								
+									<dt>Origin ID</dt>
+									<dd>1428007696</dd>
+								
+									<dt>Prefs</dt>
+									<dd>5791808</dd>
+								
+									<dt>Public IP</dt>
+									<dd>151.186.148.4</dd>
+								
+									<dt>Query</dt>
+									<dd>server=mps-5bbcd68dc7-9rgp8.sigproxy.prod_aws_ap-south-2_1_0n&amp;v=eyJhbGciOiAiSFM1MTIiLCAia2lkIjogIjE1NjM1NTk3OTYifQ.eyJidHlwZSI6ICIiLCAib3JnIjogODI1OTA3NSwgIm9pZCI6IDE0MjgwMDc2OTYsICJiaWQiOiAxNTI0NDczNSwgInByZiI6IDU3OTE4MDgsICJ0IjogIjFDMDAwMDAwMDAwNzAwMDAwMDAwMzlGMjAwMDAwMDAwMDAwMDAwMCIsICJiYyI6ICIiLCAidXJsIjogImh0dHBzOi8vZGF0YXNldHMtc2VydmVyLmh1Z2dpbmdmYWNlLmNvL2NhY2hlZC1hc3NldHMvUHJvamVjdC1BZ01ML3BsYW50X2RvY19jbGFzc2lmaWNhdGlvbi8tLS8yOGU2NzAwOTY3OGQwMGIwMzNkYWQ2MzIyNjNmY2JkMGUwMzViNTIwLy0tL2RlZmF1bHQvdHJhaW4vMTE0L2ltYWdlL2ltYWdlLmpwZyUzRkV4cGlyZXM9MTc5MTE5ODE3NyUyNlNpZ25hdHVyZT1ST3lxSWxOdFNDQXZzM09KbkFWbWN-OVp2bzFCcTY4Y1JVekpveVpCcWZUQ3pYTGJ3eUlQa2o1cmVCTTA3NGZiUkl5ZzZZZGw4ZDVlTlM0RzdSay1UTjFmem5zZ2NvcU81VnJtc35pOW04cEc2Vjl1V2tYVUFMbGI0YkhwQlhZSjNtVVY5eVhZeGZBODgyTElFSnBzd3hnTktLWU12bXhEZGdiLUE1MzZGOXVkV1Q4WXRHM0s5SEpiM0hGZ2owNXIzVmYtbS1qNHQyaEgxNDRRWG1-a2JkNk9xU01PMXN5V2RILUpNWmFIUjJWbGRpeURqaVRHVEpZd0o0QWg3RXpROXBvWmFub1NLbDZhMnZWQlYweTcya0tueEV1NlByUW5IWmdDQzRrT0xDcXdzUC1MeVVWdktGN1NLM3kwOHYyNWhiS0FqUVpEMnJtUVVLVTB4aEJDQWdfXyUyNktleS1QYWlyLUlkPUszQzBMOVdCNlU1RFVDIiwgImZ0YyI6ICJqcGciLCAiZm5hbWVzIjogIiIsICJicGlkIjogMCwgInJ1bGVpZCI6IDI4NzQ3MjJ9.EKGFcGyj16g0L4C_ZTSdP10zlhDFm8gTVo4v9lJXPf6Ckllbfb-SO1nq-M0KQjAKXrQnM73HpKV8mO-l-EVepQ</dd>
+								
+									<dt>Rule ID</dt>
+									<dd>2874722</dd>
+								
+									<dt>Rule Name</dt>
+									<dd>LTM_EDU_Tech_Project_Policy_Dont_Delete</dd>
+								
+									<dt>Server</dt>
+									<dd>mps-5bbcd68dc7-9rgp8.sigproxy.prod_aws_ap-south-2_1_0n</dd>
+								
+									<dt>Time</dt>
+									<dd>2026-10-05 10:08:48.91842086 &#43;0000 UTC m=&#43;2176644.398881471</dd>
+								
+									<dt>User Agent</dt>
+									<dd>Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.9444</dd>
+								
+								</dl>
+							</div>
+						</div>
+					
+					
+
+				</div>
+				
+				
+			</div>
+
+			<script type="text/javascript">
+				var cfOptions = {
+					baseUrl: "https://tools.opendns.com/contact-netadmin/",
+					enabled:  false ,
+					domain: "JPG File",
+					blockType: "ftc",
+					oid:  1428007696 ,
+					oidhash: "5bfbd158860fb36364ca07a5c1d62fa208c6b418e5b478afc816030777fe7032",
+					org: "8259075",
+					bundleid:  15244735 ,
+					ruleid:  2874722 ,
+					blockpageid:  0 ,
+					bundleidhash: "dd83ccea18b99c14e5facf84d65242668deca28e3ea2cd3f54ac3e9605a17f8a",
+					preview:  false ,
+					requestId: "db1nec4apfpmgge922qg",
+					bc: []
+				}
+			</script>
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="/static/js/scripts.min.js?v=1.2.27"></script>
+</body>
+</html>
+

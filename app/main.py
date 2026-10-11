@@ -14,6 +14,7 @@ from app.models_treatment_history import TreatmentHistoryRule
 from app.models_resistance import ResistanceRule
 
 from app.routers.agent import router as agent_router
+from app.routers.vision import router as vision_router
 
 from app.routers import (
     farmers,
@@ -38,16 +39,16 @@ app = FastAPI(
 # ============================================================
 # PROJECT PATHS
 # ============================================================
-# This makes the project portable.
+# Portable project paths.
 #
-# Example:
-# C:\MTech_Project\KisanSaarthi-AI\app\main.py
+# Example company laptop:
+# C:\farmer\app\main.py
 #
 # Path(__file__)             -> app\main.py
 # .resolve().parent          -> app
-# .parent                    -> KisanSaarthi-AI
+# .parent                    -> project root
 #
-# Therefore there is NO hard-coded C:\farmer path.
+# No hard-coded project directory is required.
 # ============================================================
 
 APP_DIR = Path(__file__).resolve().parent
@@ -121,6 +122,22 @@ app.include_router(
 
 app.include_router(
     agent_router
+)
+
+
+# ============================================================
+# PHASE 1 — MULTIMODAL IMAGE ROUTER
+# ============================================================
+# Handles secure image upload and validation only.
+#
+# Endpoint:
+# POST /api/vision/upload
+#
+# Disease prediction is NOT performed in Phase 1.
+# ============================================================
+
+app.include_router(
+    vision_router
 )
 
 

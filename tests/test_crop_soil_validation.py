@@ -242,3 +242,4 @@ def test_missing_csv_column_detected():
 
 
     assert "verified" in missing
+    
